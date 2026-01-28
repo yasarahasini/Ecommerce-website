@@ -1,4 +1,4 @@
-// pages/index.tsx
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,46 +10,75 @@ interface Product {
 }
 
 const products: Product[] = [
-  { id: 1, name: "Red Sneakers", price: 59.99, img: "/products/red-shoes.jpg" },
-  { id: 2, name: "Blue T-Shirt", price: 25.0, img: "/products/blue-shirt.jpg" },
-  { id: 3, name: "Black Jacket", price: 120.0, img: "/products/black-jacket.jpg" },
-  { id: 4, name: "Jeans", price: 70.0, img: "/products/jeans.jpg" },
+  { id: 1, name: "Red Sneakers", price: 59.99, img: "/products/1.jpg" },
+  { id: 2, name: "Blue T-Shirt", price: 25.0, img: "/products/2.jpg" },
+  { id: 3, name: "Black Jacket", price: 120.0, img: "/products/3.jpg" },
+  { id: 4, name: "Jeans", price: 70.0, img: "/products/4.jpg" },
 ];
 
 const Home: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-100">
-      {/* Hero Section */}
-      <section className="bg-white py-20 text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to My eCommerce Store</h1>
-        <p className="text-gray-600 mb-6">Find the best products at unbeatable prices!</p>
-        <Link href="#products">
-          <button className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
-            Shop Now
-          </button>
-        </Link>
+    <div className="min-h-screen bg-gray-100 flex flex-col">
+
+      <section className="relative h-[420px] md:h-[520px] flex items-center justify-center text-center text-white">
+   
+        <Image
+          src="/hero/hero-bg.jpg"
+          alt="Hero Background"
+          fill
+          className="object-cover"
+          priority
+        />
+
+        <div className="absolute inset-0 bg-black/50"></div>
+
+   
+        <div className="relative z-10 px-4">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            Welcome to My eCommerce Store
+          </h1>
+          <p className="text-lg md:text-xl mb-6">
+            Find the best products at unbeatable prices!
+          </p>
+          <Link href="#products">
+            <button className="bg-blue-600 hover:bg-blue-700 transition px-8 py-3 rounded-lg text-white font-semibold">
+              Shop Now
+            </button>
+          </Link>
+        </div>
       </section>
 
-      {/* Products Section */}
-      <section id="products" className="max-w-6xl mx-auto py-16 px-6">
-        <h2 className="text-3xl font-bold mb-8 text-gray-800">Featured Products</h2>
+    
+      <section
+        id="products"
+        className="max-w-7xl mx-auto py-16 px-6 flex-1"
+      >
+        <h2 className="text-3xl md:text-4xl font-bold mb-10 text-gray-800 text-center">
+          Featured Products
+        </h2>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {products.map((product) => (
             <div
               key={product.id}
-              className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow"
+              className="bg-white rounded-xl shadow-md hover:shadow-xl transition overflow-hidden flex flex-col"
             >
-              <Image
-                src={product.img}
-                alt={product.name}
-                width={500}
-                height={500}
-                className="w-full h-64 object-cover"
-              />
-              <div className="p-4">
+              <div className="relative w-full h-64">
+                <Image
+                  src={product.img}
+                  alt={product.name}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              <div className="p-4 flex flex-col flex-1">
                 <h3 className="text-lg font-semibold">{product.name}</h3>
-                <p className="text-gray-600">${product.price.toFixed(2)}</p>
-                <button className="mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+                <p className="text-gray-600 mt-1">
+                  ${product.price.toFixed(2)}
+                </p>
+
+                <button className="mt-auto bg-blue-600 hover:bg-blue-700 transition text-white px-4 py-2 rounded-lg mt-4">
                   Add to Cart
                 </button>
               </div>
@@ -57,6 +86,57 @@ const Home: React.FC = () => {
           ))}
         </div>
       </section>
+
+
+      <footer className="bg-gray-900 text-gray-300 py-10">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+
+          <div>
+            <h3 className="text-lg font-semibold mb-3">About Us</h3>
+            <p className="text-sm">
+              A modern eCommerce platform delivering quality products at the
+              best prices.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold mb-3">Quick Links</h3>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="/" className="hover:text-white">Home</Link></li>
+              <li><Link href="#products" className="hover:text-white">Shop</Link></li>
+              <li><Link href="/about" className="hover:text-white">About</Link></li>
+              <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold mb-3">Customer Service</h3>
+            <ul className="space-y-2 text-sm">
+              <li>FAQ</li>
+              <li>Shipping & Returns</li>
+              <li>Privacy Policy</li>
+              <li>Terms & Conditions</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold mb-3">Newsletter</h3>
+            <input
+              type="email"
+              placeholder="Your email"
+              className="w-full p-2 rounded text-black mb-3"
+            />
+            <button className="w-full bg-red-600 hover:bg-red-700 transition text-white py-2 rounded">
+              Subscribe
+            </button>
+          </div>
+
+        </div>
+
+        <div className="text-center text-sm text-gray-500 mt-8">
+          © {new Date().getFullYear()} My eCommerce Store. All rights reserved.
+        </div>
+      </footer>
     </div>
   );
 };
