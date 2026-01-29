@@ -20,10 +20,10 @@ const Home: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
 
-      <section className="relative h-[420px] md:h-[520px] flex items-center justify-center text-center text-white">
+      <section className="relative h-[420px] md:h-[320px] flex items-center justify-center text-center text-white">
    
         <Image
-          src="/hero/hero-bg.jpg"
+          src="/1.jpg"
           alt="Hero Background"
           fill
           className="object-cover"
@@ -49,44 +49,7 @@ const Home: React.FC = () => {
       </section>
 
     
-      <section
-        id="products"
-        className="max-w-7xl mx-auto py-16 px-6 flex-1"
-      >
-        <h2 className="text-3xl md:text-4xl font-bold mb-10 text-gray-800 text-center">
-          Featured Products
-        </h2>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {products.map((product) => (
-            <div
-              key={product.id}
-              className="bg-white rounded-xl shadow-md hover:shadow-xl transition overflow-hidden flex flex-col"
-            >
-              <div className="relative w-full h-64">
-                <Image
-                  src={product.img}
-                  alt={product.name}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-
-              <div className="p-4 flex flex-col flex-1">
-                <h3 className="text-lg font-semibold">{product.name}</h3>
-                <p className="text-gray-600 mt-1">
-                  ${product.price.toFixed(2)}
-                </p>
-
-                <button className="mt-auto bg-blue-600 hover:bg-blue-700 transition text-white px-4 py-2 rounded-lg mt-4">
-                  Add to Cart
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
+     
 
       <footer className="bg-gray-900 text-gray-300 py-10">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
