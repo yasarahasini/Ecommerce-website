@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import { ShoppingCart, Bell, ChevronDown } from 'lucide-react';
+import Link from 'next/link';
 
 const Navbar: React.FC = () => {
   return (
@@ -14,7 +15,7 @@ const Navbar: React.FC = () => {
             <span>Hi <span className="font-bold">Yash!</span></span>
             <ChevronDown size={14} className="ml-1" />
           </div>
-          <a href="#" className="hover:underline">Daily Deals</a>
+          <Link href="/#deals" className="hover:underline">Daily Deals</Link>
           <a href="#" className="hover:underline">Brand Outlet</a>
           <a href="#" className="hover:underline">Gift Cards</a>
           <a href="#" className="hover:underline">Help & Contact</a>

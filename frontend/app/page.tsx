@@ -36,7 +36,7 @@ const Home: React.FC = () => {
     <div className="min-h-screen bg-gray-100 flex flex-col">
 
     
-      <section className="bg-gray-100 py-10">
+      <section className="bg-gradient-to-r from-blue-500 via-white to-purple-300 py-10">
         <div className="max-w-7xl mx-auto px-6">
 
           <div className="relative h-[420px] md:h-[320px] max-w-6xl mx-auto overflow-hidden shadow-lg">
@@ -64,7 +64,7 @@ const Home: React.FC = () => {
               <p className="text-lg md:text-xl mb-6">
                 Find the best products at unbeatable prices!
               </p>
-              <Link href="#products">
+              <Link href="/shop">
                 <button className="bg-blue-600 hover:bg-blue-700 transition px-8 py-3 rounded-lg font-semibold">
                   Shop Now
                 </button>
@@ -267,7 +267,7 @@ const Home: React.FC = () => {
 
 
 
-<section className="bg-green-950 py-16">
+<section className="bg-gradient-to-r from-blue-700 via-green-900 to-purple-300 py-16">
   <div className="max-w-6xl mx-auto px-6">
     <div className="flex flex-col md:flex-row items-center gap-10">
 
