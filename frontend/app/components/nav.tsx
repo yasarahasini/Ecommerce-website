@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
             <ChevronDown size={14} className="ml-1" />
           </div>
           <div className="flex items-center cursor-pointer hover:underline">
-            <span>My eBay</span>
+            <span>My yash</span>
             <ChevronDown size={14} className="ml-1" />
           </div>
        
