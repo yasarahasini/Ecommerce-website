@@ -12,7 +12,7 @@ const SubNav = () => {
             🔥 Deals
           </Link>
 
-          <Link href="/new" className="hover:text-blue-600 whitespace-nowrap">
+          <Link href="/newarrivals" className="hover:text-blue-600 whitespace-nowrap">
             New Arrivals
           </Link>
 
