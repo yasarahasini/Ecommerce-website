@@ -1,4 +1,4 @@
-// pages/auth/signin.tsx
+"use client";
 import { useState } from "react";
 import Link from "next/link";
 
@@ -8,7 +8,7 @@ const SignIn = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Add your login API logic here
+  
     alert(`Sign In submitted: ${email}`);
   };
 

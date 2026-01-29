@@ -11,17 +11,17 @@ interface Product {
 }
 
 const products: Product[] = [
-  { id: 1, name: "Floral Dress", price: 49.99, image: "/images/women1.jpg" },
-  { id: 2, name: "Casual Top", price: 29.99, image: "/images/women2.jpg" },
-  { id: 3, name: "Jeans", price: 59.99, image: "/images/women3.jpg" },
-  { id: 4, name: "Handbag", price: 89.99, image: "/images/women4.jpg" },
-  { id: 5, name: "Sneakers", price: 69.99, image: "/images/women5.jpg" },
-  { id: 6, name: "Jacket", price: 99.99, image: "/images/women6.jpg" },
+  { id: 1, name: "Floral Dress", price: 49.99, image: "/18.jpg" },
+  { id: 2, name: "Casual Top", price: 29.99, image: "/19.jpg" },
+  { id: 3, name: "Jeans", price: 59.99, image: "/25.jpg" },
+  { id: 4, name: "Handbag", price: 89.99, image: "/22.jpg" },
+  { id: 5, name: "Sneakers", price: 69.99, image: "/26.jpg" },
+  { id: 6, name: "Jacket", price: 99.99, image: "/24.jpg" },
 ];
 
 export default function WomenPage() {
   return (
-    <div className="bg-gray-50 min-h-screen py-10">
+    <div className="bg-gray-50 text-black min-h-screen py-10">
       <div className="max-w-7xl mx-auto px-6">
         <h1 className="text-3xl font-bold mb-8 text-center">Women s Collection</h1>
 
