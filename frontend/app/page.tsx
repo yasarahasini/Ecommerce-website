@@ -1,12 +1,14 @@
+"use client"
 
-import Image from "next/image";
-import Link from "next/link";
+import { useEffect, useState } from "react"
+import Image from "next/image"
+import Link from "next/link"
 
 interface Product {
-  id: number;
-  name: string;
-  price: number;
-  img: string;
+  id: number
+  name: string
+  price: number
+  img: string
 }
 
 const products: Product[] = [
@@ -14,25 +16,43 @@ const products: Product[] = [
   { id: 2, name: "Blue T-Shirt", price: 25.0, img: "/products/2.jpg" },
   { id: 3, name: "Black Jacket", price: 120.0, img: "/products/3.jpg" },
   { id: 4, name: "Jeans", price: 70.0, img: "/products/4.jpg" },
-];
+]
+
+const heroImages = ["/1.jpg", "/2.jpg", "/8.jpg", "/7.jpg"]
 
 const Home: React.FC = () => {
+  const [currentImage, setCurrentImage] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % heroImages.length)
+    }, 4000)
+
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
 
-      <section className="relative h-[420px] md:h-[320px] flex items-center justify-center text-center text-white">
    
-        <Image
-          src="/1.jpg"
-          alt="Hero Background"
-          fill
-          className="object-cover"
-          priority
-        />
+      <section className="relative h-[420px] md:h-[320px] flex items-center justify-center text-center text-white overflow-hidden">
+
+        {heroImages.map((img, index) => (
+          <Image
+            key={img}
+            src={img}
+            alt="Hero Background"
+            fill
+            priority={index === 0}
+            className={`object-cover transition-opacity duration-1000 ${
+              index === currentImage ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
 
         <div className="absolute inset-0 bg-black/50"></div>
 
-   
+     
         <div className="relative z-10 px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Welcome to My eCommerce Store
@@ -48,10 +68,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-    
-     
-
-      <footer className="bg-gray-900 text-gray-300 py-10">
+      <footer className="bg-gray-900 text-gray-300 py-10 mt-auto">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
 
           <div>
@@ -101,7 +118,7 @@ const Home: React.FC = () => {
         </div>
       </footer>
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
