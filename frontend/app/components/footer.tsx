@@ -44,7 +44,7 @@ const Footer: FC = () => {
               placeholder="Your email" 
               className="p-2 rounded text-gray-900"
             />
-            <button className="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded">
+            <button className="bg-red-600 hover:bg-blue-700 text-white py-2 px-4 rounded">
               Subscribe
             </button>
           </form>
