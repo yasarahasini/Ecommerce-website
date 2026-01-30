@@ -10,7 +10,7 @@ const About: React.FC<AboutProps> = () => {
         style={{
           maxWidth: "900px",
           margin: "0 auto",
-          backgroundColor: "#ffffff",
+          backgroundColor: "#dbeafe",
           borderRadius: "16px",
           padding: "2.5rem",
           boxShadow: "0 10px 25px rgba(0,0,0,0.08)",
