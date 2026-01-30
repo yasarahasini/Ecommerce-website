@@ -22,7 +22,7 @@ const categories = ["All Electronics", "Phones", "Laptops", "Headphones", "Smart
 
 const ElectronicsPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen text-black bg-gray-100">
       <div className="max-w-7xl mx-auto px-6 py-10 flex gap-6">
         {/* Sidebar */}
         <aside className="w-64 bg-white rounded-lg shadow-md p-4 sticky top-10 h-fit">
@@ -30,7 +30,7 @@ const ElectronicsPage: React.FC = () => {
           <ul className="space-y-2">
             {categories.map((cat) => (
               <li key={cat}>
-                <button className="w-full text-left px-3 py-2 rounded hover:bg-red-100 transition">
+                <button className="w-full text-left px-3 py-2 rounded hover:bg-red-200 transition">
                   {cat}
                 </button>
               </li>
