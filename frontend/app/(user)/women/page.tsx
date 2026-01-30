@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
 import { useState, useMemo } from "react";
 import WomenSidebar from "@/app/components/sidebar";
+import { useCart } from "../context/CartContext";
 
 interface Product {
   id: number;
@@ -26,20 +26,18 @@ export default function WomenPage() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [selectedPrice, setSelectedPrice] = useState<string | null>(null);
+  const { addToCart } = useCart();
 
-  // Filter products based on sidebar selection
   const filteredProducts = useMemo(() => {
     return products.filter((p) => {
-      let matchesCategory = selectedCategory ? p.category === selectedCategory : true;
-      let matchesSize = selectedSize ? p.size.includes(selectedSize) : true;
+      const matchesCategory = selectedCategory ? p.category === selectedCategory : true;
+      const matchesSize = selectedSize ? p.size.includes(selectedSize) : true;
       let matchesPrice = true;
-
       if (selectedPrice) {
         if (selectedPrice === "Under $50") matchesPrice = p.price < 50;
         if (selectedPrice === "$50 - $100") matchesPrice = p.price >= 50 && p.price <= 100;
         if (selectedPrice === "$100 - $200") matchesPrice = p.price > 100 && p.price <= 200;
       }
-
       return matchesCategory && matchesSize && matchesPrice;
     });
   }, [selectedCategory, selectedSize, selectedPrice]);
@@ -47,10 +45,9 @@ export default function WomenPage() {
   return (
     <div className="bg-gray-50 text-black min-h-screen py-10">
       <div className="max-w-7xl mx-auto px-6">
-        <h1 className="text-3xl font-bold mb-8 text-center">Women's Collection</h1>
-
+        <h1 className="text-3xl font-bold mb-8 text-center">Womens Collection</h1>
         <div className="flex flex-col lg:flex-row gap-6">
-          {/* Sidebar */}
+        
           <WomenSidebar
             selectedCategory={selectedCategory}
             setSelectedCategory={setSelectedCategory}
@@ -60,30 +57,22 @@ export default function WomenPage() {
             setSelectedPrice={setSelectedPrice}
           />
 
-          {/* Product Grid */}
+       
           <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
             {filteredProducts.map((product) => (
-              <div
-                key={product.id}
-                className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-              >
+              <div key={product.id} className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <div className="relative h-64 w-full">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    className="object-cover"
-                  />
+                  <Image src={product.image} alt={product.name} fill className="object-cover" />
                 </div>
                 <div className="p-4">
                   <h2 className="text-lg font-semibold">{product.name}</h2>
                   <p className="text-gray-600 mt-1">${product.price.toFixed(2)}</p>
-                  <Link
-                    href={`/product/${product.id}`}
-                    className="mt-3 inline-block w-full text-center bg-pink-500 text-white py-2 rounded hover:bg-pink-600 transition"
+                  <button
+                    onClick={addToCart}
+                    className="mt-3 w-full text-center bg-green-500 text-white py-2 rounded hover:bg-green-600 transition"
                   >
-                    View Product
-                  </Link>
+                    Add to Cart
+                  </button>
                 </div>
               </div>
             ))}

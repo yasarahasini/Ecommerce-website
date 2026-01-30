@@ -33,7 +33,7 @@ export default function WomenSidebar({
 }: WomenSidebarProps) {
   return (
     <div className="w-64 bg-purple-200 p-6 rounded-lg shadow-md space-y-6">
-      {/* Categories */}
+    
       <div>
         <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
           <FaShoppingBag /> Categories
@@ -58,7 +58,7 @@ export default function WomenSidebar({
         </ul>
       </div>
 
-      {/* Sizes */}
+    
       <div>
         <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
           <FaRulerCombined /> Sizes
@@ -80,7 +80,7 @@ export default function WomenSidebar({
         </ul>
       </div>
 
-      {/* Price */}
+     
       <div>
         <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
           <FaDollarSign /> Price
