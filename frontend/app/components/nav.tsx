@@ -3,9 +3,15 @@ import React from "react";
 import { ShoppingCart, Bell, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { useCart } from "@/app/(user)/context/CartContext";
+import { useRouter } from "next/navigation";
 
 const Navbar: React.FC = () => {
   const { cartItems } = useCart();
+  const router = useRouter();
+
+  const handleCartClick = () => {
+    router.push("/cart"); 
+  };
 
   return (
     <nav className="w-full bg-white border-b border-gray-200 text-[12px] text-[#333] font-sans">
@@ -42,11 +48,15 @@ const Navbar: React.FC = () => {
             <ChevronDown size={14} className="ml-1" />
           </div>
 
+        
           <div className="flex items-center space-x-3 ml-2">
             <button className="relative p-1 hover:bg-gray-100 rounded-full transition-colors">
               <Bell size={20} strokeWidth={1.5} />
             </button>
-            <button className="relative p-1 hover:bg-gray-100 rounded-full transition-colors">
+            <button 
+              onClick={handleCartClick}
+              className="relative p-1 hover:bg-gray-100 rounded-full transition-colors"
+            >
               <ShoppingCart size={20} strokeWidth={1.5} />
               {cartItems > 0 && (
                 <span className="absolute top-0 right-0 bg-[#e53238] text-white text-[10px] font-bold px-1 rounded-full min-w-[16px] text-center">
