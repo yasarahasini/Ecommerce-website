@@ -36,7 +36,7 @@ const fashionItems: FashionItem[] = [
 
 const Fashion: React.FC = () => {
   return (
-    <main style={{ minHeight: "100vh", backgroundColor: "#f3f4f6", padding: "3rem 1.5rem" }}>
+    <main style={{ minHeight: "100vh", color: "black", backgroundColor: "#f3f4f6", padding: "3rem 1.5rem" }}>
       <section style={{ maxWidth: "1100px", margin: "0 auto" }}>
         <h1 style={{ fontSize: "2.5rem", fontWeight: 700, marginBottom: "1rem" }}>
           Fashion Collection
@@ -82,7 +82,7 @@ const Fashion: React.FC = () => {
                   style={{
                     marginTop: "0.8rem",
                     width: "100%",
-                    backgroundColor: "#111827",
+                    backgroundColor: "blue",
                     color: "#ffffff",
                     padding: "0.6rem",
                     borderRadius: "8px",
