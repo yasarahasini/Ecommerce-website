@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
               alt="Sri Lanka Flag" 
               className="w-4 h-3 mr-1"
             />
-            <span>Ship to</span>
+            <Link href="/location">Ship to</Link>
           </div>
           <a href="#" className="hover:underline">Sell</a>
           <div className="flex items-center cursor-pointer hover:underline">

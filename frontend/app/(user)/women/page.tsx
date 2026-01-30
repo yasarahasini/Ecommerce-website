@@ -69,7 +69,7 @@ export default function WomenPage() {
                   <p className="text-gray-600 mt-1">${product.price.toFixed(2)}</p>
                   <button
                     onClick={addToCart}
-                    className="mt-3 w-full text-center bg-green-500 text-white py-2 rounded hover:bg-green-600 transition"
+                    className="mt-3 w-full text-center bg-pink-500 text-white py-2 rounded hover:bg-pink-600 transition"
                   >
                     Add to Cart
                   </button>
