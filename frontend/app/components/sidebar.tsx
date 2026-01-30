@@ -1,11 +1,5 @@
 "use client";
-import { useState } from "react";
-import {
-  FaTshirt,
-  FaShoppingBag,
-  FaRulerCombined,
-  FaDollarSign,
-} from "react-icons/fa";
+import { FaTshirt, FaShoppingBag, FaRulerCombined, FaDollarSign } from "react-icons/fa";
 import { GiLargeDress, GiRunningShoe } from "react-icons/gi";
 
 const categories = [
@@ -20,14 +14,26 @@ const categories = [
 const sizes = ["XS", "S", "M", "L", "XL"];
 const priceRanges = ["Under $50", "$50 - $100", "$100 - $200"];
 
-export default function WomenSidebar() {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [selectedSize, setSelectedSize] = useState<string | null>(null);
-  const [selectedPrice, setSelectedPrice] = useState<string | null>(null);
+interface WomenSidebarProps {
+  selectedCategory: string | null;
+  setSelectedCategory: (cat: string | null) => void;
+  selectedSize: string | null;
+  setSelectedSize: (size: string | null) => void;
+  selectedPrice: string | null;
+  setSelectedPrice: (price: string | null) => void;
+}
 
+export default function WomenSidebar({
+  selectedCategory,
+  setSelectedCategory,
+  selectedSize,
+  setSelectedSize,
+  selectedPrice,
+  setSelectedPrice,
+}: WomenSidebarProps) {
   return (
     <div className="w-64 bg-purple-200 p-6 rounded-lg shadow-md space-y-6">
-    
+      {/* Categories */}
       <div>
         <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
           <FaShoppingBag /> Categories
@@ -36,7 +42,9 @@ export default function WomenSidebar() {
           {categories.map((cat) => (
             <li
               key={cat.name}
-              onClick={() => setSelectedCategory(cat.name)}
+              onClick={() =>
+                setSelectedCategory(selectedCategory === cat.name ? null : cat.name)
+              }
               className={`flex items-center gap-2 cursor-pointer px-2 py-2 rounded transition ${
                 selectedCategory === cat.name
                   ? "bg-pink-500 text-white"
@@ -50,7 +58,7 @@ export default function WomenSidebar() {
         </ul>
       </div>
 
-    
+      {/* Sizes */}
       <div>
         <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
           <FaRulerCombined /> Sizes
@@ -59,7 +67,7 @@ export default function WomenSidebar() {
           {sizes.map((size) => (
             <li
               key={size}
-              onClick={() => setSelectedSize(size)}
+              onClick={() => setSelectedSize(selectedSize === size ? null : size)}
               className={`cursor-pointer px-3 py-1 border rounded transition ${
                 selectedSize === size
                   ? "bg-pink-500 text-white border-pink-500"
@@ -72,7 +80,7 @@ export default function WomenSidebar() {
         </ul>
       </div>
 
-
+      {/* Price */}
       <div>
         <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
           <FaDollarSign /> Price
@@ -81,7 +89,7 @@ export default function WomenSidebar() {
           {priceRanges.map((price) => (
             <li
               key={price}
-              onClick={() => setSelectedPrice(price)}
+              onClick={() => setSelectedPrice(selectedPrice === price ? null : price)}
               className={`cursor-pointer px-2 py-2 rounded transition ${
                 selectedPrice === price
                   ? "bg-pink-500 text-white"
