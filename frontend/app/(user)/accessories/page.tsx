@@ -51,25 +51,25 @@ const accessories: Accessory[] = [
 
 export default function AccessoriesPage() {
   return (
-    <div className="max-w-[1200px] mx-auto px-4 py-10">
-      {/* Header */}
-      <div className="mb-8 text-center">
-        <h1 className="text-3xl font-semibold text-gray-800">
+    <div className="max-w-[1200px]   mx-auto px-4 py-10">
+  
+      <div className="mb-8 text-white text-center">
+        <h1 className="text-3xl font-semibold text-white">
           Accessories
         </h1>
-        <p className="text-gray-500 mt-2">
+        <p className="text-white mt-2">
           Complete your look with our latest accessories
         </p>
       </div>
 
-      {/* Grid */}
+  
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {accessories.map((item) => (
           <div
             key={item.id}
             className="bg-white border rounded-lg overflow-hidden hover:shadow-lg transition"
           >
-            {/* Image */}
+         
             <div className="relative w-full h-[260px]">
               <Image
                 src={item.image}
@@ -82,7 +82,7 @@ export default function AccessoriesPage() {
               </button>
             </div>
 
-            {/* Details */}
+     
             <div className="p-4">
               <h3 className="text-sm font-medium text-gray-800">
                 {item.name}
