@@ -24,9 +24,9 @@ const Navbar: React.FC = () => {
             <ChevronDown size={14} className="ml-1" />
           </div>
           <Link href="/#deals" className="hover:underline">Daily Deals</Link>
-          <a href="#" className="hover:underline">Brand Outlet</a>
-          <a href="#" className="hover:underline">Gift Cards</a>
-          <a href="#" className="hover:underline">Help & Contact</a>
+          <Link href="/brandoutlet" className="hover:underline">Brand Outlet</Link>
+          <Link href="/giftcards" className="hover:underline">Gift Cards</Link>
+          <Link href="/help" className="hover:underline">Help & Contact</Link>
         </div>
 
         <div className="flex items-center space-x-4">
