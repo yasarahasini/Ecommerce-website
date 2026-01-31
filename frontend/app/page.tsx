@@ -265,7 +265,7 @@ const Home: React.FC = () => {
 
 
 
-<section className="bg-gradient-to-r from-blue-700 via-green-900 to-purple-300 py-16">
+<section className="bg-gradient-to-r from-blue-700 via-gray-900 to-purple-300 py-16">
   <div className="max-w-6xl mx-auto px-6">
     <div className="flex flex-col md:flex-row items-center gap-10">
 
