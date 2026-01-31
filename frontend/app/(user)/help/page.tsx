@@ -4,11 +4,11 @@ import React from "react";
 
 const HelpContactPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-50 py-10 px-4">
+    <div className="min-h-screen text-black  bg-gray-50 py-10 px-4">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
         
       
-        <div className="bg-white rounded-xl shadow p-6">
+        <div className="bg-white text-blue-600 rounded-xl shadow p-6">
           <h2 className="text-2xl font-semibold mb-4">Help & Support</h2>
 
           <div className="space-y-4 text-sm text-gray-600">
@@ -55,7 +55,7 @@ const HelpContactPage: React.FC = () => {
         </div>
 
         
-        <div className="bg-white rounded-xl shadow p-6">
+        <div className="bg-white text-blue-500 rounded-xl shadow p-6">
           <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
 
           <form className="space-y-4">

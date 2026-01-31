@@ -1,9 +1,112 @@
-import React from 'react'
+"use client";
 
-const page = () => {
+import React, { useState } from "react";
+
+const giftAmounts = [1000, 2500, 5000, 10000];
+
+const GiftCardPage: React.FC = () => {
+  const [amount, setAmount] = useState<number>(giftAmounts[0]);
+
   return (
-    <div>page</div>
-  )
-}
+    <div className="min-h-screen bg-gray-50 py-10 px-4">
+      <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+        
+    
+        <div className="bg-pink-200 rounded-xl shadow p-6">
+          <h1 className="text-3xl font-semibold mb-4">🎁 Gift Card</h1>
+          <p className="text-gray-600 mb-6">
+            Give the perfect gift! Our gift cards can be used on any product
+            in our store and are delivered instantly via email.
+          </p>
 
-export default page
+          <ul className="space-y-3 text-sm text-gray-600">
+            <li>✔ Valid for 12 months</li>
+            <li>✔ Redeemable online only</li>
+            <li>✔ Non-refundable</li>
+            <li>✔ Can be used with discounts</li>
+          </ul>
+
+          <div className="mt-6 p-4 border rounded-lg bg-gray-100">
+            <p className="text-sm text-gray-700">
+              Selected Amount:
+              <span className="font-semibold ml-2">
+                LKR {amount.toLocaleString()}
+              </span>
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-gray-200 text-black  rounded-xl shadow p-6">
+          <h2 className="text-2xl font-semibold mb-4">Customize Your Gift Card</h2>
+
+          {/* AMOUNT */}
+          <div className="mb-4">
+            <label className="block text-sm font-medium mb-2">
+              Select Amount
+            </label>
+            <div className="grid grid-cols-2 gap-3">
+              {giftAmounts.map((value) => (
+                <button
+                  key={value}
+                  onClick={() => setAmount(value)}
+                  className={`border rounded-md py-2 text-sm font-medium ${
+                    amount === value
+                      ? "border-black bg-black text-white"
+                      : "border-gray-300 hover:border-black"
+                  }`}
+                >
+                  LKR {value.toLocaleString()}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* RECIPIENT */}
+          <div className="space-y-4">
+            <input
+              type="text"
+              placeholder="Recipient Name"
+              className="w-full border rounded-md px-4 py-2 focus:ring-2 focus:ring-black outline-none"
+            />
+
+            <input
+              type="email"
+              placeholder="Recipient Email"
+              className="w-full border rounded-md px-4 py-2 focus:ring-2 focus:ring-black outline-none"
+            />
+
+            <input
+              type="text"
+              placeholder="Your Name"
+              className="w-full border rounded-md px-4 py-2 focus:ring-2 focus:ring-black outline-none"
+            />
+
+            <textarea
+              placeholder="Personal Message (optional)"
+              rows={4}
+              className="w-full border rounded-md px-4 py-2 focus:ring-2 focus:ring-black outline-none"
+            />
+          </div>
+
+          {/* DELIVERY */}
+          <div className="mt-4">
+            <label className="block text-sm font-medium mb-2">
+              Delivery Method
+            </label>
+            <select className="w-full border rounded-md px-4 py-2">
+              <option>Email (Instant)</option>
+              <option>Schedule for later</option>
+            </select>
+          </div>
+
+          {/* BUTTON */}
+          <button className="mt-6 w-full bg-black text-white py-3 rounded-md hover:bg-gray-800 transition">
+            Add Gift Card to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default GiftCardPage;
