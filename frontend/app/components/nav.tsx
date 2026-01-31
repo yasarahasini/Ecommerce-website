@@ -38,7 +38,7 @@ const Navbar: React.FC = () => {
             />
             <Link href="/location">Ship to</Link>
           </div>
-          <a href="#" className="hover:underline">Sell</a>
+          <Link href="/sell"className="hover:underline">Sell</Link>
           <div className="flex items-center cursor-pointer hover:underline">
             <span>Watchlist</span>
             <ChevronDown size={14} className="ml-1" />
