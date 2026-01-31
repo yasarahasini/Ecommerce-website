@@ -12,7 +12,7 @@ export default function ProductPage() {
      
         <div>
           <Image
-            src="/dress.jpg"
+            src="/18.jpg"
             alt="Product"
             width={500}
             height={600}
@@ -21,7 +21,7 @@ export default function ProductPage() {
         </div>
 
         <div>
-          <h1 className="text-3xl font-semibold">Floral Dress</h1>
+          <h1 className="text-3xl text-white font-semibold">Floral Dress</h1>
 
           <div className="flex items-center gap-2 mt-2">
             <span className="text-yellow-500">★★★★★</span>
