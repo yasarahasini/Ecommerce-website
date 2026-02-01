@@ -28,13 +28,13 @@ const SignIn = () => {
         return;
       }
 
-      // save JWT
+   
       localStorage.setItem("token", data.access_token);
 
       alert("Login successful ✅");
 
-      // redirect after login
-      router.push("/"); // change if needed
+      
+      router.push("/sell"); // change if needed
     } catch (error) {
       alert("Server error ❌");
     } finally {

@@ -43,9 +43,10 @@ const AuthPage = () => {
       }
 
       if (isLogin) {
-        // JWT token save
+      
         localStorage.setItem("token", data.access_token);
         alert("Login successful ✅");
+        window.location.href = "/"; 
       } else {
         alert("Signup successful ✅ Now login");
         setIsLogin(true);
