@@ -12,14 +12,14 @@ const GiftCardPage: React.FC = () => {
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
         
     
-        <div className="bg-pink-200 rounded-xl shadow p-6">
+        <div className="bg-blue-500 text-white rounded-xl shadow p-6">
           <h1 className="text-3xl font-semibold mb-4">🎁 Gift Card</h1>
-          <p className="text-gray-600 mb-6">
+          <p className="text-white mb-6">
             Give the perfect gift! Our gift cards can be used on any product
             in our store and are delivered instantly via email.
           </p>
 
-          <ul className="space-y-3 text-sm text-gray-600">
+          <ul className="space-y-3 text-sm text-white">
             <li>✔ Valid for 12 months</li>
             <li>✔ Redeemable online only</li>
             <li>✔ Non-refundable</li>
@@ -39,7 +39,7 @@ const GiftCardPage: React.FC = () => {
         <div className="bg-gray-200 text-black  rounded-xl shadow p-6">
           <h2 className="text-2xl font-semibold mb-4">Customize Your Gift Card</h2>
 
-          {/* AMOUNT */}
+         
           <div className="mb-4">
             <label className="block text-sm font-medium mb-2">
               Select Amount
@@ -61,7 +61,7 @@ const GiftCardPage: React.FC = () => {
             </div>
           </div>
 
-          {/* RECIPIENT */}
+      
           <div className="space-y-4">
             <input
               type="text"
@@ -88,7 +88,6 @@ const GiftCardPage: React.FC = () => {
             />
           </div>
 
-          {/* DELIVERY */}
           <div className="mt-4">
             <label className="block text-sm font-medium mb-2">
               Delivery Method
@@ -99,8 +98,8 @@ const GiftCardPage: React.FC = () => {
             </select>
           </div>
 
-          {/* BUTTON */}
-          <button className="mt-6 w-full bg-black text-white py-3 rounded-md hover:bg-gray-800 transition">
+       
+          <button className="mt-6 w-full bg-red-600 text-white py-3 rounded-md hover:bg-red-700 transition">
             Add Gift Card to Cart
           </button>
         </div>
