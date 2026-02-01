@@ -34,7 +34,7 @@ const SignIn = () => {
       alert("Login successful ✅");
 
       
-      router.push("/sell"); // change if needed
+      router.push("/");
     } catch (error) {
       alert("Server error ❌");
     } finally {
