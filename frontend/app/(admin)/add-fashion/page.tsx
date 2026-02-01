@@ -1,19 +1,21 @@
 "use client";
-import React, { useState } from "react";
 
-interface FashionFormData {
+import { useState } from "react";
+
+type FashionItem = {
   name: string;
   price: string;
   image: string;
-}
+};
 
-const AddFashionForm: React.FC = () => {
-  const [formData, setFormData] = useState<FashionFormData>({
+const AddFashionForm = () => {
+  const [formData, setFormData] = useState<FashionItem>({
     name: "",
     price: "",
     image: "",
   });
 
+  const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,92 +25,69 @@ const AddFashionForm: React.FC = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
 
-    console.log("New Fashion Item:", formData);
+    try {
+      // 👉 later backend connect karanna
+      console.log("Fashion Item:", formData);
 
-    setSuccess(true);
-    setFormData({ name: "", price: "", image: "" });
-
-    setTimeout(() => setSuccess(false), 2000);
+      setSuccess(true);
+      setFormData({ name: "", price: "", image: "" });
+    } catch (err) {
+      alert("Something went wrong");
+    } finally {
+      setLoading(false);
+      setTimeout(() => setSuccess(false), 2000);
+    }
   };
 
   return (
-    <div
-      style={{
-        maxWidth: "420px",
-        margin: "2rem auto",
-        backgroundColor: "#ffffff",
-        padding: "1.5rem",
-        borderRadius: "14px",
-        boxShadow: "0 8px 20px rgba(0,0,0,0.08)",
-        color: "black",
-      }}
-    >
-      <h2 style={{ fontSize: "1.5rem", fontWeight: 700, marginBottom: "1rem" }}>
-        Add Fashion Item
-      </h2>
+    <div className="max-w-md mx-auto bg-white p-6 rounded-xl shadow text-black">
+      <h2 className="text-xl font-bold mb-4">Add Fashion Item</h2>
 
       {success && (
-        <p style={{ color: "green", marginBottom: "0.8rem" }}>
-          Item added successfully ✅
-        </p>
+        <p className="text-green-600 mb-3">Item added successfully ✅</p>
       )}
 
-      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "0.8rem" }}>
+      <form onSubmit={handleSubmit} className="space-y-3">
         <input
-          type="text"
           name="name"
-          placeholder="Product name"
           value={formData.name}
           onChange={handleChange}
+          placeholder="Product name"
           required
-          style={inputStyle}
+          className="w-full border px-3 py-2 rounded"
         />
 
         <input
-          type="text"
           name="price"
-          placeholder="Price (e.g. $39.99)"
           value={formData.price}
           onChange={handleChange}
+          placeholder="Price (e.g $49.99)"
           required
-          style={inputStyle}
+          className="w-full border px-3 py-2 rounded"
         />
 
         <input
-          type="text"
           name="image"
-          placeholder="Image URL"
           value={formData.image}
           onChange={handleChange}
+          placeholder="Image URL"
           required
-          style={inputStyle}
+          className="w-full border px-3 py-2 rounded"
         />
 
-        <button type="submit" style={buttonStyle}>
-          Add Item
+        <button
+          disabled={loading}
+          className="w-full bg-blue-600 text-white py-2 rounded"
+        >
+          {loading ? "Adding..." : "Add Item"}
         </button>
       </form>
     </div>
   );
-};
-
-const inputStyle: React.CSSProperties = {
-  padding: "0.6rem",
-  borderRadius: "8px",
-  border: "1px solid #d1d5db",
-};
-
-const buttonStyle: React.CSSProperties = {
-  backgroundColor: "blue",
-  color: "white",
-  padding: "0.6rem",
-  borderRadius: "8px",
-  border: "none",
-  cursor: "pointer",
-  fontWeight: 600,
 };
 
 export default AddFashionForm;
