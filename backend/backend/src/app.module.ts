@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/user.entity';
 import { AuthModule } from './auth/auth.module';
 import { FashionModule } from './fashion/fashion.module';
+import { Fashion } from './fashion/entity/fashion.entity';
 
 @Module({
   imports: [
@@ -13,7 +14,7 @@ import { FashionModule } from './fashion/fashion.module';
       username: 'postgres',
       password: '12345',
       database: 'ecommerce_db',
-      entities: [User],
+      entities: [User, Fashion],
       synchronize: true,
     }),
     AuthModule,
