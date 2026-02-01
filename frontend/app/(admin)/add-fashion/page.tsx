@@ -30,13 +30,25 @@ const AddFashionForm = () => {
     setLoading(true);
 
     try {
-      // 👉 later backend connect karanna
-      console.log("Fashion Item:", formData);
+      const res = await fetch("http://localhost:3001/fashion", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to add fashion item");
+      }
+
+      const data = await res.json();
+      console.log("Saved item:", data);
 
       setSuccess(true);
       setFormData({ name: "", price: "", image: "" });
     } catch (err) {
-      alert("Something went wrong");
+      alert("Something went wrong ❌");
     } finally {
       setLoading(false);
       setTimeout(() => setSuccess(false), 2000);
