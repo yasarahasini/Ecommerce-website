@@ -1,15 +1,45 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const router = useRouter();
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-  
-    alert(`Sign In submitted: ${email}`);
+    setLoading(true);
+
+    try {
+      const res = await fetch("http://localhost:3000/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        alert(data.message || "Login failed ❌");
+        return;
+      }
+
+      // save JWT
+      localStorage.setItem("token", data.access_token);
+
+      alert("Login successful ✅");
+
+      // redirect after login
+      router.push("/"); // change if needed
+    } catch (error) {
+      alert("Server error ❌");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -42,13 +72,16 @@ const SignIn = () => {
             />
           </div>
 
-          <button className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
-            Sign In
+          <button
+            disabled={loading}
+            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
+          >
+            {loading ? "Signing in..." : "Sign In"}
           </button>
         </form>
 
         <p className="mt-4 text-center text-sm text-gray-600">
-          Don t have an account?{" "}
+          Don’t have an account?{" "}
           <Link href="/auth/signup" className="text-blue-600 hover:underline">
             Sign Up
           </Link>

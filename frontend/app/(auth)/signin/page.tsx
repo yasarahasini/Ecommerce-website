@@ -4,12 +4,57 @@ import { useState } from "react";
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
 
-  const toggleForm = () => setIsLogin(!isLogin);
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const toggleForm = () => {
+    setIsLogin(!isLogin);
+    setFullName("");
+    setEmail("");
+    setPassword("");
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-  
-    alert(`${isLogin ? "Login" : "Signup"} form submitted`);
+    setLoading(true);
+
+    try {
+      const url = isLogin
+        ? "http://localhost:3001/auth/login"
+        : "http://localhost:3001/auth/signup";
+
+      const body = isLogin
+        ? { email, password }
+        : { fullName, email, password };
+
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        alert(data.message || "Something went wrong");
+        return;
+      }
+
+      if (isLogin) {
+        // JWT token save
+        localStorage.setItem("token", data.access_token);
+        alert("Login successful ✅");
+      } else {
+        alert("Signup successful ✅ Now login");
+        setIsLogin(true);
+      }
+    } catch (error) {
+      alert("Server error ❌");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -22,11 +67,15 @@ const AuthPage = () => {
         <form onSubmit={handleSubmit} className="space-y-4">
           {!isLogin && (
             <div>
-              <label className="block text-sm font-medium mb-1">Full Name</label>
+              <label className="block text-sm font-medium mb-1">
+                Full Name
+              </label>
               <input
                 type="text"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
                 placeholder="John Doe"
-                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-gray-300 rounded px-3 py-2"
                 required
               />
             </div>
@@ -36,27 +85,38 @@ const AuthPage = () => {
             <label className="block text-sm font-medium mb-1">Email</label>
             <input
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="you@example.com"
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border border-gray-300 rounded px-3 py-2"
               required
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium mb-1">Password</label>
+            <label className="block text-sm font-medium mb-1">
+              Password
+            </label>
             <input
               type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               placeholder="********"
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border border-gray-300 rounded px-3 py-2"
               required
             />
           </div>
 
           <button
             type="submit"
+            disabled={loading}
             className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
           >
-            {isLogin ? "Login" : "Sign Up"}
+            {loading
+              ? "Please wait..."
+              : isLogin
+              ? "Login"
+              : "Sign Up"}
           </button>
         </form>
 
