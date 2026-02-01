@@ -1,7 +1,6 @@
 // src/app.module.ts
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AuthModule } from './auth/auth.module';
 import { User } from './users/user.entity';
 import { AuthModule } from './auth/auth.module';
 
@@ -12,10 +11,10 @@ import { AuthModule } from './auth/auth.module';
       host: 'localhost',
       port: 5432,
       username: 'postgres',
-      password: 'password',
+      password: '12345',
       database: 'auth_db',
       entities: [User],
-      synchronize: true, // dev only
+      synchronize: true,
     }),
     AuthModule,
   ],
