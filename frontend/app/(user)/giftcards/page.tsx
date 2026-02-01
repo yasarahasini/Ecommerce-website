@@ -12,7 +12,7 @@ const GiftCardPage: React.FC = () => {
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
         
     
-        <div className="bg-blue-500 text-white rounded-xl shadow p-6">
+        <div className="bg-gray-500 text-white rounded-xl shadow p-6">
           <h1 className="text-3xl font-semibold mb-4">🎁 Gift Card</h1>
           <p className="text-white mb-6">
             Give the perfect gift! Our gift cards can be used on any product
@@ -36,10 +36,22 @@ const GiftCardPage: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-gray-200 text-black  rounded-xl shadow p-6">
-          <h2 className="text-2xl font-semibold mb-4">Customize Your Gift Card</h2>
+   <div className="max-w-xl text-white mx-auto">
+     
+      <div className="relative rounded-xl shadow-lg overflow-hidden">
+     
+        <div className="absolute inset-0 bg-[url('/7.jpg')] bg-cover bg-center" />
 
-         
+      
+        <div className="" />
+
+      
+        <div className="relative p-6 ">
+          <h2 className="text-2xl font-semibold mb-4">
+            Customize Your Gift Card
+          </h2>
+
+       
           <div className="mb-4">
             <label className="block text-sm font-medium mb-2">
               Select Amount
@@ -49,7 +61,7 @@ const GiftCardPage: React.FC = () => {
                 <button
                   key={value}
                   onClick={() => setAmount(value)}
-                  className={`border rounded-md py-2 text-sm font-medium ${
+                  className={`border rounded-md py-2 text-sm font-medium transition ${
                     amount === value
                       ? "border-black bg-black text-white"
                       : "border-gray-300 hover:border-black"
@@ -61,7 +73,7 @@ const GiftCardPage: React.FC = () => {
             </div>
           </div>
 
-      
+       
           <div className="space-y-4">
             <input
               type="text"
@@ -88,6 +100,7 @@ const GiftCardPage: React.FC = () => {
             />
           </div>
 
+         
           <div className="mt-4">
             <label className="block text-sm font-medium mb-2">
               Delivery Method
@@ -98,11 +111,13 @@ const GiftCardPage: React.FC = () => {
             </select>
           </div>
 
-       
-          <button className="mt-6 w-full bg-red-600 text-white py-3 rounded-md hover:bg-red-700 transition">
+      
+          <button className="mt-6 w-full bg-red-600 text-white py-3 rounded-md hover:bg-red-700 transition font-medium">
             Add Gift Card to Cart
           </button>
         </div>
+      </div>
+    </div>
       </div>
     </div>
   );
