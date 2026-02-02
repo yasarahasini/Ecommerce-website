@@ -47,7 +47,7 @@ export default function WomenSidebar({
               }
               className={`flex items-center gap-2 cursor-pointer px-2 py-2 rounded transition ${
                 selectedCategory === cat.name
-                  ? "bg-pink-500 text-white"
+                  ? "bg-blue-500 text-white"
                   : "hover:bg-pink-300"
               }`}
             >
