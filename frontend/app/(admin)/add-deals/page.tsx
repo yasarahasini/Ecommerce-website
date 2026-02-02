@@ -1,58 +1,75 @@
 "use client";
 import React, { useState } from "react";
 
-interface DealFormData {
+
+type Deal = {
   title: string;
   originalPrice: string;
   discountPrice: string;
-  image: File | null;
-}
+  image: string | null;
+};
 
-const AddDealForm: React.FC = () => {
-  const [formData, setFormData] = useState<DealFormData>({
+const AddDealForm = () => {
+  const [formData, setFormData] = useState<Deal>({
     title: "",
     originalPrice: "",
     discountPrice: "",
     image: null,
   });
 
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
   const [preview, setPreview] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    } as Deal));
   };
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      const file = e.target.files[0];
-      setFormData({ ...formData, image: file });
-      setPreview(URL.createObjectURL(file));
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      const result = reader.result as string;
+      setPreview(result);
+      setFormData((prev) => ({ ...prev, image: result }));
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const res = await fetch("http://localhost:3001/deals", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to add deal");
+      }
+
+      const data = await res.json();
+      console.log("Saved deal:", data);
+      setSuccess(true);
+      setFormData({ title: "", originalPrice: "", discountPrice: "", image: null });
+      setPreview(null);
+    } catch (err) {
+      alert("Something went wrong ❌");
+    } finally {
+      setLoading(false);
+      setTimeout(() => setSuccess(false), 2000);
     }
   };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const dealPayload = {
-      title: formData.title,
-      originalPrice: Number(formData.originalPrice),
-      discountPrice: Number(formData.discountPrice),
-      image: formData.image,
-    };
-
-    console.log("Deal submitted:", dealPayload);
-
-    // reset
-    setFormData({
-      title: "",
-      originalPrice: "",
-      discountPrice: "",
-      image: null,
-    });
-    setPreview(null);
-  };
-
   return (
     <main
       style={{
