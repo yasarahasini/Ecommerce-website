@@ -38,7 +38,7 @@ const Navbar: React.FC = () => {
             />
             <Link href="/location">Ship to</Link>
           </div>
-          <Link href="/sell"className="hover:underline">Sell</Link>
+          <Link href="/sell" className="hover:underline">Sell</Link>
           <div className="flex items-center cursor-pointer hover:underline">
             <span>Watchlist</span>
             <ChevronDown size={14} className="ml-1" />
@@ -56,10 +56,11 @@ const Navbar: React.FC = () => {
             <button 
               onClick={handleCartClick}
               className="relative p-1 hover:bg-gray-100 rounded-full transition-colors"
+              aria-label="Open cart"
             >
               <ShoppingCart size={20} strokeWidth={1.5} />
               {cartItems > 0 && (
-                <span className="absolute top-0 right-0 bg-[#e53238] text-white text-[10px] font-bold px-1 rounded-full min-w-[16px] text-center">
+                <span className="absolute top-0 right-0 bg-[#e53238] text-white text-[10px] font-bold px-1 rounded-full min-w-4 text-center">
                   {cartItems}
                 </span>
               )}
