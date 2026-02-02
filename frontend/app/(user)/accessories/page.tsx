@@ -47,6 +47,18 @@ const accessories: Accessory[] = [
     price: 29.99,
     image: "/images/accessories/earrings.jpg",
   },
+    {
+    id: 7,
+    name: "Women’s Scarf",
+    price: 14.99,
+    image: "/images/accessories/scarf.jpg",
+  },
+  {
+    id: 8,
+    name: "Silver Earrings",
+    price: 29.99,
+    image: "/images/accessories/earrings.jpg",
+  },
 ];
 
 export default function AccessoriesPage() {
