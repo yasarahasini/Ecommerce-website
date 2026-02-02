@@ -40,7 +40,7 @@ const CartPage: React.FC = () => {
       </h1>
 
       {cart.length === 0 ? (
-        <p className="text-center text-gray-500">Your cart is empty.</p>
+        <p className="text-center text-white">Your cart is empty.</p>
       ) : (
         <div className="flex flex-col md:flex-row gap-6">
          
