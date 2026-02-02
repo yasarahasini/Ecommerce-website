@@ -324,7 +324,7 @@ export default function Home() {
         </div>
       </section>
  <section className="bg-white py-16">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl bg-white  mx-auto px-6">
 
           <div className="flex items-center justify-between mb-10">
             <h2 className="text-3xl font-bold text-gray-800">
