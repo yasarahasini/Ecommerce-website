@@ -5,6 +5,7 @@ import { AuthModule } from './auth/auth.module';
 import { FashionModule } from './fashion/fashion.module';
 import { Fashion } from './fashion/entity/fashion.entity';
 import { AccessoriesModule } from './accessories/accessories.module';
+import { AccessoriesController } from './accessories/accessories.controller';
 
 @Module({
   imports: [
@@ -15,7 +16,8 @@ import { AccessoriesModule } from './accessories/accessories.module';
       username: 'postgres',
       password: '12345',
       database: 'ecommerce_db',
-      entities: [User, Fashion],
+      // automatically load all entities from the build artifacts
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
     AuthModule,
