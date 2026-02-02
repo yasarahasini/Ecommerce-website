@@ -44,7 +44,7 @@ const Contact: React.FC = () => {
         </h1>
 
         <p style={{ color: "#4b5563", marginBottom: "2rem" }}>
-          Have a question or need help? Fill out the form below and we’ll get
+          Have a question or need help? Fill out the form below and we’ ll get
           back to you as soon as possible.
         </p>
 
