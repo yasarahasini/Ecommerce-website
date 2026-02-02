@@ -1,4 +1,6 @@
-import React, { useState, ChangeEvent, FormEvent } from "react";
+"use client";
+
+import { useState, ChangeEvent, FormEvent } from "react";
 
 interface ContactFormData {
   name: string;
@@ -6,7 +8,7 @@ interface ContactFormData {
   message: string;
 }
 
-const Contact: React.FC = () => {
+export default function ContactPage() {
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
@@ -18,7 +20,8 @@ const Contact: React.FC = () => {
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -35,14 +38,15 @@ const Contact: React.FC = () => {
       });
 
       if (!res.ok) {
-        throw new Error("Request failed");
+        const text = await res.text();
+        throw new Error(text);
       }
 
       alert("Message sent successfully!");
       setFormData({ name: "", email: "", message: "" });
-    } catch (error) {
-      console.error(error);
-      alert("Failed to send message");
+    } catch (err) {
+      console.error("NEXTJS ERROR:", err);
+      alert("Backend ekata data yanne nē");
     } finally {
       setLoading(false);
     }
@@ -71,8 +75,7 @@ const Contact: React.FC = () => {
         </h1>
 
         <p style={{ color: "#4b5563", marginBottom: "2rem" }}>
-          Have a question or need help? Fill out the form below and we’ll get
-          back to you as soon as possible.
+          Have a question or need help? Fill out the form below.
         </p>
 
         <form onSubmit={handleSubmit}>
@@ -131,7 +134,7 @@ const Contact: React.FC = () => {
       </section>
     </main>
   );
-};
+}
 
 const inputStyle: React.CSSProperties = {
   width: "100%",
@@ -141,5 +144,3 @@ const inputStyle: React.CSSProperties = {
   border: "1px solid #d1d5db",
   outline: "none",
 };
-
-export default Contact;
