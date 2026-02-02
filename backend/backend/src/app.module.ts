@@ -18,7 +18,6 @@ import { ContactModule } from './contact/contact.module';
       username: 'postgres',
       password: '12345',
       database: 'ecommerce_db',
-      // automatically load all entities from the build artifacts
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),

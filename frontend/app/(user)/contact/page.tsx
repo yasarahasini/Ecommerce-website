@@ -13,22 +13,49 @@ const Contact: React.FC = () => {
     message: "",
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Contact Form Data:", formData);
+    setLoading(true);
 
-    alert("Message sent successfully!");
-    setFormData({ name: "", email: "", message: "" });
+    try {
+      const res = await fetch("http://localhost:3001/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) {
+        throw new Error("Request failed");
+      }
+
+      alert("Message sent successfully!");
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error(error);
+      alert("Failed to send message");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <main style={{ minHeight: "100vh", backgroundColor: "#f9fafb", padding: "4rem 1.5rem" }}>
+    <main
+      style={{
+        minHeight: "100vh",
+        backgroundColor: "#f9fafb",
+        padding: "4rem 1.5rem",
+      }}
+    >
       <section
         style={{
           maxWidth: "800px",
@@ -44,7 +71,7 @@ const Contact: React.FC = () => {
         </h1>
 
         <p style={{ color: "#4b5563", marginBottom: "2rem" }}>
-          Have a question or need help? Fill out the form below and we’ ll get
+          Have a question or need help? Fill out the form below and we’ll get
           back to you as soon as possible.
         </p>
 
@@ -87,17 +114,18 @@ const Contact: React.FC = () => {
 
           <button
             type="submit"
+            disabled={loading}
             style={{
-              backgroundColor: "#2563eb",
+              backgroundColor: loading ? "#9ca3af" : "#2563eb",
               color: "#ffffff",
               padding: "0.75rem 1.5rem",
               borderRadius: "8px",
               border: "none",
-              cursor: "pointer",
+              cursor: loading ? "not-allowed" : "pointer",
               fontWeight: 600,
             }}
           >
-            Send Message
+            {loading ? "Sending..." : "Send Message"}
           </button>
         </form>
       </section>
