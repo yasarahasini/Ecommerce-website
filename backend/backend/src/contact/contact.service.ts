@@ -1,9 +1,9 @@
 // contact/contact.service.ts
-import { Injectable } from "@nestjs/common";
-import { InjectRepository } from "@nestjs/typeorm";
-import { Repository } from "typeorm";
-import { Contact } from "./contact.entity";
-import { CreateContactDto } from "./dto/create-contact.dto";
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Contact } from './entity/contact.entity';
+import { CreateContactDto } from './dto/create-contact.dto';
 
 @Injectable()
 export class ContactService {
@@ -19,7 +19,7 @@ export class ContactService {
 
   findAll() {
     return this.contactRepository.find({
-      order: { createdAt: "DESC" },
+      order: { createdAt: 'DESC' },
     });
   }
 }
