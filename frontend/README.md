@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Full-Stack Next.js + NestJS Project
+
+This is a **full-stack web application** built with modern technologies:  
+
+- **Backend:** [NestJS](https://nestjs.com) + [PostgreSQL](https://www.postgresql.org)  
+- **Frontend:** [Next.js](https://nextjs.org)  
+- **3D visuals:** [Three.js](https://threejs.org)  
+- **Interactive maps:** [OpenStreetMap](https://www.openstreetmap.org)  
+- **Animations:** [GSAP](https://greensock.com/gsap/)  
+
+The project was bootstrapped using [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app) for the frontend and NestJS CLI for the backend. It supports server-side rendering, API routes, optimized fonts, and interactive visual features.
+
+---
 
 ## Getting Started
 
-First, run the development server:
+Follow these steps to run the project locally.
+
+### Backend (NestJS + PostgreSQL)
+
+1. **Install dependencies:**
 
 ```bash
-npm run dev
+cd backend
+npm install
 # or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+yarn install
