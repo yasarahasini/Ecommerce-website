@@ -12,8 +12,8 @@ interface CartItem {
 }
 
 const initialCart: CartItem[] = [
-  { id: 1, name: "Leather Handbag", price: 59.99, image: "/images/accessories/bag.jpg", quantity: 1 },
-  { id: 2, name: "Sneakers", price: 89.99, image: "/images/accessories/shoes.jpg", quantity: 2 },
+  { id: 1, name: "Leather Handbag", price: 59.99, image: "/5.jpg", quantity: 1 },
+  { id: 2, name: "Sneakers", price: 89.99, image: "/6.jpg", quantity: 2 },
 ];
 
 const CartPage: React.FC = () => {
