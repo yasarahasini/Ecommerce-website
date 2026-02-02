@@ -7,6 +7,7 @@ import { Fashion } from './fashion/entity/fashion.entity';
 import { AccessoriesModule } from './accessories/accessories.module';
 import { AccessoriesController } from './accessories/accessories.controller';
 import { DealsModule } from './deals/deals.module';
+import { ContactModule } from './contact/contact.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { DealsModule } from './deals/deals.module';
     FashionModule,
     AccessoriesModule,
     DealsModule,
+    ContactModule,
   ],
 })
 export class AppModule {}
