@@ -19,11 +19,10 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-blue-200">
 
-      {/* ================= HERO SECTION ================= */}
       <section className="sticky top-0 bg-brand-blue text-white px-6 py-16">
         <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 
-          {/* LEFT */}
+        
           <div className="text-center md:text-left space-y-6">
             <h2 className="uppercase text-4xl md:text-6xl font-bold">
               Crafted for the Kickflip
@@ -42,7 +41,6 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* RIGHT */}
           <div className="relative grid place-items-center">
             <div className="relative w-[300px] md:w-[380px] aspect-[3/4]">
               <Image
@@ -68,11 +66,10 @@ export default function Home() {
       </section>
 
 
-         {/* ================= HERO SECTION ================= */}
+    
       <section className="sticky top-0 bg-gray-200 bg-brand-blue text-white px-6 py-16">
         <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 
-          {/* LEFT */}
           <div className="text-center md:text-left space-y-6">
             <h2 className="uppercase text-4xl md:text-6xl font-bold">
               Crafted for the Kickflip
@@ -91,7 +88,6 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* RIGHT */}
           <div className="relative grid place-items-center">
             <div className="relative w-[300px] md:w-[380px] aspect-[3/4]">
               <Image
@@ -120,7 +116,7 @@ export default function Home() {
 <section className="sticky top-0 bg-pink-200 bg-brand-blue text-white px-6 py-16">
         <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 
-          {/* LEFT */}
+          
           <div className="text-center md:text-left space-y-6">
             <h2 className="uppercase text-4xl md:text-6xl font-bold">
               Crafted for the Kickflip
@@ -139,7 +135,7 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* RIGHT */}
+         
           <div className="relative grid place-items-center">
             <div className="relative w-[300px] md:w-[380px] aspect-[3/4]">
               <Image
@@ -166,7 +162,7 @@ export default function Home() {
       <section className="sticky top-0 bg-gray-800 bg-brand-blue text-white px-6 py-16">
         <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 
-          {/* LEFT */}
+        
           <div className="text-center md:text-left space-y-6">
             <h2 className="uppercase text-4xl md:text-6xl font-bold">
               Crafted for the Kickflip
@@ -185,7 +181,6 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* RIGHT */}
           <div className="relative grid place-items-center">
             <div className="relative w-[300px] md:w-[380px] aspect-[3/4]">
               <Image
@@ -209,7 +204,7 @@ export default function Home() {
 
         </div>
       </section>
-      {/* ================= SLIDER HERO ================= */}
+
       <section className="py-10 bg-gradient-to-r from-gray-300 via-white to-gray-200">
         <div className="relative h-[420px] max-w-6xl mx-auto overflow-hidden rounded-xl shadow-lg">
 
@@ -245,7 +240,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= CTA ================= */}
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="bg-white shadow-md rounded-2xl p-10 flex flex-col md:flex-row items-center justify-between gap-6">
