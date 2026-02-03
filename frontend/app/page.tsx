@@ -204,7 +204,7 @@ export default function Home() {
 
         </div>
       </section>
-
+<section className="bg-white">
       <section className="py-10 bg-gradient-to-r from-gray-300 via-white to-gray-200">
         <div className="relative h-[420px] max-w-6xl mx-auto overflow-hidden rounded-xl shadow-lg">
 
@@ -483,7 +483,7 @@ export default function Home() {
     </div>
   </div>
 </section>
-
+</section>
     </div>
   );
 }
