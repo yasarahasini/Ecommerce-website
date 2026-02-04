@@ -61,7 +61,7 @@ const HelpContactPage: React.FC = () => {
 
         {/* ================= Contact Us ================= */}
         <div
-          className="bg-gradient-to-br from-green-800 to-green-950 text-white rounded-2xl p-6
+          className="bg-gradient-to-br from-blue-800 to-blue-950 text-white rounded-2xl p-6
           shadow-[0_25px_50px_rgba(0,0,0,0.4)]
           transform transition-all duration-300
           hover:-translate-y-2 hover:rotate-[-0.5deg] hover:shadow-[0_35px_70px_rgba(0,0,0,0.55)]"
