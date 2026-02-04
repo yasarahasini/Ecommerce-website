@@ -66,7 +66,7 @@ const products: Product[] = [
   price: 99.99,
   modelUrl: "https://sketchfab.com/models/811fef12daf24bd783604f2a316187c5/embed?autostart=1"
 }
-
+,
 ];
 
 export default function WomenPage() {
