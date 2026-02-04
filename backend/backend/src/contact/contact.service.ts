@@ -1,4 +1,3 @@
-// contact/contact.service.ts
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -9,17 +8,15 @@ import { CreateContactDto } from './dto/create-contact.dto';
 export class ContactService {
   constructor(
     @InjectRepository(Contact)
-    private contactRepository: Repository<Contact>,
+    private contactRepo: Repository<Contact>,
   ) {}
 
-  create(createContactDto: CreateContactDto) {
-    const contact = this.contactRepository.create(createContactDto);
-    return this.contactRepository.save(contact);
+  create(dto: CreateContactDto) {
+    const contact = this.contactRepo.create(dto);
+    return this.contactRepo.save(contact);
   }
 
   findAll() {
-    return this.contactRepository.find({
-      order: { createdAt: 'DESC' },
-    });
+    return this.contactRepo.find();
   }
 }

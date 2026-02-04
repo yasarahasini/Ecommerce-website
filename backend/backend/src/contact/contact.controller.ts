@@ -1,4 +1,3 @@
-// contact/contact.controller.ts
 import { Controller, Post, Body, Get } from '@nestjs/common';
 import { ContactService } from './contact.service';
 import { CreateContactDto } from './dto/create-contact.dto';
@@ -9,6 +8,7 @@ export class ContactController {
 
   @Post()
   create(@Body() createContactDto: CreateContactDto) {
+    console.log('Received DTO:', createContactDto);
     return this.contactService.create(createContactDto);
   }
 
