@@ -32,7 +32,7 @@ export default function WomenSidebar({
   setSelectedPrice,
 }: WomenSidebarProps) {
   return (
-    <div className="w-64 bg-pink-300 text-white p-6 rounded-lg shadow-md space-y-6">
+    <div className="w-64 bg-pink-500 text-white p-6 rounded-lg shadow-md space-y-6">
     
       <div>
         <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
