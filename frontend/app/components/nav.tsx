@@ -26,7 +26,7 @@ const Navbar: React.FC = () => {
           <Link href="/#deals" className="hover:underline">Daily Deals</Link>
           <Link href="/brandoutlet" className="hover:underline">Brand Outlet</Link>
           <Link href="/giftcards" className="hover:underline">Gift Cards</Link>
-          <Link href="/help" className="hover:underline">Help & Contact</Link>
+          <Link href="/contact" className="hover:underline">Help & Contact</Link>
         </div>
 
         <div className="flex items-center space-x-4">

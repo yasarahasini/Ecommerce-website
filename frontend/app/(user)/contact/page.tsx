@@ -16,6 +16,14 @@ export default function ContactPage() {
   });
 
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState("");
+  const [errors, setErrors] = useState<string[]>([]);
+  const [debugLog, setDebugLog] = useState<string[]>([]); // for request logs
+
+  const logDebug = (msg: string) => {
+    console.log(msg);
+    setDebugLog((prev) => [msg, ...prev]);
+  };
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -27,30 +35,64 @@ export default function ContactPage() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
+    setErrors([]);
+    setSuccess("");
 
     try {
+      logDebug(`Sending form data: ${JSON.stringify(formData)}`);
+
       const res = await fetch("http://localhost:3001/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
-      if (!res.ok) throw new Error("Failed to send message");
+      const data = await res.json();
+      logDebug(`Backend response: ${JSON.stringify(data)}`);
 
-      alert("Message sent successfully!");
-      setFormData({ name: "", email: "", message: "" });
+      if (!res.ok) {
+        setErrors(Array.isArray(data.message) ? data.message : [data.message]);
+      } else {
+        setSuccess("Message sent successfully!");
+        setFormData({ name: "", email: "", message: "" });
+      }
     } catch (err) {
       console.error("Frontend ERROR:", err);
-      alert("Backend ekata data yanne nē");
+      logDebug(`Frontend ERROR: ${err}`);
+      setErrors(["Cannot connect to backend"]);
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <main style={{ minHeight: "100vh", padding: "4rem 1.5rem", background: "#f9fafb" }}>
-      <section style={{ maxWidth: 600, margin: "0 auto", background: "#fff", padding: 32, borderRadius: 16 }}>
+    <main
+      style={{
+        minHeight: "100vh",
+        padding: "4rem 1.5rem",
+        background: "#f9fafb",
+      }}
+    >
+      <section
+        style={{
+          maxWidth: 600,
+          margin: "0 auto",
+          background: "#fff",
+          padding: 32,
+          borderRadius: 16,
+        }}
+      >
         <h1 style={{ fontSize: 32, marginBottom: 16 }}>Contact Us</h1>
+
+        {success && <p style={{ color: "green", marginBottom: 16 }}>{success}</p>}
+        {errors.length > 0 && (
+          <ul style={{ color: "red", marginBottom: 16 }}>
+            {errors.map((err, i) => (
+              <li key={i}>{err}</li>
+            ))}
+          </ul>
+        )}
+
         <form onSubmit={handleSubmit}>
           <div style={{ marginBottom: 16 }}>
             <label>Name</label>
@@ -103,6 +145,29 @@ export default function ContactPage() {
             {loading ? "Sending..." : "Send Message"}
           </button>
         </form>
+
+        {/* Debug panel */}
+        {debugLog.length > 0 && (
+          <section
+            style={{
+              marginTop: 24,
+              padding: 16,
+              background: "#f3f4f6",
+              borderRadius: 8,
+              maxHeight: 200,
+              overflowY: "auto",
+              fontSize: 12,
+              fontFamily: "monospace",
+            }}
+          >
+            <h3 style={{ marginBottom: 8 }}>Debug Log</h3>
+            {debugLog.map((msg, i) => (
+              <p key={i} style={{ margin: 2 }}>
+                {msg}
+              </p>
+            ))}
+          </section>
+        )}
       </section>
     </main>
   );
