@@ -20,7 +20,7 @@ export default function BuildPage() {
         <BoardCanvas />
       </div>
 
-      {/* Controls */}
+    
       <aside className="w-full lg:w-96 bg-zinc-900 text-white p-6 space-y-6">
         <h1 className="uppercase text-3xl">Build your board</h1>
 
