@@ -4,14 +4,19 @@ import React from "react";
 
 const HelpContactPage: React.FC = () => {
   return (
-    <div className="min-h-screen text-black  bg-gray-50 py-10 px-4">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
-        
-      
-        <div className="bg-white text-blue-600 rounded-xl shadow p-6">
-          <h2 className="text-2xl font-semibold mb-4">Help & Support</h2>
+    <div className="min-h-screen bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 py-12 px-4">
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 perspective-[1200px]">
 
-          <div className="space-y-4 text-sm text-gray-600">
+        {/* ================= Help & Support ================= */}
+        <div
+          className="bg-white text-blue-600 rounded-2xl p-6
+          shadow-[0_20px_40px_rgba(0,0,0,0.15)]
+          transform transition-all duration-300
+          hover:-translate-y-2 hover:rotate-[0.5deg] hover:shadow-[0_30px_60px_rgba(0,0,0,0.25)]"
+        >
+          <h2 className="text-2xl font-semibold mb-6">Help & Support</h2>
+
+          <div className="space-y-5 text-sm text-gray-600">
             <div>
               <h4 className="font-medium text-gray-800">
                 📦 How can I track my order?
@@ -54,43 +59,61 @@ const HelpContactPage: React.FC = () => {
           </div>
         </div>
 
-        
-        <div className="bg-green-900 text-white rounded-xl shadow p-6">
-          <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
+        {/* ================= Contact Us ================= */}
+        <div
+          className="bg-gradient-to-br from-green-800 to-green-950 text-white rounded-2xl p-6
+          shadow-[0_25px_50px_rgba(0,0,0,0.4)]
+          transform transition-all duration-300
+          hover:-translate-y-2 hover:rotate-[-0.5deg] hover:shadow-[0_35px_70px_rgba(0,0,0,0.55)]"
+        >
+          <h2 className="text-2xl font-semibold mb-6">Contact Us</h2>
 
-          <form className="space-y-4 text-white">
+          <form className="space-y-4">
             <input
               type="text"
               placeholder="Your Name"
-              className="w-full border rounded-md px-4 py-2 focus:outline-none focus:ring-2 text-white focus:ring-black"
+              className="w-full rounded-lg px-4 py-2
+              bg-white/10 backdrop-blur-md border border-white/20
+              text-white placeholder-white/60
+              focus:outline-none focus:ring-2 focus:ring-white/40"
             />
 
             <input
               type="email"
               placeholder="Your Email"
-              className="w-full border rounded-md px-4 py-2 focus:outline-none focus:ring-2 text-white focus:ring-black"
+              className="w-full rounded-lg px-4 py-2
+              bg-white/10 backdrop-blur-md border border-white/20
+              text-white placeholder-white/60
+              focus:outline-none focus:ring-2 focus:ring-white/40"
             />
 
             <textarea
               placeholder="Your Message"
               rows={5}
-              className="w-full border rounded-md px-4 py-2 focus:outline-none focus:ring-2 text-white focus:ring-black"
+              className="w-full rounded-lg px-4 py-2
+              bg-white/10 backdrop-blur-md border border-white/20
+              text-white placeholder-white/60
+              focus:outline-none focus:ring-2 focus:ring-white/40"
             ></textarea>
 
             <button
               type="submit"
-              className="w-full bg-black text-white py-2 rounded-md hover:bg-gray-800 text-white transition"
+              className="w-full bg-black text-white py-2 rounded-lg
+              shadow-[0_8px_0_#111]
+              active:translate-y-2 active:shadow-none
+              hover:bg-gray-900 transition"
             >
               Send Message
             </button>
           </form>
 
-          <div className="mt-6 text-sm text-white space-y-1">
+          <div className="mt-6 text-sm space-y-1 text-white/90">
             <p>📧 Email: support@yashstore.com</p>
             <p>📞 Phone: +94 71 054 9560</p>
             <p>📍 Address: Colombo, Sri Lanka</p>
           </div>
         </div>
+
       </div>
     </div>
   );
