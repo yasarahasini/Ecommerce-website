@@ -1,7 +1,9 @@
+// BoardCanvas.tsx
 "use client";
 
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import { useBoardStore } from "./store";
 
 function BoardModel() {
   return (
