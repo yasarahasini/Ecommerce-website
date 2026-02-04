@@ -33,6 +33,41 @@ const products: Product[] = [
     modelUrl:
       "https://sketchfab.com/models/c8696af4fbfc4f54977ffc5e4b53ac33/embed?autostart=1",
   },
+   {
+  id: 3,
+  name: "Jeans",
+  category: "Jeans",
+  size: ["S", "M", "L"],
+  price: 59.99,
+  modelUrl: "https://sketchfab.com/models/c8696af4fbfc4f54977ffc5e4b53ac33/embed?autostart=1",
+}
+,
+ {
+  id: 4,
+  name: "Handbag",
+  category: "Bags",
+  size: [],
+  price: 89.99,
+  modelUrl: "https://sketchfab.com/models/6c0b277c88424a1ea86d2ff44951ee69/embed?autostart=1"
+},
+{
+  id: 5,
+  name: "Sneakers",
+  category: "Shoes",
+  size: ["M", "L"],
+  price: 69.99,
+  modelUrl: "https://sketchfab.com/models/b49f5b8cd9e94fe7883f3e9af8f41acc/embed?autostart=1"
+}
+,
+  {
+  id: 6,
+  name: "Jacket",
+  category: "Jackets",
+  size: ["L", "XL"],
+  price: 99.99,
+  modelUrl: "https://sketchfab.com/models/811fef12daf24bd783604f2a316187c5/embed?autostart=1"
+}
+
 ];
 
 export default function WomenPage() {
