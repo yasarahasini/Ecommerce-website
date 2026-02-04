@@ -7,7 +7,7 @@ const HelpContactPage: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 py-12 px-4">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 perspective-[1200px]">
 
-        {/* ================= Help & Support ================= */}
+      
         <div
           className="bg-white text-blue-600 rounded-2xl p-6
           shadow-[0_20px_40px_rgba(0,0,0,0.15)]
@@ -59,7 +59,7 @@ const HelpContactPage: React.FC = () => {
           </div>
         </div>
 
-        {/* ================= Contact Us ================= */}
+ 
         <div
           className="bg-gradient-to-br from-blue-800 to-blue-950 text-white rounded-2xl p-6
           shadow-[0_25px_50px_rgba(0,0,0,0.4)]
@@ -98,7 +98,7 @@ const HelpContactPage: React.FC = () => {
 
             <button
               type="submit"
-              className="w-full bg-black text-white py-2 rounded-lg
+              className="w-full bg-white text-black py-2 rounded-lg
               shadow-[0_8px_0_#111]
               active:translate-y-2 active:shadow-none
               hover:bg-gray-900 transition"
