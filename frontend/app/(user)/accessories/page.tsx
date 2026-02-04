@@ -105,7 +105,7 @@ export default function AccessoriesPage() {
 
               <button
                 className="mt-4 w-full flex items-center justify-center gap-2 
-                bg-black text-white py-2 rounded hover:bg-gray-800 transition"
+                bg-blue-700 text-white py-2 rounded hover:bg-gray-800 transition"
               >
                 <ShoppingCart size={16} />
                 Add to Cart
