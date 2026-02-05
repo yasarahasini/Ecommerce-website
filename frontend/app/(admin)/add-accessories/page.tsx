@@ -44,7 +44,7 @@ const AddAccessoryForm = () => {
 
       const res = await fetch("http://localhost:3001/accessories", {
         method: "POST",
-        body: form, // multipart/form-data
+        body: form,
       });
 
       if (!res.ok) throw new Error("Failed to add accessory");

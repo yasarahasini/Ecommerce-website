@@ -1,119 +1,76 @@
 "use client";
 
-import Image from "next/image";
-import { ShoppingCart, Heart } from "lucide-react";
+import { useEffect, useState } from "react";
 
-interface Accessory {
-  id: number;
+type Accessory = {
+  _id: string;
   name: string;
   price: number;
-  image: string;
-}
+  image: string; // image URL from backend
+};
 
-const accessories: Accessory[] = [
-  {
-    id: 1,
-    name: "Leather Handbag",
-    price: 59.99,
-    image: "/images/accessories/bag.jpg",
-  },
-  {
-    id: 2,
-    name: "Stylish Sunglasses",
-    price: 24.99,
-    image: "/images/accessories/sunglasses.jpg",
-  },
-  {
-    id: 3,
-    name: "Gold Wrist Watch",
-    price: 89.99,
-    image: "/images/accessories/watch.jpg",
-  },
-  {
-    id: 4,
-    name: "Classic Belt",
-    price: 19.99,
-    image: "/images/accessories/belt.jpg",
-  },
-  {
-    id: 5,
-    name: "Women’s Scarf",
-    price: 14.99,
-    image: "/images/accessories/scarf.jpg",
-  },
-  {
-    id: 6,
-    name: "Silver Earrings",
-    price: 29.99,
-    image: "/images/accessories/earrings.jpg",
-  },
-    {
-    id: 7,
-    name: "Women’s Scarf",
-    price: 14.99,
-    image: "/images/accessories/scarf.jpg",
-  },
-  {
-    id: 8,
-    name: "Silver Earrings",
-    price: 29.99,
-    image: "/images/accessories/earrings.jpg",
-  },
-];
+const AccessoriesPage = () => {
+  const [accessories, setAccessories] = useState<Accessory[]>([]);
+  const [loading, setLoading] = useState(true);
 
-export default function AccessoriesPage() {
+  useEffect(() => {
+    const fetchAccessories = async () => {
+      try {
+        const res = await fetch("http://localhost:3001/accessories");
+        if (!res.ok) throw new Error("Failed to fetch");
+
+        const data = await res.json();
+        setAccessories(data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAccessories();
+  }, []);
+
+  if (loading) {
+    return <p className="text-center mt-10">Loading accessories...</p>;
+  }
+
   return (
-    <div className="max-w-[1200px]   mx-auto px-4 py-10">
-  
-      <div className="mb-8 text-white text-center">
-        <h1 className="text-3xl font-semibold text-white">
-          Accessories
-        </h1>
-        <p className="text-white mt-2">
-          Complete your look with our latest accessories
-        </p>
-      </div>
+    <div className="max-w-6xl mx-auto p-6">
+      <h1 className="text-2xl font-bold mb-6 text-center">
+        Accessories
+      </h1>
 
-  
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {accessories.map((item) => (
-          <div
-            key={item.id}
-            className="bg-white border rounded-lg overflow-hidden hover:shadow-lg transition"
-          >
-         
-            <div className="relative w-full h-[260px]">
-              <Image
+      {accessories.length === 0 ? (
+        <p className="text-center text-gray-500">
+          No accessories found
+        </p>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {accessories.map((item) => (
+            <div
+              key={item._id}
+              className="bg-white rounded-xl shadow p-4 text-black"
+            >
+              <img
                 src={item.image}
                 alt={item.name}
-                fill
-                className="object-cover"
+                className="w-full h-48 object-cover rounded mb-3"
               />
-              <button className="absolute top-3 right-3 bg-white p-2 rounded-full shadow hover:text-red-500">
-                <Heart size={16} />
-              </button>
-            </div>
 
-     
-            <div className="p-4">
-              <h3 className="text-sm font-medium text-gray-800">
+              <h2 className="font-semibold text-lg">
                 {item.name}
-              </h3>
-              <p className="text-gray-900 font-semibold mt-1">
-                ${item.price.toFixed(2)}
-              </p>
+              </h2>
 
-              <button
-                className="mt-4 w-full flex items-center justify-center gap-2 
-                bg-blue-700 text-white py-2 rounded hover:bg-gray-800 transition"
-              >
-                <ShoppingCart size={16} />
-                Add to Cart
-              </button>
+              <p className="text-gray-700">
+                Rs. {item.price}
+              </p>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
-}
+};
+
+export default AccessoriesPage;
