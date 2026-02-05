@@ -29,27 +29,27 @@ const deals: Deal[] = [
     name: "Wireless Headphones",
     originalPrice: 120,
     discountedPrice: 80,
-    image: "/images/headphones.jpg",
+    image: "/d1.jpg",
   },
   {
     id: 2,
     name: "Smart Watch",
     originalPrice: 200,
     discountedPrice: 150,
-    image: "/images/smartwatch.jpg",
+    image: "/d2.jpg",
   },
   {
     id: 3,
     name: "Gaming Mouse",
     originalPrice: 50,
     discountedPrice: 35,
-    image: "/images/mouse.jpg",
+    image: "/d3.jpg",
   },
 ];
   return (
-    <div className="min-h-screen bg-blue-200  ">
+    <div className="min-h-screen bg-white  ">
 
-      <section className="sticky top-0 bg-brand-blue rounded-lg shadow hover:shadow-lg transition shadow-blue-300 text-white px-6 py-16">
+      <section className="sticky top-0 bg-brand-blue rounded-lg shadow hover:shadow-lg transitionshadow-blue-300 text-black px-6 py-16">
        <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold mb-6 text-center">Hot Deals</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
