@@ -1,145 +1,224 @@
-import React from "react";
+"use client";
 
-interface DealItem {
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+
+export default function Home() {
+  const heroImages = ["/1.jpg", "/2.jpg", "/8.jpg", "/7.jpg"];
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % heroImages.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+interface Deal {
   id: number;
-  title: string;
+  name: string;
   originalPrice: number;
-  discountPrice: number;
+  discountedPrice: number;
   image: string;
 }
 
-const deals: DealItem[] = [
+const deals: Deal[] = [
   {
     id: 1,
-    title: "Wireless Headphones",
-    originalPrice: 99.99,
-    discountPrice: 69.99,
-    image: "/images/deal1.jpg",
+    name: "Wireless Headphones",
+    originalPrice: 120,
+    discountedPrice: 80,
+    image: "/images/headphones.jpg",
   },
   {
     id: 2,
-    title: "Smart Watch",
-    originalPrice: 149.99,
-    discountPrice: 99.99,
-    image: "/images/deal2.jpg",
+    name: "Smart Watch",
+    originalPrice: 200,
+    discountedPrice: 150,
+    image: "/images/smartwatch.jpg",
   },
   {
     id: 3,
-    title: "Running Shoes",
-    originalPrice: 119.99,
-    discountPrice: 79.99,
-    image: "/images/deal3.jpg",
-  },
-  {
-    id: 4,
-    title: "Leather Backpack",
-    originalPrice: 89.99,
-    discountPrice: 59.99,
-    image: "/images/deal4.jpg",
+    name: "Gaming Mouse",
+    originalPrice: 50,
+    discountedPrice: 35,
+    image: "/images/mouse.jpg",
   },
 ];
-
-const Deals: React.FC = () => {
   return (
-    <main style={{ minHeight: "100vh", backgroundColor: "#f9fafb", padding: "3rem 1.5rem" }}>
-      <section style={{ maxWidth: "1100px", margin: "0 auto" }}>
-        <h1 style={{ fontSize: "2.5rem", fontWeight: 700, marginBottom: "0.5rem" }}>
-          Today’s Deals
-        </h1>
+    <div className="min-h-screen bg-blue-200  ">
 
-        <p style={{ color: "#4b5563", marginBottom: "2.5rem" }}>
-          Grab these limited-time offers before they’re gone!
-        </p>
-
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-            gap: "1.5rem",
-          }}
-        >
-          {deals.map((deal) => {
-            const discountPercent = Math.round(
-              ((deal.originalPrice - deal.discountPrice) / deal.originalPrice) * 100
-            );
-
-            return (
-              <div
-                key={deal.id}
-                style={{
-                  backgroundColor: "#ffffff",
-                  borderRadius: "16px",
-                  boxShadow: "0 8px 20px rgba(0,0,0,0.08)",
-                  overflow: "hidden",
-                  position: "relative",
-                }}
-              >
-                <span
-                  style={{
-                    position: "absolute",
-                    top: "12px",
-                    left: "12px",
-                    backgroundColor: "#dc2626",
-                    color: "#ffffff",
-                    padding: "0.3rem 0.6rem",
-                    borderRadius: "6px",
-                    fontSize: "0.85rem",
-                    fontWeight: 600,
-                  }}
-                >
-                  {discountPercent}% OFF
-                </span>
-
-                <img
-                  src={deal.image}
-                  alt={deal.title}
-                  style={{ width: "100%", height: "240px", objectFit: "cover" }}
-                />
-
-                <div style={{ padding: "1.2rem" }}>
-                  <h3 style={{ fontSize: "1.1rem", fontWeight: 600 }}>
-                    {deal.title}
-                  </h3>
-
-                  <div style={{ margin: "0.5rem 0" }}>
-                    <span
-                      style={{
-                        textDecoration: "line-through",
-                        color: "#9ca3af",
-                        marginRight: "0.5rem",
-                      }}
-                    >
-                      ${deal.originalPrice.toFixed(2)}
-                    </span>
-
-                    <span style={{ color: "#16a34a", fontWeight: 700 }}>
-                      ${deal.discountPrice.toFixed(2)}
-                    </span>
-                  </div>
-
-                  <button
-                    style={{
-                      marginTop: "0.8rem",
-                      width: "100%",
-                      backgroundColor: "#2563eb",
-                      color: "#ffffff",
-                      padding: "0.6rem",
-                      borderRadius: "8px",
-                      border: "none",
-                      cursor: "pointer",
-                      fontWeight: 600,
-                    }}
-                  >
-                    Add to Cart
-                  </button>
-                </div>
+      <section className="sticky top-0 bg-brand-blue rounded-lg shadow hover:shadow-lg transition shadow-blue-300 text-white px-6 py-16">
+       <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold mb-6 text-center">Hot Deals</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {deals.map((deal) => (
+            <div
+              key={deal.id}
+              className="bg-white shadow-lg rounded-lg overflow-hidden hover:scale-105 transition-transform"
+            >
+              <img
+                src={deal.image}
+                alt={deal.name}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-4">
+                <h3 className="text-xl font-semibold">{deal.name}</h3>
+                <p className="text-gray-500 line-through">${deal.originalPrice}</p>
+                <p className="text-red-600 font-bold text-lg">
+                  ${deal.discountedPrice}
+                </p>
+                <button className="mt-3 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
+                  Shop Now
+                </button>
               </div>
-            );
-          })}
+            </div>
+          ))}
+        </div>
+      </div>
+      </section>
+
+
+    
+      <section className="sticky top-0 bg-gray-200 bg-brand-blue text-white px-6 py-16">
+        <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+          <div className="text-center md:text-left space-y-6">
+            <h2 className="uppercase text-4xl md:text-6xl font-bold">
+              Crafted for the Kickflip
+            </h2>
+
+            <p className="max-w-md text-lg font-semibold">
+              Built for big tricks and hard landings, our boards are designed to
+              handle every flip, grind, and bail. Perfect balance, every time.
+            </p>
+
+            <Link
+              href="/shop"
+              className="inline-flex items-center gap-3 bg-gradient-to-r from-lime-400 to-orange-400 text-black font-bold px-6 py-3 rounded-lg hover:scale-105 transition"
+            >
+              Shop Boards
+            </Link>
+          </div>
+
+          <div className="relative grid place-items-center">
+            <div className="relative w-[300px] md:w-[380px] aspect-[3/4]">
+              <Image
+                src="/6.jpg"
+                alt="Background"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+
+            <div className="absolute w-[220px] md:w-[280px] aspect-[3/4]">
+              <Image
+                src="/guy.png"
+                alt="Skater"
+                fill
+                className="object-contain"
+              />
+            </div>
+          </div>
+
         </div>
       </section>
-    </main>
-  );
-};
+      
 
-export default Deals;
+<section className="sticky top-0 bg-pink-200 bg-brand-blue text-white px-6 py-16">
+        <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+          
+          <div className="text-center md:text-left space-y-6">
+            <h2 className="uppercase text-4xl md:text-6xl font-bold">
+              Crafted for the Kickflip
+            </h2>
+
+            <p className="max-w-md text-lg font-semibold">
+              Built for big tricks and hard landings, our boards are designed to
+              handle every flip, grind, and bail. Perfect balance, every time.
+            </p>
+
+            <Link
+              href="/shop"
+              className="inline-flex items-center gap-3 bg-gradient-to-r from-lime-400 to-orange-400 text-black font-bold px-6 py-3 rounded-lg hover:scale-105 transition"
+            >
+              Shop Boards
+            </Link>
+          </div>
+
+         
+          <div className="relative grid place-items-center">
+            <div className="relative w-[300px] md:w-[380px] aspect-[3/4]">
+              <Image
+                src="/6.jpg"
+                alt="Background"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+
+            <div className="absolute w-[220px] md:w-[280px] aspect-[3/4]">
+              <Image
+                src="/guy.png"
+                alt="Skater"
+                fill
+                className="object-contain"
+              />
+            </div>
+          </div>
+
+        </div>
+      </section>
+      <section className="sticky top-0 bg-gray-800 bg-brand-blue text-white px-6 py-16">
+        <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+        
+          <div className="text-center md:text-left space-y-6">
+            <h2 className="uppercase text-4xl md:text-6xl font-bold">
+              Crafted for the Kickflip
+            </h2>
+
+            <p className="max-w-md text-lg font-semibold">
+              Built for big tricks and hard landings, our boards are designed to
+              handle every flip, grind, and bail. Perfect balance, every time.
+            </p>
+
+            <Link
+              href="/shop"
+              className="inline-flex items-center gap-3 bg-gradient-to-r from-lime-400 to-orange-400 text-black font-bold px-6 py-3 rounded-lg hover:scale-105 transition"
+            >
+              Shop Boards
+            </Link>
+          </div>
+
+          <div className="relative grid place-items-center">
+            <div className="relative w-[300px] md:w-[380px] aspect-[3/4]">
+              <Image
+                src="/6.jpg"
+                alt="Background"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+
+            <div className="absolute w-[220px] md:w-[280px] aspect-[3/4]">
+              <Image
+                src="/guy.png"
+                alt="Skater"
+                fill
+                className="object-contain"
+              />
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  );
+}
