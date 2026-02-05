@@ -6,7 +6,7 @@ type Accessory = {
   _id: string;
   name: string;
   price: number;
-  image?: string; // optional
+  image?: string;
 };
 
 const API_URL = "http://localhost:3001";
@@ -39,28 +39,23 @@ const AccessoriesPage = () => {
 
   return (
     <div className="max-w-6xl mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-6 text-center">
-        Accessories
-      </h1>
+      <h1 className="text-2xl font-bold mb-6 text-center">Accessories</h1>
 
       {accessories.length === 0 ? (
-        <p className="text-center text-gray-500">
-          No accessories found
-        </p>
+        <p className="text-center text-gray-500">No accessories found</p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {accessories.map((item) => {
-            // ✅ FIX: handle both full URLs and filenames
             const imageSrc = item.image
               ? item.image.startsWith("http")
                 ? item.image
                 : `${API_URL}/uploads/accessories/${item.image}`
-              : "/placeholder.png"; // fallback if no image
+              : "/placeholder.png";
 
             return (
               <div
                 key={item._id}
-                className="bg-white rounded-xl shadow p-4 text-black"
+                className="bg-white rounded-xl shadow p-4 text-black flex flex-col"
               >
                 <img
                   src={imageSrc}
@@ -69,7 +64,16 @@ const AccessoriesPage = () => {
                 />
 
                 <h2 className="font-semibold text-lg">{item.name}</h2>
-                <p className="text-gray-700">Rs. {item.price}</p>
+                <p className="text-gray-700 mb-4">Rs. {item.price}</p>
+
+                <div className="mt-auto flex gap-2">
+                  <button className="flex-1 bg-red-500 hover:bg-red-600 text-white font-semibold py-2 rounded">
+                    Add to Cart
+                  </button>
+                  <button className="flex-1 bg-blue-700 hover:bg-blue-600 text-white font-semibold py-2 rounded">
+                    Buy Now
+                  </button>
+                </div>
               </div>
             );
           })}
