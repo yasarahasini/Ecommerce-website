@@ -6,8 +6,10 @@ type Accessory = {
   _id: string;
   name: string;
   price: number;
-  image: string;
+  image?: string; // optional
 };
+
+const API_URL = "http://localhost:3001";
 
 const AccessoriesPage = () => {
   const [accessories, setAccessories] = useState<Accessory[]>([]);
@@ -16,7 +18,7 @@ const AccessoriesPage = () => {
   useEffect(() => {
     const fetchAccessories = async () => {
       try {
-        const res = await fetch("http://localhost:3001/accessories");
+        const res = await fetch(`${API_URL}/accessories`);
         if (!res.ok) throw new Error("Failed to fetch");
 
         const data = await res.json();
@@ -47,26 +49,30 @@ const AccessoriesPage = () => {
         </p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {accessories.map((item) => (
-            <div
-              key={item._id}
-              className="bg-white rounded-xl shadow p-4 text-black"
-            >
-              <img
-                src={item.image}
-                alt={item.name}
-                className="w-full h-48 object-cover rounded mb-3"
-              />
+          {accessories.map((item) => {
+            // ✅ FIX: handle both full URLs and filenames
+            const imageSrc = item.image
+              ? item.image.startsWith("http")
+                ? item.image
+                : `${API_URL}/uploads/accessories/${item.image}`
+              : "/placeholder.png"; // fallback if no image
 
-              <h2 className="font-semibold text-lg">
-                {item.name}
-              </h2>
+            return (
+              <div
+                key={item._id}
+                className="bg-white rounded-xl shadow p-4 text-black"
+              >
+                <img
+                  src={imageSrc}
+                  alt={item.name}
+                  className="w-full h-48 object-cover rounded mb-3"
+                />
 
-              <p className="text-gray-700">
-                Rs. {item.price}
-              </p>
-            </div>
-          ))}
+                <h2 className="font-semibold text-lg">{item.name}</h2>
+                <p className="text-gray-700">Rs. {item.price}</p>
+              </div>
+            );
+          })}
         </div>
       )}
     </div>
