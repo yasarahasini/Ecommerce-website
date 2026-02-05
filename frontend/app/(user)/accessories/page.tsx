@@ -6,7 +6,7 @@ type Accessory = {
   _id: string;
   name: string;
   price: number;
-  image: string; // image URL from backend
+  image: string;
 };
 
 const AccessoriesPage = () => {

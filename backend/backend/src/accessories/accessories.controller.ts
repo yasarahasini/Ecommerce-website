@@ -1,6 +1,7 @@
 import {
   Controller,
   Post,
+  Get,
   Body,
   UploadedFile,
   UseInterceptors,
@@ -16,6 +17,7 @@ import type { Request } from 'express';
 export class AccessoriesController {
   constructor(private readonly accessoriesService: AccessoriesService) {}
 
+
   @Post()
   @UseInterceptors(
     FileInterceptor('image', {
@@ -28,7 +30,6 @@ export class AccessoriesController {
         ) => {
           const uniqueName =
             Date.now() + '-' + Math.round(Math.random() * 1e9);
-
           cb(null, uniqueName + extname(file.originalname));
         },
       }),
@@ -38,6 +39,15 @@ export class AccessoriesController {
     @Body() dto: CreateAccessoryDto,
     @UploadedFile() file?: Express.Multer.File,
   ) {
-    return this.accessoriesService.create(dto, file?.filename);
+    const imageUrl = file
+      ? `http://localhost:3001/uploads/accessories/${file.filename}`
+      : undefined;
+
+    return this.accessoriesService.create(dto, imageUrl);
+  }
+
+  @Get()
+  findAll() {
+    return this.accessoriesService.findAll();
   }
 }
