@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-// Move interfaces outside the component for cleaner code
+
 interface Deal {
   id: number;
   name: string;
@@ -34,7 +34,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-slate-50">
       
-      {/* SECTION 1: Featured Deals (Light) */}
+  
       <section className="sticky top-0 z-10 bg-white border-b border-gray-100 px-6 py-20 shadow-2xl">
         <div className="container mx-auto max-w-6xl">
           <div className="flex justify-between items-end mb-10">
@@ -53,7 +53,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 2: Brand Showcase (Dark) */}
+
       <section className="sticky top-0 z-20 bg-slate-900 text-white px-6 py-24 shadow-2xl">
         <div className="container mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
@@ -87,7 +87,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 3: Secondary Deals (Colorful) */}
       <section className="sticky top-0 z-30 bg-blue-600 text-white px-6 py-20">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-bold mb-10 text-center">Bundle & Save</h2>
@@ -109,7 +108,7 @@ export default function Home() {
   );
 }
 
-// Reusable Product Card Component
+
 function ProductCard({ deal }: { deal: Deal }) {
   const discount = Math.round(((deal.originalPrice - deal.discountedPrice) / deal.originalPrice) * 100);
   
