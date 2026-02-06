@@ -266,7 +266,7 @@ const Home: React.FC = () => {
 
 
 <section className="relative py-16 overflow-hidden">
-  {/* 🎥 Background Video */}
+
   <video
     autoPlay
     loop
@@ -277,14 +277,13 @@ const Home: React.FC = () => {
     <source src="/v1.mp4" type="video/mp4" />
   </video>
 
-  {/* 🔲 Dark Overlay */}
   <div className="absolute inset-0 bg-black/60"></div>
 
-  {/* 🌟 Content */}
+
   <div className="relative max-w-6xl mx-auto px-6">
     <div className="flex flex-col md:flex-row items-center gap-10">
 
-      {/* Left Content */}
+     
       <div className="md:w-1/2">
         <h2 className="text-4xl font-bold text-white mb-4">
           Quality Products, Delivered Fast
@@ -299,7 +298,7 @@ const Home: React.FC = () => {
         </Link>
       </div>
 
-      {/* Right Image */}
+      
       <div className="md:w-1/2 flex justify-center">
      
       </div>
