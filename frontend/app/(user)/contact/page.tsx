@@ -59,18 +59,18 @@ export default function ContactPage() {
     <main className="flex justify-center items-center min-h-screen bg-gray-100 p-6">
       <section className="flex flex-col md:flex-row w-full max-w-5xl bg-white shadow-lg rounded-xl overflow-hidden">
         
-        {/* Left Side - 3D Model / Image */}
-        <div className="md:w-1/2 bg-gray-200 flex justify-center items-center p-4">
-          {/* Example: Sketchfab iframe */}
-          <iframe
-            title="3D Model"
-            src="https://sketchfab.com/models/YOUR_MODEL_ID/embed"
-            frameBorder="0"
-            allow="autoplay; fullscreen; vr"
-            allowFullScreen
-            className="w-full h-96 md:h-full rounded-lg"
-          />
-        </div>
+    {/* Left Side - Video */}
+<div className="md:w-1/2 bg-gray-200 flex justify-center items-center p-4">
+  <video
+    src="/v1.mp4"
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="w-full h-96 md:h-full object-contain rounded-lg shadow-lg"
+  />
+</div>
+
 
         {/* Right Side - Contact Form */}
         <div className="md:w-1/2 p-8">
