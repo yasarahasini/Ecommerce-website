@@ -26,8 +26,8 @@ const GiftCardPage: React.FC = () => {
             <li>✔ Can be used with discounts</li>
           </ul>
 
-          <div className="mt-6 p-4 border rounded-lg bg-gray-100">
-            <p className="text-sm text-gray-700">
+          <div className="mt-6 p-4 border rounded-lg bg-red-500">
+            <p className="text-sm text-white">
               Selected Amount:
               <span className="font-semibold ml-2">
                 LKR {amount.toLocaleString()}
