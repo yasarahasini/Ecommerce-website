@@ -50,7 +50,9 @@ const brands: Brand[] = [
 
 const BrandOutletPage: React.FC = () => {
   return (
-    <div className="min-h-screen text-black  bg-gray-50 px-4 py-10">
+   <div className="min-h-screen text-black bg-gradient-to-r from-gray-200 to-blue-600 px-4 py-10">
+
+
       <div className="max-w-7xl mx-auto">
         
         <div className="mb-8 text-center">
