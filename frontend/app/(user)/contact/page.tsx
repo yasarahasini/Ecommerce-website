@@ -59,7 +59,7 @@ export default function ContactPage() {
     <main className="flex justify-center items-center min-h-screen bg-gray-100 p-6">
       <section className="flex flex-col md:flex-row w-full max-w-5xl bg-white shadow-lg rounded-xl overflow-hidden">
         
-    {/* Left Side - Video */}
+  
 <div className="md:w-1/2 bg-gray-200 flex justify-center items-center p-4">
   <video
     src="/v1.mp4"
@@ -72,7 +72,6 @@ export default function ContactPage() {
 </div>
 
 
-        {/* Right Side - Contact Form */}
         <div className="md:w-1/2 p-8">
           <h1 className="text-3xl font-bold mb-6 text-gray-800 text-center md:text-left">
             Contact Us
