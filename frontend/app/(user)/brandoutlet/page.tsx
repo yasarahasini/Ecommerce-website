@@ -57,7 +57,7 @@ const BrandOutletPage: React.FC = () => {
         
         <div className="mb-8 text-center">
           <h1 className="text-3xl font-bold">Brand Outlet</h1>
-          <p className="text-gray-600 mt-2">
+          <p className="text-white mt-2">
             Shop your favorite brands at unbeatable prices
           </p>
         </div>
