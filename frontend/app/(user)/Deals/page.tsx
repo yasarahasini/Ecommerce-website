@@ -74,10 +74,10 @@ export default function Home() {
           </div>
 
      <div className="relative group">
-      {/* Glow background */}
+ 
       <div className="absolute inset-0 bg-lime-400/20 blur-3xl rounded-full group-hover:bg-lime-400/30 transition" />
 
-      {/* Image wrapper */}
+      
       <div className="relative aspect-square w-72 mx-auto rounded-full overflow-hidden">
         <Image
           src="/guy1.jpg"
