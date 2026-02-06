@@ -265,16 +265,31 @@ const Home: React.FC = () => {
 
 
 
-<section className="bg-gradient-to-r from-blue-700 via-gray-900 to-purple-300 py-16">
-  <div className="max-w-6xl mx-auto px-6">
+<section className="relative py-16 overflow-hidden">
+  {/* 🎥 Background Video */}
+  <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover"
+  >
+    <source src="/v1.mp4" type="video/mp4" />
+  </video>
+
+  {/* 🔲 Dark Overlay */}
+  <div className="absolute inset-0 bg-black/60"></div>
+
+  {/* 🌟 Content */}
+  <div className="relative max-w-6xl mx-auto px-6">
     <div className="flex flex-col md:flex-row items-center gap-10">
 
-
+      {/* Left Content */}
       <div className="md:w-1/2">
         <h2 className="text-4xl font-bold text-white mb-4">
           Quality Products, Delivered Fast
         </h2>
-        <p className="text-gray-400 mb-6">
+        <p className="text-gray-300 mb-6">
           Explore our wide range of products with unbeatable prices. Shop with confidence and enjoy fast, reliable delivery straight to your doorstep.
         </p>
         <Link href="/shop">
@@ -284,18 +299,10 @@ const Home: React.FC = () => {
         </Link>
       </div>
 
-    
-<div className="md:w-1/2 flex justify-center">
-  <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-lg">
-    <Image
-      src="/20.jpg"       
-      alt="Products"
-      fill
-      className="object-cover"
-    />
-  </div>
-</div>
-
+      {/* Right Image */}
+      <div className="md:w-1/2 flex justify-center">
+     
+      </div>
 
     </div>
   </div>
