@@ -73,17 +73,21 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="relative group">
-            <div className="absolute inset-0 bg-lime-400/20 blur-3xl rounded-full group-hover:bg-lime-400/30 transition"></div>
-            <div className="relative aspect-square w-full max-w-md mx-auto">
-               <Image 
-                src="/guy.png" 
-                alt="Skater" 
-                fill 
-                className="object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]" 
-              />
-            </div>
-          </div>
+     <div className="relative group">
+      {/* Glow background */}
+      <div className="absolute inset-0 bg-lime-400/20 blur-3xl rounded-full group-hover:bg-lime-400/30 transition" />
+
+      {/* Image wrapper */}
+      <div className="relative aspect-square w-72 mx-auto rounded-full overflow-hidden">
+        <Image
+          src="/guy1.jpg"
+          alt="Skater"
+          fill
+          priority
+          className="object-cover rounded-full drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+        />
+      </div>
+    </div>
         </div>
       </section>
 
