@@ -301,14 +301,7 @@ const Home: React.FC = () => {
 
       {/* Right Image */}
       <div className="md:w-1/2 flex justify-center">
-        <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-lg">
-          <Image
-            src="/20.jpg"
-            alt="Products"
-            fill
-            className="object-cover"
-          />
-        </div>
+     
       </div>
 
     </div>
