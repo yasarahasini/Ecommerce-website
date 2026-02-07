@@ -9,6 +9,7 @@ import { AccessoriesController } from './accessories/accessories.controller';
 import { DealsModule } from './deals/deals.module';
 import { ContactModule } from './contact/contact.module';
 import { ElectronicModule } from './electronic/electronic.module';
+import { WomenModule } from './women/women.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { ElectronicModule } from './electronic/electronic.module';
     DealsModule,
     ContactModule,
     ElectronicModule,
+    WomenModule,
   ],
 })
 export class AppModule {}
