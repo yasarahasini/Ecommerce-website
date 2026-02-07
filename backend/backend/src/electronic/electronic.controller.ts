@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Body, Param, Delete } from '@nestjs/common';
-import { ElectronicsService } from './electronics.service';
+import { ElectronicsService } from './electronic.service';
 import { CreateElectronicDto } from './dto/create-electronic.dto';
 
 @Controller('electronics')
