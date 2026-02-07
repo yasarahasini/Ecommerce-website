@@ -30,11 +30,11 @@ const AddElectronicPage: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Later you can replace this with API call
+  
     console.log("New Electronic Product:", formData);
 
     alert("Product added successfully!");
-    router.push("/electronics"); // redirect after submit
+    router.push("/electronics"); 
   };
 
   return (
@@ -46,7 +46,7 @@ const AddElectronicPage: React.FC = () => {
           onSubmit={handleSubmit}
           className="bg-white rounded-lg shadow-md p-6 space-y-6"
         >
-          {/* Product Name */}
+         
           <div>
             <label className="block font-medium mb-1">Product Name</label>
             <input
