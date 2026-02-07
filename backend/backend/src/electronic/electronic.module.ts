@@ -9,4 +9,4 @@ import { Electronic } from './entity/electronic.entity';
   controllers: [ElectronicsController],
   providers: [ElectronicsService],
 })
-export class ElectronicsModule {}
+export class ElectronicModule {}
