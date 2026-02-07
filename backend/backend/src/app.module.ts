@@ -8,6 +8,7 @@ import { AccessoriesModule } from './accessories/accessories.module';
 import { AccessoriesController } from './accessories/accessories.controller';
 import { DealsModule } from './deals/deals.module';
 import { ContactModule } from './contact/contact.module';
+import { ElectronicModule } from './electronic/electronic.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { ContactModule } from './contact/contact.module';
     AccessoriesModule,
     DealsModule,
     ContactModule,
+    ElectronicModule,
   ],
 })
 export class AppModule {}
