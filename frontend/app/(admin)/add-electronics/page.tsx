@@ -89,7 +89,6 @@ const AddElectronicPage: React.FC = () => {
             </select>
           </div>
 
-          {/* Image URL */}
           <div>
             <label className="block font-medium mb-1">Image URL</label>
             <input
@@ -102,7 +101,7 @@ const AddElectronicPage: React.FC = () => {
             />
           </div>
 
-          {/* Description */}
+         
           <div>
             <label className="block font-medium mb-1">Description</label>
             <textarea
@@ -114,7 +113,7 @@ const AddElectronicPage: React.FC = () => {
             />
           </div>
 
-          {/* Buttons */}
+
           <div className="flex gap-4">
             <button
               type="submit"
