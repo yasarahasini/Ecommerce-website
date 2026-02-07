@@ -59,7 +59,6 @@ const AddElectronicPage: React.FC = () => {
             />
           </div>
 
-          {/* Price */}
           <div>
             <label className="block font-medium mb-1">Price ($)</label>
             <input
@@ -72,7 +71,6 @@ const AddElectronicPage: React.FC = () => {
             />
           </div>
 
-          {/* Category */}
           <div>
             <label className="block font-medium mb-1">Category</label>
             <select
