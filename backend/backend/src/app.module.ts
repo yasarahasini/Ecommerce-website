@@ -11,6 +11,7 @@ import { ContactModule } from './contact/contact.module';
 import { ElectronicModule } from './electronic/electronic.module';
 import { WomenModule } from './women/women.module';
 import { MenModule } from './men/men.module';
+import { AboutModule } from './page/about/about.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { MenModule } from './men/men.module';
     ElectronicModule,
     WomenModule,
     MenModule,
+    AboutModule,
   ],
 })
 export class AppModule {}
