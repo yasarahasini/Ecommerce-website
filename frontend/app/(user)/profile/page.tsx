@@ -73,7 +73,7 @@ const page: React.FC = () => {
           </div>
 
           {/* Orders */}
-          <div className="rounded-xl bg-gray-50 p-5">
+          <div className="rounded-xl bg-gray-150 p-5">
             <h2 className="mb-4 text-lg font-semibold">Order Summary</h2>
 
             <Stat label="Total Orders" value={user.orders.total} />
