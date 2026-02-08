@@ -18,12 +18,12 @@ interface UserProfile {
 }
 
 const user: UserProfile = {
-  name: "John Doe",
-  email: "johndoe@email.com",
+  name: "Yasara Hasini",
+  email: "yasarahasini61@email.com",
   phone: "+94 77 123 4567",
   joined: "January 2025",
   address: "No 45, Galle Road, Colombo 03, Sri Lanka",
-  avatar: "/profile.jpg",
+  avatar: "/yasara.png",
   orders: {
     total: 12,
     completed: 9,
