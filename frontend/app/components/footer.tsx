@@ -32,7 +32,7 @@ const Footer: FC = () => {
             <li><a href="/faq" className="hover:text-white">FAQ</a></li>
             <li><a href="/shipping" className="hover:text-white">Shipping & Returns</a></li>
             <li><a href="/privacy" className="hover:text-white">Privacy Policy</a></li>
-            <li><a href="/terms" className="hover:text-white">Terms & Conditions</a></li>
+            <li><a href="/terms-condition" className="hover:text-white">Terms & Conditions</a></li>
           </ul>
         </div>
 
