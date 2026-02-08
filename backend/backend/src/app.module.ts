@@ -12,6 +12,7 @@ import { ElectronicModule } from './electronic/electronic.module';
 import { WomenModule } from './women/women.module';
 import { MenModule } from './men/men.module';
 import { AboutModule } from './page/about/about.module';
+import { AboutModule } from './about/about.module';
 
 @Module({
   imports: [
