@@ -32,7 +32,7 @@ export default function Home() {
   }, [heroImages.length]);
 
   return (
-    <div className="min-h-screen bg-slate-250">
+    <div className="min-h-screen bg-slate-50">
       
   
       <section className="sticky top-0 z-10 bg-white border-b border-gray-100 px-6 py-20 shadow-2xl">
