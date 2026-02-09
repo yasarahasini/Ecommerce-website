@@ -1,4 +1,4 @@
-// pages/ElectronicsPage.tsx
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -24,7 +24,7 @@ const ElectronicsPage: React.FC = () => {
   return (
     <div className="min-h-screen text-black bg-gray-100">
       <div className="max-w-7xl mx-auto px-6 py-10 flex gap-6">
-        {/* Sidebar */}
+      
         <aside className="w-64 bg-blue-300 rounded-lg shadow-md p-4 sticky top-10 h-fit">
           <h2 className="text-xl font-semibold mb-4">Categories</h2>
           <ul className="space-y-2">
@@ -38,7 +38,6 @@ const ElectronicsPage: React.FC = () => {
           </ul>
         </aside>
 
-        {/* Products Grid */}
         <main className="flex-1">
           <h1 className="text-3xl font-bold mb-6">Electronics</h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
