@@ -1,0 +1,25 @@
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from 'typeorm';
+
+@Entity()
+export class Product {
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column()
+  name: string;
+
+  @Column('text')
+  description: string;
+
+  @Column('decimal')
+  price: number;
+
+  @Column()
+  imageUrl: string;
+
+  @Column({ default: true })
+  inStock: boolean;
+
+  @CreateDateColumn()
+  createdAt: Date;
+}
