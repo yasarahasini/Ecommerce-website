@@ -44,7 +44,7 @@ export default function AdminDashboard() {
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full table-auto border-collapse border border-gray-300">
-              <thead className="bg-gray-200">
+              <thead className="bg-blue-200">
                 <tr>
                   <th className="border px-4 py-2">ID</th>
                   <th className="border px-4 py-2">Name</th>
