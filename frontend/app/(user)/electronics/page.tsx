@@ -33,13 +33,13 @@ const ElectronicsPage: React.FC = () => {
   const [products, setProducts] = useState<Product[]>(dummyProducts);
   const [selectedCategory, setSelectedCategory] = useState("All Electronics");
 
-  /* 🔹 Backend fetch */
+  
   useEffect(() => {
     fetch("http://localhost:3001/electronics")
       .then((res) => res.json())
       .then((data: Product[]) => {
         if (data && data.length > 0) {
-          setProducts(data); // override dummy
+          setProducts(data); 
         }
       })
       .catch(() => {
@@ -47,7 +47,7 @@ const ElectronicsPage: React.FC = () => {
       });
   }, []);
 
-  /* 🔹 Category filter */
+  
   const filteredProducts =
     selectedCategory === "All Electronics"
       ? products
@@ -56,7 +56,7 @@ const ElectronicsPage: React.FC = () => {
   return (
     <div className="min-h-screen text-black bg-gray-100">
       <div className="max-w-7xl mx-auto px-6 py-10 flex gap-6">
-        {/* Sidebar */}
+        
         <aside className="w-64 bg-blue-300 rounded-lg shadow-md p-4 sticky top-10 h-fit">
           <h2 className="text-xl font-semibold mb-4">Categories</h2>
           <ul className="space-y-2">
