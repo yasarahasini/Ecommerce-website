@@ -57,7 +57,7 @@ const ElectronicsPage: React.FC = () => {
     <div className="min-h-screen text-black bg-gray-100">
       <div className="max-w-7xl mx-auto px-6 py-10 flex gap-6">
         
-        <aside className="w-64 bg-blue-300 rounded-lg shadow-md p-4 sticky top-10 h-fit">
+        <aside className="w-64 bg-white rounded-lg shadow-md p-4 sticky top-10 h-fit">
           <h2 className="text-xl font-semibold mb-4">Categories</h2>
           <ul className="space-y-2">
             {categories.map((cat) => (
