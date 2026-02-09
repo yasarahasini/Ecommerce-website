@@ -14,7 +14,7 @@ export default function AdminDashboard() {
   const [messages, setMessages] = useState<ContactMessage[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Fetch messages from backend
+ 
   useEffect(() => {
     async function fetchMessages() {
       try {
