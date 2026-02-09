@@ -1,114 +1,67 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 
 interface FashionItem {
   id: number;
   name: string;
-  price: string;
+  price: number;
   image: string;
 }
 
-const fashionItems: FashionItem[] = [
-  {
-    id: 1,
-    name: "Classic Denim Jacket",
-    price: "$49.99",
-    image: "/f1.jpg",
-  },
-  {
-    id: 2,
-    name: "Summer Floral Dress",
-    price: "$39.99",
-    image: "/f22.jpg",
-  },
-  {
-    id: 3,
-    name: "Casual Sneakers",
-    price: "$59.99",
-    image: "/f3.jpg",
-  },
-  {
-    id: 4,
-    name: "Stylish Handbag",
-    price: "$29.99",
-    image: "/f4.jpg",
-  },
-  {
-    id: 1,
-    name: "Classic Denim Jacket",
-    price: "$49.99",
-    image: "/f1.jpg",
-  },
-  {
-    id: 2,
-    name: "Summer Floral Dress",
-    price: "$39.99",
-    image: "/f22.jpg",
-  },
-  {
-    id: 3,
-    name: "Casual Sneakers",
-    price: "$59.99",
-    image: "/f3.jpg",
-  },
-  {
-    id: 4,
-    name: "Stylish Handbag",
-    price: "$29.99",
-    image: "/f4.jpg",
-  },
-  {
-    id: 1,
-    name: "Classic Denim Jacket",
-    price: "$49.99",
-    image: "/f1.jpg",
-  },
-  {
-    id: 2,
-    name: "Summer Floral Dress",
-    price: "$39.99",
-    image: "/f22.jpg",
-  },
-  {
-    id: 3,
-    name: "Casual Sneakers",
-    price: "$59.99",
-    image: "/f3.jpg",
-  },
-  {
-    id: 4,
-    name: "Stylish Handbag",
-    price: "$29.99",
-    image: "/f4.jpg",
-  },
+
+const dummyFashionItems: FashionItem[] = [
+  { id: 1, name: "Classic Denim Jacket", price: 49.99, image: "/f1.jpg" },
+  { id: 2, name: "Summer Floral Dress", price: 39.99, image: "/f22.jpg" },
+  { id: 3, name: "Casual Sneakers", price: 59.99, image: "/f3.jpg" },
+  { id: 4, name: "Stylish Handbag", price: 29.99, image: "/f4.jpg" },
 ];
 
 const Fashion: React.FC = () => {
+  const [items, setItems] = useState<FashionItem[]>(dummyFashionItems);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("http://localhost:3001/fashion")
+      .then((res) => res.json())
+      .then((data: FashionItem[]) => {
+        if (data && data.length > 0) {
+          setItems(data); 
+        }
+      })
+      .catch(() => {
+        console.log("Backend not available → using dummy data");
+      })
+      .finally(() => setLoading(false));
+  }, []);
+
   return (
-    <main style={{ minHeight: "100vh", color: "black", backgroundColor: "#f3f4f6", padding: "3rem 1.5rem" }}>
+    <main style={{ minHeight: "100vh", backgroundColor: "#f3f4f6", padding: "3rem 1.5rem" }}>
       <section style={{ maxWidth: "1100px", margin: "0 auto" }}>
-        <h1 style={{ fontSize: "2.5rem", fontWeight: 700, marginBottom: "1rem" }}>
+        <h1 style={{ fontSize: "2.5rem", fontWeight: 700 }}>
           Fashion Collection
         </h1>
 
-        <p style={{ color: "#4b5563", marginBottom: "2.5rem" }}>
-          Discover the latest trends in fashion. Handpicked styles just for you.
-        </p>
+        {loading && (
+          <p style={{ marginTop: "1rem", color: "#6b7280" }}>
+            Loading products...
+          </p>
+        )}
 
         <div
           style={{
+            marginTop: "2rem",
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
             gap: "1.5rem",
           }}
         >
-          {fashionItems.map((item) => (
+          {items.map((item) => (
             <div
               key={item.id}
               style={{
-                backgroundColor: "#ffffff",
+                backgroundColor: "#fff",
                 borderRadius: "14px",
                 boxShadow: "0 8px 20px rgba(0,0,0,0.08)",
-                overflow: "hidden",
               }}
             >
               <img
@@ -117,26 +70,19 @@ const Fashion: React.FC = () => {
                 style={{ width: "100%", height: "260px", objectFit: "cover" }}
               />
 
-              <div style={{ padding: "1.2rem" }}>
-                <h3 style={{ fontSize: "1.1rem", fontWeight: 600 }}>
-                  {item.name}
-                </h3>
-
-                <p style={{ color: "#6b7280", margin: "0.5rem 0" }}>
-                  {item.price}
-                </p>
+              <div style={{ padding: "1rem" }}>
+                <h3 style={{ fontWeight: 600 }}>{item.name}</h3>
+                <p style={{ color: "#6b7280" }}>${item.price}</p>
 
                 <button
                   style={{
-                    marginTop: "0.8rem",
+                    marginTop: "0.7rem",
                     width: "100%",
                     backgroundColor: "blue",
-                    color: "#ffffff",
+                    color: "white",
                     padding: "0.6rem",
                     borderRadius: "8px",
                     border: "none",
-                    cursor: "pointer",
-                    fontWeight: 600,
                   }}
                 >
                   Add to Cart
