@@ -35,7 +35,7 @@ const ElectronicsPage: React.FC = () => {
 
   /* 🔹 Backend fetch */
   useEffect(() => {
-    fetch("http://localhost:3000/electronics")
+    fetch("http://localhost:3001/electronics")
       .then((res) => res.json())
       .then((data: Product[]) => {
         if (data && data.length > 0) {
