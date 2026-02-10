@@ -41,10 +41,9 @@ const Page = () => {
 
     console.log("Men Product Added:", newProduct);
 
-    // later: send to backend using fetch / axios
     alert("Men product added successfully!");
 
-    // reset
+   
     setName("");
     setCategory("");
     setSelectedSizes([]);
@@ -53,14 +52,14 @@ const Page = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex justify-center items-center px-4">
+    <div className="min-h-screen bg-gray-200 flex justify-center items-center px-4">
       <div className="bg-white w-full max-w-xl rounded-lg shadow-md p-6">
         <h1 className="text-2xl font-bold mb-6 text-center">
           Add Men Product
         </h1>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Product Name */}
+       
           <div>
             <label className="block font-medium mb-1">Product Name</label>
             <input
@@ -72,7 +71,7 @@ const Page = () => {
             />
           </div>
 
-          {/* Category */}
+        
           <div>
             <label className="block font-medium mb-1">Category</label>
             <select
@@ -90,7 +89,6 @@ const Page = () => {
             </select>
           </div>
 
-          {/* Sizes */}
           <div>
             <label className="block font-medium mb-1">Sizes</label>
             <div className="flex gap-3 flex-wrap">
@@ -110,7 +108,7 @@ const Page = () => {
             </div>
           </div>
 
-          {/* Price */}
+      
           <div>
             <label className="block font-medium mb-1">Price ($)</label>
             <input
@@ -122,7 +120,7 @@ const Page = () => {
             />
           </div>
 
-          {/* Image URL */}
+       
           <div>
             <label className="block font-medium mb-1">Image URL</label>
             <input
@@ -134,7 +132,7 @@ const Page = () => {
             />
           </div>
 
-          {/* Submit */}
+     
           <button
             type="submit"
             className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
