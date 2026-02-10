@@ -4,7 +4,7 @@ import React from "react";
 
 const HelpContactPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-gray-150 via-gray-200 to-gray-300 py-12 px-4">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 perspective-[1200px]">
 
       
