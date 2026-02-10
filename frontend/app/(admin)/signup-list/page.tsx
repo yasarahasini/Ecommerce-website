@@ -50,7 +50,7 @@ const SignupPage = () => {
         onSubmit={handleSubmit}
         className="bg-white p-6 rounded-lg shadow-md w-full max-w-md"
       >
-        <h2 className="text-2xl font-bold mb-4 text-center">Signup</h2>
+        <h2 className="text-2xl font-bold mb-4 text-center">All Signup Users List</h2>
 
         <input
           type="text"
