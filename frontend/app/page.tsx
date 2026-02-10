@@ -143,7 +143,7 @@ const Home: React.FC = () => {
               </p>
             </div>
 
-            <button className="bg-red-600 hover:bg-blue-700 transition text-white px-8 py-3 rounded-lg font-semibold">
+            <button className="bg-red-600 hover:bg-blue-600 transition text-white px-8 py-3 rounded-lg font-semibold">
               Start Now
             </button>
 
