@@ -43,12 +43,12 @@ const AdminSidebar = () => {
 
   return (
     <aside className="h-screen w-64 bg-gray-900 text-white fixed left-0 top-0 flex flex-col">
-      {/* Logo */}
+    
       <div className="px-6 py-5 text-2xl font-bold border-b border-gray-700">
         Admin Panel
       </div>
 
-      {/* Menu */}
+    
       <nav className="flex-1 px-4 py-6 space-y-2">
         {menuItems.map((item) => {
           const Icon = item.icon;
@@ -72,7 +72,7 @@ const AdminSidebar = () => {
         })}
       </nav>
 
-      {/* Logout */}
+    
       <div className="px-4 py-4 border-t border-gray-700">
         <button
           onClick={handleLogout}
