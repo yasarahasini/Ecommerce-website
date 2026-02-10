@@ -82,18 +82,7 @@ const products: Product[] = [
     price: 79.99,
     image: "/products/headphones.jpg",
   },
-   {
-    id: 1,
-    name: "Classic Sneakers",
-    price: 59.99,
-    image: "/products/shoe.jpg",
-  },
-  {
-    id: 2,
-    name: "Leather Backpack",
-    price: 89.99,
-    image: "/products/bag.jpg",
-  },
+ 
 
 ];
 
