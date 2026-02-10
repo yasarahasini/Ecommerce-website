@@ -122,7 +122,7 @@ const Page = () => {
 
        
           <div>
-            <label className="block font-medium mb-1">Image URL</label>
+            <label className="block font-medium mb-1">Image URLS</label>
             <input
               type="text"
               required
