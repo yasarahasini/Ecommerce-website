@@ -62,7 +62,7 @@ const AdminSidebar = () => {
                 ${
                   active
                     ? "bg-blue-600 text-white"
-                    : "text-gray-300 hover:bg-gray-800 hover:text-white"
+                    : "text-gray-300 hover:bg-gray-700 hover:text-white"
                 }`}
             >
               <Icon size={20} />
