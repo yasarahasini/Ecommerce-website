@@ -21,7 +21,7 @@ const user: UserProfile = {
   name: "Yasara Hasini",
   email: "yasarahasini61@email.com",
   phone: "+94 77 123 4567",
-  joined: "January 2025",
+  joined: "January 2026",
   address: "No 45, Galle Road, Colombo 03, Sri Lanka",
   avatar: "/yasara.png",
   orders: {
@@ -36,7 +36,7 @@ const page: React.FC = () => {
     <div className="min-h-screen bg-gray-100 px-4 py-10">
       <div className="mx-auto max-w-5xl rounded-2xl bg-white p-6 shadow-lg">
 
-        {/* Header */}
+   
         <div className="flex flex-col items-center gap-6 border-b pb-6 md:flex-row">
           <div className="relative h-32 w-32">
             <Image
@@ -57,10 +57,9 @@ const page: React.FC = () => {
           </div>
         </div>
 
-        {/* Content */}
+    
         <div className="mt-6 grid gap-6 md:grid-cols-3">
-          
-          {/* Personal Info */}
+       
           <div className="rounded-xl bg-gray-50 p-5 md:col-span-2">
             <h2 className="mb-4 text-lg font-semibold">Personal Information</h2>
 
@@ -72,7 +71,7 @@ const page: React.FC = () => {
             </div>
           </div>
 
-          {/* Orders */}
+        
           <div className="rounded-xl bg-gray-150 p-5">
             <h2 className="mb-4 text-lg font-semibold">Order Summary</h2>
 
@@ -82,13 +81,13 @@ const page: React.FC = () => {
           </div>
         </div>
 
-        {/* Address */}
+     
         <div className="mt-6 rounded-xl bg-gray-50 p-5">
           <h2 className="mb-3 text-lg font-semibold">Shipping Address</h2>
           <p className="text-sm text-gray-600">{user.address}</p>
         </div>
 
-        {/* Actions */}
+       
         <div className="mt-8 flex justify-end">
           <button className="rounded-lg bg-red-500 px-6 py-2 text-sm text-white hover:bg-red-600">
             Logout
@@ -99,7 +98,7 @@ const page: React.FC = () => {
   );
 };
 
-/* Reusable Components */
+
 
 interface InfoProps {
   label: string;
