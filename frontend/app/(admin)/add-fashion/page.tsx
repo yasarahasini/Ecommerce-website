@@ -57,7 +57,7 @@ const AddFashionForm = () => {
 
   return (
     <div className="max-w-md mx-auto bg-white p-6 rounded-xl shadow text-black">
-      <h2 className="text-xl font-bold mb-4">Add Fashion Item</h2>
+      <h2 className="text-xl font-bold mb-4">Add Fashion Items</h2>
 
       {success && (
         <p className="text-green-600 mb-3">Item added successfully ✅</p>
