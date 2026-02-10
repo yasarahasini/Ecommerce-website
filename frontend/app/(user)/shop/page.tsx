@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import ProtectedRoute from "@/app/components/protectedroute";
+
 interface Product {
   id: number;
   name: string;
