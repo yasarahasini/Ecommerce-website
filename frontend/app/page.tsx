@@ -34,7 +34,7 @@ const Home: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
-      <section className="bg-gradient-to-r from-gray-200 via-white to-gray-200 py-10">
+      <section className="bg-gradient-to-r from-gray-300 via-white to-gray-200 py-10">
         <div className="max-w-7xl mx-auto px-6">
 
           <div className="relative h-[420px] md:h-[320px] max-w-6xl mx-auto overflow-hidden shadow-lg">
