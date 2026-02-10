@@ -94,18 +94,7 @@ const products: Product[] = [
     price: 89.99,
     image: "/products/bag.jpg",
   },
-  {
-    id: 3,
-    name: "Smart Watch",
-    price: 129.99,
-    image: "/products/watch.jpg",
-  },
-  {
-    id: 4,
-    name: "Wireless Headphones",
-    price: 79.99,
-    image: "/products/headphones.jpg",
-  },
+
 ];
 
 export default function ShopPage() {
