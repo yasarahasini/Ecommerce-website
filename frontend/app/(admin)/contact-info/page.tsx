@@ -33,7 +33,7 @@ export default function AdminDashboard() {
   return (
     <main className="min-h-screen bg-gray-200 p-6">
       <section className="max-w-6xl mx-auto bg-white shadow-lg rounded-xl p-8">
-        <h1 className="text-3xl font-bold mb-6 text-gray-800 text-center">
+        <h1 className="text-3xl font-bold mb-6 text-gray-700 text-center">
           Admin Dashboard
         </h1>
 
