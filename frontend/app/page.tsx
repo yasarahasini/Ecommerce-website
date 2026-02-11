@@ -63,7 +63,7 @@ const Home: React.FC = () => {
                 Find the best products at unbeatable prices!
               </p>
               <Link href="/shop">
-                <button className="bg-blue-600 hover:bg-blue-700 transition px-8 py-3 rounded-lg font-semibold">
+                <button className="bg-blue-600 hover:bg-blue-800 transition px-8 py-3 rounded-lg font-semibold">
                   Shop Now
                 </button>
               </Link>
