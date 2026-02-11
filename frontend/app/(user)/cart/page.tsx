@@ -54,7 +54,7 @@ export default function CartPage() {
           type="button"
           className="mt-4 bg-green-600 text-white px-6 py-2 rounded"
         >
-          Check out
+          Checkout
         </button>
       </Link>
     </div>
