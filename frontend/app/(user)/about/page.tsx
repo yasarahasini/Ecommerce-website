@@ -5,7 +5,7 @@ type AboutProps = {};
 
 const About: React.FC<AboutProps> = () => {
   return (
-    <main style={{ minHeight: "100vh", backgroundColor: "#f9fafb", padding: "4rem 1.5rem" }}>
+    <main style={{ minHeight: "100vh", backgroundColor: "#7d8fa1", padding: "4rem 1.5rem" }}>
       <section
         style={{
           maxWidth: "900px",
