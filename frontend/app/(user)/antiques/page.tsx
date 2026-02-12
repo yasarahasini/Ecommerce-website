@@ -111,7 +111,7 @@ const AntiquesPage: React.FC = () => {
                   {/* Image Container with "Antique Paper" border */}
                   <div className="relative aspect-square overflow-hidden bg-[#e5e1d8] p-4 shadow-xl group-hover:shadow-2xl transition-all duration-700">
                     <div className="relative w-full h-full border border-[#c4baaa] overflow-hidden">
-                      <Image
+                      <img
                         src={item.img}
                         alt={item.name}
                         fill
