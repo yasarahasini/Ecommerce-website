@@ -6,70 +6,77 @@ import Link from "next/link";
 interface Product {
   id: number;
   name: string;
+  artist: string; // Added artist field
   price: number;
   img: string;
-  category?: string;
+  category: string;
 }
 
-
-const dummyProducts: Product[] = [
-  { id: 1, name: "Smartphone X12", price: 799, img: "/images/phone1.jpg", category: "Phones" },
-  { id: 2, name: "Laptop Pro 15", price: 1299, img: "/images/laptop1.jpg", category: "Laptops" },
-  { id: 3, name: "Wireless Headphones", price: 199, img: "/images/headphones1.jpg", category: "Headphones" },
-  { id: 4, name: "Smartwatch Z", price: 299, img: "/images/smartwatch1.jpg", category: "Smartwatches" },
-  { id: 5, name: "Gaming Console Y", price: 499, img: "/images/console1.jpg", category: "Gaming" },
+const dummyArt: Product[] = [
+  { id: 1, name: "Abstract Horizons", artist: "Elena Rossi", price: 450, img: "https://images.unsplash.com/photo-1541701494587-cb58502866ab", category: "Painting" },
+  { id: 2, name: "Golden Hour Sculpt", artist: "Marcus Aurel", price: 1200, img: "https://images.unsplash.com/photo-1549490349-8643362247b5", category: "Sculpture" },
+  { id: 3, name: "Urban Geometry", artist: "Sarah Chen", price: 195, img: "https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb", category: "Wall Art" },
+  { id: 4, name: "Midnight Bloom", artist: "Julian Vane", price: 320, img: "https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85", category: "Painting" },
+  { id: 5, name: "Minimalist Form", artist: "Dieter Rams", price: 850, img: "https://images.unsplash.com/photo-1554188248-986adbb73be4", category: "Digital Art" },
+  { id: 6, name: "Marble Echo", artist: "Luca Brasi", price: 2100, img: "https://images.unsplash.com/photo-1515516089376-88db1e26e9c0", category: "Sculpture" },
 ];
 
 const categories = [
-  "All ARTS",
-  "Wall art",
+  "All Art",
   "Painting",
-  "Headphones",
-  "Smartwatches",
-  "Gaming",
+  "Wall Art",
+  "Sculpture",
+  "Digital Art",
 ];
 
-const ElectronicsPage: React.FC = () => {
-  const [products, setProducts] = useState<Product[]>(dummyProducts);
-  const [selectedCategory, setSelectedCategory] = useState("All Electronics");
+const ArtGalleryPage: React.FC = () => {
+  const [products, setProducts] = useState<Product[]>(dummyArt);
+  const [selectedCategory, setSelectedCategory] = useState("All Art");
 
-  
   useEffect(() => {
+    // Note: Ensure your backend endpoint matches your art data structure
     fetch("http://localhost:3001/art")
       .then((res) => res.json())
       .then((data: Product[]) => {
         if (data && data.length > 0) {
-          setProducts(data); 
+          setProducts(data);
         }
       })
       .catch(() => {
-        console.log("Backend not available → using dummy electronics");
+        console.log("Using curated gallery collection");
       });
   }, []);
 
-  
   const filteredProducts =
-    selectedCategory === "All ARTS"
+    selectedCategory === "All Art"
       ? products
       : products.filter((p) => p.category === selectedCategory);
 
   return (
-    <div className="min-h-screen text-black bg-gray-100">
-      <div className="max-w-7xl mx-auto px-6 py-10 flex gap-6">
+    <div className="min-h-screen text-stone-900 bg-[#f9f8f4]">
+      {/* Hero Header */}
+      <header className="bg-white border-b border-stone-200 py-12 px-6 text-center">
+        <h1 className="text-4xl md:text-5xl font-serif font-light tracking-wide italic">The Fine Art Gallery</h1>
+        <p className="mt-4 text-stone-500 font-light max-w-xl mx-auto uppercase tracking-widest text-xs">
+          Discover unique pieces from emerging global artists
+        </p>
+      </header>
+
+      <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row gap-12">
         
-        <aside className="w-64 bg-white rounded-lg shadow-md p-4 sticky top-10 h-fit">
-          <h2 className="text-xl font-semibold mb-4">Categories</h2>
-          <ul className="space-y-2">
+        {/* Sidebar Filters */}
+        <aside className="w-full md:w-48 shrink-0">
+          <h2 className="text-xs font-bold uppercase tracking-widest mb-6 border-b border-stone-300 pb-2">Collections</h2>
+          <ul className="space-y-4">
             {categories.map((cat) => (
               <li key={cat}>
                 <button
                   onClick={() => setSelectedCategory(cat)}
-                  className={`w-full text-left px-3 py-2 rounded transition
-                    ${
-                      selectedCategory === cat
-                        ? "bg-purple-600 text-white"
-                        : "hover:bg-purple-200"
-                    }`}
+                  className={`text-sm transition-all duration-300 ${
+                    selectedCategory === cat
+                      ? "text-stone-900 font-bold translate-x-2"
+                      : "text-stone-400 hover:text-stone-600 hover:translate-x-1"
+                  }`}
                 >
                   {cat}
                 </button>
@@ -78,32 +85,40 @@ const ElectronicsPage: React.FC = () => {
           </ul>
         </aside>
 
-      
+        {/* Art Grid */}
         <main className="flex-1">
-          <h1 className="text-3xl font-bold mb-6">ART</h1>
+          <div className="flex justify-between items-center mb-8">
+            <p className="text-sm text-stone-400 italic">Showing {filteredProducts.length} masterpieces</p>
+          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
             {filteredProducts.map((product) => (
               <div
                 key={product.id}
-                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition"
+                className="group bg-transparent overflow-hidden"
               >
                 <Link href={`/products/${product.id}`}>
-                  <div className="relative w-full h-56">
-                    <Image
+                  {/* Image with Art Frame feel */}
+                  <div className="relative w-full aspect-[4/5] bg-stone-200 border-[12px] border-white shadow-lg group-hover:shadow-2xl transition-shadow duration-500">
+                
+                    <img
                       src={product.img}
                       alt={product.name}
                       fill
                       className="object-cover"
                     />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300" />
                   </div>
 
-                  <div className="p-4">
-                    <h3 className="text-lg font-semibold">
+                  {/* Art Details */}
+                  <div className="mt-6 text-center md:text-left">
+                    <h3 className="text-xl font-serif text-stone-800">
                       {product.name}
                     </h3>
-                    <p className="text-blue-500 font-bold mt-2">
-                      ${product.price}
+                    <p className="text-sm text-stone-500 italic mb-2">By {product.artist}</p>
+                    <div className="w-8 h-[1px] bg-stone-300 my-2 mx-auto md:mx-0" />
+                    <p className="text-md font-medium text-stone-900 mt-2">
+                      ${product.price.toLocaleString()}
                     </p>
                   </div>
                 </Link>
@@ -112,9 +127,11 @@ const ElectronicsPage: React.FC = () => {
           </div>
 
           {filteredProducts.length === 0 && (
-            <p className="text-gray-500 mt-10">
-              No products available in this category.
-            </p>
+            <div className="h-64 flex items-center justify-center border border-dashed border-stone-300 rounded-lg">
+              <p className="text-stone-400 italic font-light">
+                The vault is empty for this category.
+              </p>
+            </div>
           )}
         </main>
       </div>
@@ -122,4 +139,4 @@ const ElectronicsPage: React.FC = () => {
   );
 };
 
-export default ElectronicsPage;
+export default ArtGalleryPage;
