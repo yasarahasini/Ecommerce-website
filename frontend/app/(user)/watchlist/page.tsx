@@ -54,7 +54,7 @@ const WatchlistPage: React.FC = () => {
     <div className="min-h-screen bg-gray-50 py-12 px-6">
       <div className="max-w-4xl mx-auto">
         
-        {/* Header */}
+     
         <div className="flex items-end justify-between mb-10 border-b border-gray-200 pb-6">
           <div>
             <h1 className="text-3xl font-bold text-gray-900">Your Watchlist</h1>
@@ -65,7 +65,7 @@ const WatchlistPage: React.FC = () => {
           </span>
         </div>
 
-        {/* Watchlist List */}
+      
         <div className="space-y-4">
           {items.map((item) => (
             <div 
@@ -74,7 +74,7 @@ const WatchlistPage: React.FC = () => {
             >
               <div className="flex flex-col sm:flex-row items-center p-4 gap-6">
                 
-                {/* Image Section */}
+              
                 <div className="relative w-24 h-32 flex-shrink-0">
                   <img
                     src={item.img} 
@@ -84,7 +84,7 @@ const WatchlistPage: React.FC = () => {
                   />
                 </div>
 
-                {/* Info Section */}
+             
                 <div className="flex-1 text-center sm:text-left">
                   <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-1">
                     <span className="text-[10px] uppercase tracking-widest font-bold text-indigo-600">
@@ -101,7 +101,7 @@ const WatchlistPage: React.FC = () => {
                   <p className="text-xs text-gray-400 mt-2">Added on {new Date(item.dateAdded).toLocaleDateString()}</p>
                 </div>
 
-                {/* Actions Section */}
+              
                 <div className="flex flex-row sm:flex-col gap-2 w-full sm:w-auto border-t sm:border-t-0 sm:border-l border-gray-100 pt-4 sm:pt-0 sm:pl-6">
                   <button 
                     disabled={!item.inStock}
@@ -126,7 +126,7 @@ const WatchlistPage: React.FC = () => {
           ))}
         </div>
 
-        {/* Empty State */}
+     
         {items.length === 0 && (
           <div className="text-center py-20">
             <div className="text-6xl mb-4">empty</div>
