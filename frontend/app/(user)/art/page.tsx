@@ -6,7 +6,7 @@ import Link from "next/link";
 interface Product {
   id: number;
   name: string;
-  artist: string; // Added artist field
+  artist: string;
   price: number;
   img: string;
   category: string;
@@ -34,7 +34,6 @@ const ArtGalleryPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState("All Art");
 
   useEffect(() => {
-    // Note: Ensure your backend endpoint matches your art data structure
     fetch("http://localhost:3001/art")
       .then((res) => res.json())
       .then((data: Product[]) => {
@@ -54,7 +53,7 @@ const ArtGalleryPage: React.FC = () => {
 
   return (
     <div className="min-h-screen text-stone-900 bg-[#f9f8f4]">
-      {/* Hero Header */}
+   
       <header className="bg-white border-b border-stone-200 py-12 px-6 text-center">
         <h1 className="text-4xl md:text-5xl font-serif font-light tracking-wide italic">The Fine Art Gallery</h1>
         <p className="mt-4 text-stone-500 font-light max-w-xl mx-auto uppercase tracking-widest text-xs">
@@ -64,7 +63,6 @@ const ArtGalleryPage: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row gap-12">
         
-        {/* Sidebar Filters */}
         <aside className="w-full md:w-48 shrink-0">
           <h2 className="text-xs font-bold uppercase tracking-widest mb-6 border-b border-stone-300 pb-2">Collections</h2>
           <ul className="space-y-4">
@@ -85,7 +83,6 @@ const ArtGalleryPage: React.FC = () => {
           </ul>
         </aside>
 
-        {/* Art Grid */}
         <main className="flex-1">
           <div className="flex justify-between items-center mb-8">
             <p className="text-sm text-stone-400 italic">Showing {filteredProducts.length} masterpieces</p>
@@ -98,7 +95,7 @@ const ArtGalleryPage: React.FC = () => {
                 className="group bg-transparent overflow-hidden"
               >
                 <Link href={`/products/${product.id}`}>
-                  {/* Image with Art Frame feel */}
+               
                   <div className="relative w-full aspect-[4/5] bg-stone-200 border-[12px] border-white shadow-lg group-hover:shadow-2xl transition-shadow duration-500">
                 
                     <img
@@ -110,7 +107,7 @@ const ArtGalleryPage: React.FC = () => {
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300" />
                   </div>
 
-                  {/* Art Details */}
+                
                   <div className="mt-6 text-center md:text-left">
                     <h3 className="text-xl font-serif text-stone-800">
                       {product.name}
