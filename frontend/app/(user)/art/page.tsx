@@ -21,9 +21,9 @@ const dummyProducts: Product[] = [
 ];
 
 const categories = [
-  "All Electronics",
-  "Phones",
-  "Laptops",
+  "All ARTS",
+  "Wall art",
+  "Painting",
   "Headphones",
   "Smartwatches",
   "Gaming",
@@ -35,7 +35,7 @@ const ElectronicsPage: React.FC = () => {
 
   
   useEffect(() => {
-    fetch("http://localhost:3001/electronics")
+    fetch("http://localhost:3001/art")
       .then((res) => res.json())
       .then((data: Product[]) => {
         if (data && data.length > 0) {
@@ -49,7 +49,7 @@ const ElectronicsPage: React.FC = () => {
 
   
   const filteredProducts =
-    selectedCategory === "All Electronics"
+    selectedCategory === "All ARTS"
       ? products
       : products.filter((p) => p.category === selectedCategory);
 
@@ -67,8 +67,8 @@ const ElectronicsPage: React.FC = () => {
                   className={`w-full text-left px-3 py-2 rounded transition
                     ${
                       selectedCategory === cat
-                        ? "bg-red-600 text-white"
-                        : "hover:bg-red-200"
+                        ? "bg-purple-600 text-white"
+                        : "hover:bg-purple-200"
                     }`}
                 >
                   {cat}
@@ -80,7 +80,7 @@ const ElectronicsPage: React.FC = () => {
 
       
         <main className="flex-1">
-          <h1 className="text-3xl font-bold mb-6">Electronics</h1>
+          <h1 className="text-3xl font-bold mb-6">ART</h1>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {filteredProducts.map((product) => (

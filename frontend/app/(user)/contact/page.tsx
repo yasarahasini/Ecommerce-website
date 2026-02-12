@@ -20,7 +20,7 @@ export default function ContactPage() {
   const [errors, setErrors] = useState<string[]>([]);
 
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -58,27 +58,26 @@ export default function ContactPage() {
   return (
     <main className="flex justify-center items-center min-h-screen bg-gray-100 p-6">
       <section className="flex flex-col md:flex-row w-full max-w-5xl bg-white shadow-lg rounded-xl overflow-hidden">
-        
-  
-<div className="md:w-1/2 bg-gray-200 flex justify-center items-center p-4">
-  <video
-    src="/v1.mp4"
-    autoPlay
-    loop
-    muted
-    playsInline
-    className="w-full h-96 md:h-full object-contain rounded-lg shadow-lg"
-  />
-</div>
+        <div className="md:w-1/2 bg-gray-200 flex justify-center items-center p-4">
+          <video
+            src="/v1.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-96 md:h-full object-contain rounded-lg shadow-lg"
+          />
+        </div>
 
-
-        <div className="md:w-1/2 p-8">
-          <h1 className="text-3xl font-bold mb-6 text-gray-800 text-center md:text-left">
+        <div className="md:w-1/2 p-8  bg-gradient-to-r from-pink-600 to-purple-600 ">
+          <h1 className="text-3xl font-bold mb-6 text-white text-center md:text-left">
             Contact Us
           </h1>
 
           {success && (
-            <p className="text-green-600 text-center mb-4 font-medium">{success}</p>
+            <p className="text-green-600 text-center mb-4 font-medium">
+              {success}
+            </p>
           )}
           {errors.length > 0 && (
             <ul className="text-red-600 mb-4">
@@ -90,9 +89,9 @@ export default function ContactPage() {
             </ul>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4 text-white">
             <div>
-              <label className="block text-gray-700 font-medium mb-1">Name</label>
+              <label className="block text-white font-medium mb-1">Name</label>
               <input
                 type="text"
                 name="name"
@@ -104,7 +103,7 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <label className="block text-gray-700 font-medium mb-1">Email</label>
+              <label className="block text-white font-medium mb-1">Email</label>
               <input
                 type="email"
                 name="email"
@@ -116,7 +115,9 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <label className="block text-gray-700 font-medium mb-1">Message</label>
+              <label className="block text-white font-medium mb-1">
+                Message
+              </label>
               <textarea
                 name="message"
                 value={formData.message}
@@ -131,7 +132,9 @@ export default function ContactPage() {
               type="submit"
               disabled={loading}
               className={`w-full py-3 rounded-lg text-white font-semibold transition-colors ${
-                loading ? "bg-gray-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"
+                loading
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-blue-600 hover:bg-blue-700"
               }`}
             >
               {loading ? "Sending..." : "Send Message"}

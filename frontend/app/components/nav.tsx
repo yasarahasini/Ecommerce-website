@@ -40,7 +40,7 @@ const Navbar: React.FC = () => {
           </div>
           <Link href="/sell" className="hover:underline">Sell</Link>
           <div className="flex items-center cursor-pointer hover:underline">
-            <span>Watchlist</span>
+            <Link href="/watchlist">Watchlist</Link>
             <ChevronDown size={14} className="ml-1" />
           </div>
           <div className="flex items-center cursor-pointer hover:underline">

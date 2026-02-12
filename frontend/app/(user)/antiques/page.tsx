@@ -35,7 +35,7 @@ const ElectronicsPage: React.FC = () => {
 
   
   useEffect(() => {
-    fetch("http://localhost:3001/electronics")
+    fetch("http://localhost:3001/antiques")
       .then((res) => res.json())
       .then((data: Product[]) => {
         if (data && data.length > 0) {
@@ -80,7 +80,7 @@ const ElectronicsPage: React.FC = () => {
 
       
         <main className="flex-1">
-          <h1 className="text-3xl font-bold mb-6">Electronics</h1>
+          <h1 className="text-3xl font-bold mb-6">Antiques</h1>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {filteredProducts.map((product) => (

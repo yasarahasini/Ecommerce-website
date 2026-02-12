@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import Link from "next/link";
 
 const MainSearch: React.FC = () => {
   return (
@@ -39,6 +40,7 @@ const MainSearch: React.FC = () => {
               <option>Art</option>
               <option>Baby</option>
               <option>Books</option>
+              
             </select>
         
             <svg className="w-4 h-4 text-gray-500 -ml-6 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -53,9 +55,9 @@ const MainSearch: React.FC = () => {
         </button>
 
        
-        <a href="#" className="text-[12px] text-gray-500 hover:text-blue-600 cursor-pointer">
+        <Link  href="#" className="text-[12px] text-gray-500 hover:text-blue-600 cursor-pointer">
           Advanced
-        </a>
+        </Link>
 
       </div>
     </div>

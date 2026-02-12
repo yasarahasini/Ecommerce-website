@@ -91,12 +91,30 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="sticky top-0 z-30 bg-blue-600 text-white px-6 py-20">
+      <section className="sticky top-0 z-30 bg-green-800 text-white px-6 py-20">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-bold mb-10 text-center">Bundle & Save</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {deals.map((deal) => (
               <div key={deal.id} className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl hover:bg-white/20 transition">
+                <div className="relative h-40 mb-4 rounded-lg overflow-hidden">
+                   <img src={deal.image} alt={deal.name} className="w-full h-full object-cover" />
+                </div>
+                <h3 className="font-bold text-xl">{deal.name}</h3>
+                <p className="text-blue-100 mb-4">Starting at ${deal.discountedPrice}</p>
+                <button className="w-full bg-white text-blue-600 font-bold py-2 rounded-lg hover:bg-blue-50">Add to Bundle</button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+        <section className="sticky top-0 z-30 bg-white text-black px-6 py-20">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl font-bold mb-10 text-center"> Offers</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {deals.map((deal) => (
+              <div key={deal.id} className="bg-white/10 backdrop-blur-md border border-black/20 p-6 rounded-2xl hover:bg-black/20 transition">
                 <div className="relative h-40 mb-4 rounded-lg overflow-hidden">
                    <img src={deal.image} alt={deal.name} className="w-full h-full object-cover" />
                 </div>

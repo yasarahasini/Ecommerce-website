@@ -143,7 +143,7 @@ const Home: React.FC = () => {
               </p>
             </div>
 
-            <button className="bg-red-600 hover:bg-blue-600 transition text-white px-8 py-3 rounded-lg font-semibold">
+            <button className="bg-red-600 hover:bg-red-500 transition text-white px-8 py-3 rounded-lg font-semibold">
               Start Now
             </button>
 
@@ -163,8 +163,6 @@ const Home: React.FC = () => {
         See All →
       </a>
     </div>
-
- 
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
 
       <div className="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
@@ -265,7 +263,7 @@ const Home: React.FC = () => {
 
 
 
-<section className="relative py-16 overflow-hidden">
+<section className="relative py-6 overflow-hidden">
 
   <video
     autoPlay
@@ -305,7 +303,13 @@ const Home: React.FC = () => {
 
     </div>
   </div>
+  
 </section>
+<section>
+  <div className="py-20 bg-gray-300">
+
+  </div>
+  </section>
 
 
     </div>
