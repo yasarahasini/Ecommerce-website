@@ -69,7 +69,7 @@ const BooksPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#fdfcf8] text-[#1a1a1a]">
-      {/* Search & Header Section */}
+    
       <header className="bg-[#1a365d] text-[#fdfcf8] py-16 px-6 shadow-lg">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4 tracking-tight">The Bibliophile's Haven</h1>
@@ -86,8 +86,7 @@ const BooksPage: React.FC = () => {
       </header>
 
       <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row gap-12">
-        
-        {/* Sidebar: Genres */}
+      
         <aside className="w-full md:w-56 shrink-0">
           <h2 className="text-sm font-bold uppercase tracking-widest text-[#1a365d] mb-6 border-b-2 border-yellow-500 pb-2">Genres</h2>
           <nav>
@@ -110,13 +109,13 @@ const BooksPage: React.FC = () => {
           </nav>
         </aside>
 
-        {/* Book Shelf Grid */}
+      
         <main className="flex-1">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {filteredBooks.map((book) => (
               <div key={book.id} className="flex flex-col group">
                 <Link href={`/book/${book.id}`}>
-                  {/* Book Spine/Cover Effect */}
+              
                   <div className="relative aspect-[2/3] w-full shadow-md group-hover:shadow-2xl group-hover:-translate-y-2 transition-all duration-300 rounded-r-lg overflow-hidden border-l-4 border-black/20">
                     <img
                       src={book.img}
