@@ -171,7 +171,6 @@ export default function BabyCollectionPage() {
           ))}
         </div>
 
-        {/* Empty State */}
         {filteredProducts.length === 0 && (
           <div className="text-center py-20">
             <p className="text-gray-400 text-xl font-light italic">No items found in this category yet.</p>
