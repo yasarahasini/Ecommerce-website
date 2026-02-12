@@ -69,7 +69,7 @@ const AntiquesPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#f4f1ea] text-[#2c241e] font-serif">
-      {/* Ornamental Header */}
+    
       <header className="py-16 px-6 text-center border-b border-[#d1c7b7] bg-[#ede8de]">
         <span className="block text-xs tracking-[0.3em] uppercase mb-4 text-[#8b7355]">Established Vault</span>
         <h1 className="text-5xl md:text-6xl font-light mb-4">The Curator’s Archive</h1>
@@ -81,7 +81,7 @@ const AntiquesPage: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col lg:flex-row gap-16">
         
-        {/* Sidebar: The Catalog Menu */}
+      
         <aside className="lg:w-64">
           <div className="sticky top-10 border border-[#d1c7b7] p-8 bg-white/50 backdrop-blur-sm shadow-inner">
             <h2 className="text-lg mb-6 border-b border-[#2c241e] pb-2 italic">Departments</h2>
@@ -102,13 +102,13 @@ const AntiquesPage: React.FC = () => {
           </div>
         </aside>
 
-        {/* Main: The Collection Grid */}
+    
         <main className="flex-1">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {filteredItems.map((item) => (
               <div key={item.id} className="group cursor-pointer">
                 <Link href={`/antiques/${item.id}`}>
-                  {/* Image Container with "Antique Paper" border */}
+              
                   <div className="relative aspect-square overflow-hidden bg-[#e5e1d8] p-4 shadow-xl group-hover:shadow-2xl transition-all duration-700">
                     <div className="relative w-full h-full border border-[#c4baaa] overflow-hidden">
                       <img
@@ -120,9 +120,9 @@ const AntiquesPage: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Metadata */}
+                
                   <div className="mt-8 text-center border-t border-[#d1c7b7] pt-6 relative">
-                    {/* Decorative Diamond */}
+                 
                     <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rotate-45 bg-[#f4f1ea] border border-[#d1c7b7]" />
                     
                     <span className="text-[10px] uppercase tracking-widest text-[#8b7355]">{item.era} — {item.origin}</span>
