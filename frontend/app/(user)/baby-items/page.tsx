@@ -87,8 +87,7 @@ export default function BabyCollectionPage() {
   return (
     <div className="bg-[#fffdfa] min-h-screen py-12">
       <div className="max-w-7xl mx-auto px-6">
-        
-        {/* Hero Section */}
+
         <header className="text-center mb-16">
           <span className="text-rose-400 font-semibold tracking-widest uppercase text-sm">Premium Quality</span>
           <h1 className="text-5xl font-serif font-bold text-gray-800 mt-2 mb-4">Baby Collection</h1>
@@ -97,7 +96,6 @@ export default function BabyCollectionPage() {
           </p>
         </header>
 
-        {/* Filter Navigation */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {categories.map((cat) => (
             <button
@@ -114,14 +112,14 @@ export default function BabyCollectionPage() {
           ))}
         </div>
 
-        {/* Product Grid */}
+      
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {filteredProducts.map((product) => (
             <div
               key={product.id}
               className="group bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 flex flex-col"
             >
-              {/* 3D Viewer Container */}
+      
               <div className={`relative h-80 ${product.color} p-4`}>
                 <iframe
                   src={product.modelUrl}
@@ -132,7 +130,6 @@ export default function BabyCollectionPage() {
                 />
               </div>
 
-              {/* Product Info */}
               <div className="p-8 flex flex-col flex-grow">
                 <div className="flex justify-between items-start mb-2">
                   <div>
