@@ -76,7 +76,7 @@ const WatchlistPage: React.FC = () => {
                 
                 {/* Image Section */}
                 <div className="relative w-24 h-32 flex-shrink-0">
-                  <Image 
+                  <img
                     src={item.img} 
                     alt={item.title} 
                     fill 
