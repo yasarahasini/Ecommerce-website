@@ -13,7 +13,7 @@ const GiftCardPage: React.FC = () => {
         
     
         <div className=" bg-gradient-to-r from-purple-300 to-blue-600 bg-gray-500 text-white rounded-xl shadow p-6">
-          <h1 className="text-3xl font-semibold mb-4">🎁 Gift Card</h1>
+          <h1 className="text-3xl font-semibold mb-4">🎁 Gift Card a</h1>
           <p className="text-white mb-6">
             Give the perfect gift! Our gift cards can be used on any product
             in our store and are delivered instantly via email.
