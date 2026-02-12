@@ -3,123 +3,143 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-interface Product {
+interface Antique {
   id: number;
   name: string;
+  era: string; 
+  origin: string;
   price: number;
   img: string;
-  category?: string;
+  category: string;
+  condition: "Excellent" | "Good" | "Fair";
 }
 
-
-const dummyProducts: Product[] = [
-  { id: 1, name: "Smartphone X12", price: 799, img: "/images/phone1.jpg", category: "Phones" },
-  { id: 2, name: "Laptop Pro 15", price: 1299, img: "/images/laptop1.jpg", category: "Laptops" },
-  { id: 3, name: "Wireless Headphones", price: 199, img: "/images/headphones1.jpg", category: "Headphones" },
-  { id: 4, name: "Smartwatch Z", price: 299, img: "/images/smartwatch1.jpg", category: "Smartwatches" },
-  { id: 5, name: "Gaming Console Y", price: 499, img: "/images/console1.jpg", category: "Gaming" },
+const dummyAntiques: Antique[] = [
+  { 
+    id: 1, 
+    name: "Victorian Pocket Watch", 
+    era: "c. 1890", 
+    origin: "London, UK",
+    price: 1250, 
+    img: "https://images.unsplash.com/photo-1509048191080-d2984bad6ad5", 
+    category: "Horology",
+    condition: "Excellent"
+  },
+  { 
+    id: 2, 
+    name: "Ming Dynasty Style Vase", 
+    era: "Late 19th Century", 
+    origin: "Jingdezhen, China",
+    price: 3400, 
+    img: "https://images.unsplash.com/photo-1580512126919-3f098518b7ec", 
+    category: "Ceramics",
+    condition: "Good"
+  },
+  { 
+    id: 3, 
+    name: "Solid Oak Writing Desk", 
+    era: "Edwardian Era", 
+    origin: "France",
+    price: 850, 
+    img: "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd", 
+    category: "Furniture",
+    condition: "Fair"
+  },
+  { 
+    id: 4, 
+    name: "Antique Brass Telescope", 
+    era: "c. 1920", 
+    origin: "Naval Supply",
+    price: 520, 
+    img: "https://images.unsplash.com/photo-1505350319500-1c990267605e", 
+    category: "Instruments",
+    condition: "Excellent"
+  }
 ];
 
-const categories = [
-  "All Electronics",
-  "Phones",
-  "Laptops",
-  "Headphones",
-  "Smartwatches",
-  "Gaming",
-];
+const categories = ["All Rarities", "Furniture", "Ceramics", "Horology", "Instruments"];
 
-const ElectronicsPage: React.FC = () => {
-  const [products, setProducts] = useState<Product[]>(dummyProducts);
-  const [selectedCategory, setSelectedCategory] = useState("All Electronics");
+const AntiquesPage: React.FC = () => {
+  const [items, setItems] = useState<Antique[]>(dummyAntiques);
+  const [selectedCategory, setSelectedCategory] = useState("All Rarities");
 
-  
-  useEffect(() => {
-    fetch("http://localhost:3001/antiques")
-      .then((res) => res.json())
-      .then((data: Product[]) => {
-        if (data && data.length > 0) {
-          setProducts(data); 
-        }
-      })
-      .catch(() => {
-        console.log("Backend not available → using dummy electronics");
-      });
-  }, []);
-
-  
-  const filteredProducts =
-    selectedCategory === "All Electronics"
-      ? products
-      : products.filter((p) => p.category === selectedCategory);
+  const filteredItems = selectedCategory === "All Rarities" 
+    ? items 
+    : items.filter(item => item.category === selectedCategory);
 
   return (
-    <div className="min-h-screen text-black bg-gray-100">
-      <div className="max-w-7xl mx-auto px-6 py-10 flex gap-6">
+    <div className="min-h-screen bg-[#f4f1ea] text-[#2c241e] font-serif">
+      {/* Ornamental Header */}
+      <header className="py-16 px-6 text-center border-b border-[#d1c7b7] bg-[#ede8de]">
+        <span className="block text-xs tracking-[0.3em] uppercase mb-4 text-[#8b7355]">Established Vault</span>
+        <h1 className="text-5xl md:text-6xl font-light mb-4">The Curator’s Archive</h1>
+        <p className="max-w-2xl mx-auto font-sans text-sm text-[#5d534a] leading-relaxed">
+          Sourcing rare historical artifacts and authentic period pieces from around the globe. 
+          Every item is authenticated and cataloged with provenance.
+        </p>
+      </header>
+
+      <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col lg:flex-row gap-16">
         
-        <aside className="w-64 bg-white rounded-lg shadow-md p-4 sticky top-10 h-fit">
-          <h2 className="text-xl font-semibold mb-4">Categories</h2>
-          <ul className="space-y-2">
-            {categories.map((cat) => (
-              <li key={cat}>
-                <button
-                  onClick={() => setSelectedCategory(cat)}
-                  className={`w-full text-left px-3 py-2 rounded transition
-                    ${
-                      selectedCategory === cat
-                        ? "bg-red-600 text-white"
-                        : "hover:bg-red-200"
+        {/* Sidebar: The Catalog Menu */}
+        <aside className="lg:w-64">
+          <div className="sticky top-10 border border-[#d1c7b7] p-8 bg-white/50 backdrop-blur-sm shadow-inner">
+            <h2 className="text-lg mb-6 border-b border-[#2c241e] pb-2 italic">Departments</h2>
+            <ul className="space-y-4 font-sans text-sm tracking-wide">
+              {categories.map((cat) => (
+                <li key={cat}>
+                  <button
+                    onClick={() => setSelectedCategory(cat)}
+                    className={`uppercase transition-colors ${
+                      selectedCategory === cat ? "text-[#8b7355] font-bold" : "text-[#5d534a] hover:text-[#2c241e]"
                     }`}
-                >
-                  {cat}
-                </button>
-              </li>
-            ))}
-          </ul>
+                  >
+                    {cat}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
         </aside>
 
-      
+        {/* Main: The Collection Grid */}
         <main className="flex-1">
-          <h1 className="text-3xl font-bold mb-6">Antiques</h1>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {filteredProducts.map((product) => (
-              <div
-                key={product.id}
-                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition"
-              >
-                <Link href={`/products/${product.id}`}>
-                  <div className="relative w-full h-56">
-                    <Image
-                      src={product.img}
-                      alt={product.name}
-                      fill
-                      className="object-cover"
-                    />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {filteredItems.map((item) => (
+              <div key={item.id} className="group cursor-pointer">
+                <Link href={`/antiques/${item.id}`}>
+                  {/* Image Container with "Antique Paper" border */}
+                  <div className="relative aspect-square overflow-hidden bg-[#e5e1d8] p-4 shadow-xl group-hover:shadow-2xl transition-all duration-700">
+                    <div className="relative w-full h-full border border-[#c4baaa] overflow-hidden">
+                      <Image
+                        src={item.img}
+                        alt={item.name}
+                        fill
+                        className="object-cover grayscale-[0.2] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
+                      />
+                    </div>
                   </div>
 
-                  <div className="p-4">
-                    <h3 className="text-lg font-semibold">
-                      {product.name}
-                    </h3>
-                    <p className="text-blue-500 font-bold mt-2">
-                      ${product.price}
-                    </p>
+                  {/* Metadata */}
+                  <div className="mt-8 text-center border-t border-[#d1c7b7] pt-6 relative">
+                    {/* Decorative Diamond */}
+                    <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rotate-45 bg-[#f4f1ea] border border-[#d1c7b7]" />
+                    
+                    <span className="text-[10px] uppercase tracking-widest text-[#8b7355]">{item.era} — {item.origin}</span>
+                    <h3 className="text-2xl mt-1 mb-3 group-hover:text-[#8b7355] transition-colors">{item.name}</h3>
+                    <div className="flex justify-center gap-4 text-xs font-sans text-[#5d534a]">
+                      <span className="border px-2 py-0.5 border-[#d1c7b7] uppercase">{item.condition}</span>
+                      <span className="font-bold text-[#2c241e]">${item.price.toLocaleString()}</span>
+                    </div>
                   </div>
                 </Link>
               </div>
             ))}
           </div>
-
-          {filteredProducts.length === 0 && (
-            <p className="text-gray-500 mt-10">
-              No products available in this category.
-            </p>
-          )}
         </main>
       </div>
     </div>
   );
 };
 
-export default ElectronicsPage;
+export default AntiquesPage;
