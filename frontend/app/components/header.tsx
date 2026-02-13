@@ -12,10 +12,10 @@ const MainSearch: React.FC = () => {
   ) => {
     const value = e.target.value;
 
-    if (value === "antiques") router.push("/category/antiques");
-    if (value === "art") router.push("/category/art");
-    if (value === "baby") router.push("/category/baby");
-    if (value === "books") router.push("/category/books");
+    if (value === "antiques") router.push("/antiques");
+    if (value === "art") router.push("/art");
+    if (value === "baby") router.push("/baby-items");
+    if (value === "books") router.push("/books");
   };
 
   return (
