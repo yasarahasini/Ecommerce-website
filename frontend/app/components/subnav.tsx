@@ -8,7 +8,7 @@ const SubNav = () => {
       <div className="max-w-7xl mx-auto px-4">
         <nav className="flex items-center gap-6 h-12 overflow-x-auto text-sm font-medium">
           
-          <Link href="/deals" className="text-red-600 hover:text-red-700 whitespace-nowrap">
+          <Link href="/deals" className="text-red-700 hover:text-red-700 whitespace-nowrap">
             🔥 Deals
           </Link>
 
