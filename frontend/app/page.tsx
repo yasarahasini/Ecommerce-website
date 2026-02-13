@@ -307,9 +307,71 @@ const Home: React.FC = () => {
 </section>
 <section>
   <div className="py-20 bg-gray-300">
+    <section
+      aria-label="Model Page Popup for Annotation Shortcuts Demo: Earthquakes"
+      className="c-model-page-popup__container view sidebar-right model-container"
+    >
+      <a
+        aria-label="See the previous model : Emission Demo: Divergence Meter"
+        className="c-model-page-popup__arrow --left fa-regular fa-chevron-left"
+        href="/3d-models/emission-demo-divergence-meter-148e3de16e9e4c389d67c7a12db47fc0"
+      ></a>
+      <a
+        aria-label="See the next model : Alpha Mask Channel Demo"
+        className="c-model-page-popup__arrow --right fa-regular fa-chevron-right"
+        href="/3d-models/alpha-mask-channel-demo-8b4170b7259c4a11946246fcc02408a6"
+      ></a>
+      <a
+        className="c-model-page-popup__close fa-regular fa-times"
+        aria-label="Close popup"
+        role="button"
+      ></a>
 
+      <div className="main c-model-page-popup__main">
+        <div className="c-viewer">
+          <iframe
+            title="Annotation Shortcuts Demo: Earthquakes 3D model - Sketchfab"
+            className="c-viewer__iframe"
+            src="https://sketchfab.com/models/2ffe7b8e3e4341bf8048ef8dc0f55fd1/embed?autostart=1&internal=1&tracking=0&ui_infos=0&ui_snapshots=1&ui_stop=0&ui_watermark=0"
+            id="api-frame"
+            allow="autoplay; fullscreen; xr-spatial-tracking"
+            xr-spatial-tracking="true"
+            execution-while-out-of-viewport="true"
+            execution-while-not-rendered="true"
+            web-share="true"
+            allowFullScreen
+          ></iframe>
+        </div>
+        <div className="content-wrapper model-page-main">
+          <h1 className="model-name">
+            <span className="model-name__label" itemProp="name">
+            
+            </span>
+          </h1>
+      
+          <p>
+            <a
+              href="https://sketchfab.com/3d-models/earthquakes-2000-to-2019-894ad84ceb8b444a91fbc05f20530bcd"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+          
+            </a>{" "}
+           {" "}
+            <a
+              href="https://sketchfab.com/norgeotloic"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+            </a>{" "}
+          
+          </p>
+        </div>
+      </div>
+    </section>
   </div>
-  </section>
+</section>
+
 
 
     </div>
