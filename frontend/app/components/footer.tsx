@@ -60,7 +60,7 @@ const Footer: FC = () => {
       </div>
 
       <div className="text-center text-sm text-gray-500 mt-10">
-        &copy; {new Date().getFullYear()} Ecommerce Website. All rights reserved.
+        &copy; {new Date().getFullYear()} Ecommerce Website. All rights reserved..
       </div>
     </footer>
   );
