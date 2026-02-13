@@ -57,7 +57,7 @@ const ArtGalleryPage: React.FC = () => {
       <header className="bg-white border-b border-stone-200 py-12 px-6 text-center">
         <h1 className="text-4xl md:text-5xl font-serif font-light tracking-wide italic">The Fine Art Gallery</h1>
         <p className="mt-4 text-stone-500 font-light max-w-xl mx-auto uppercase tracking-widest text-xs">
-          Discover unique pieces from emerging global artists
+          Discover unique pieces from emerging global artists..
         </p>
       </header>
 
