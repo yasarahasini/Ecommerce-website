@@ -311,7 +311,7 @@ const Home: React.FC = () => {
       <div className="main c-model-page-popup__main">
         <div className="c-viewer w-full">
           
-          {/* 👇 Bigger responsive viewer */}
+        
           <div className="w-full h-[600px] md:h-[100px] lg:h-[500px]">
             <iframe
               title="Annotation Shortcuts Demo: Earthquakes 3D model - Sketchfab"
