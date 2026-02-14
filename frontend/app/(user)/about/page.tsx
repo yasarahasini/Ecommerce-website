@@ -17,7 +17,7 @@ const About: React.FC<AboutProps> = () => {
         }}
       >
         <h1 style={{ fontSize: "2.5rem", fontWeight: 700, marginBottom: "1.5rem" }}>
-          About Us
+          .....About Us.....
         </h1>
 
         <p style={{ fontSize: "1.1rem", lineHeight: 1.7, color: "#4b5563" }}>
