@@ -116,7 +116,7 @@ export default function ShopPage() {
               ${product.price}
             </p>
 
-            <button className="mt-4 w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition">
+            <button className="mt-4 w-full bg-blue-700 text-white py-2 rounded-lg hover:bg-gray-800 transition">
               Add to Cart
             </button>
           </div>
