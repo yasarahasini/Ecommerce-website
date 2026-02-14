@@ -98,7 +98,7 @@ const BooksPage: React.FC = () => {
                     className={`text-md transition-all block w-full text-left py-1 ${
                       selectedCategory === cat 
                         ? "text-[#1a365d] font-bold border-l-4 border-[#1a365d] pl-3" 
-                        : "text-gray-500 hover:text-[#1a365d] hover:pl-2"
+                        : "text-gray-600 hover:text-[#1a365d] hover:pl-2"
                     }`}
                   >
                     {cat}
