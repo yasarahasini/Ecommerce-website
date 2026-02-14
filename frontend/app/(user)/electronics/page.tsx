@@ -11,7 +11,6 @@ interface Product {
   category?: string;
 }
 
-
 const dummyProducts: Product[] = [
   { id: 1, name: "Smartphone X12", price: 799, img: "/images/phone1.jpg", category: "Phones" },
   { id: 2, name: "Laptop Pro 15", price: 1299, img: "/images/laptop1.jpg", category: "Laptops" },
@@ -33,13 +32,12 @@ const ElectronicsPage: React.FC = () => {
   const [products, setProducts] = useState<Product[]>(dummyProducts);
   const [selectedCategory, setSelectedCategory] = useState("All Electronics");
 
-  
   useEffect(() => {
     fetch("http://localhost:3001/electronics")
       .then((res) => res.json())
       .then((data: Product[]) => {
         if (data && data.length > 0) {
-          setProducts(data); 
+          setProducts(data);
         }
       })
       .catch(() => {
@@ -48,6 +46,12 @@ const ElectronicsPage: React.FC = () => {
   }, []);
 
   
+  const handleAddToCart = (e: React.MouseEvent, product: Product) => {
+    e.preventDefault(); 
+    console.log(`Added to cart: ${product.name}`);
+    alert(`${product.name} added to cart!`);
+  };
+
   const filteredProducts =
     selectedCategory === "All Electronics"
       ? products
@@ -78,7 +82,6 @@ const ElectronicsPage: React.FC = () => {
           </ul>
         </aside>
 
-      
         <main className="flex-1">
           <h1 className="text-3xl font-bold mb-6">Electronics</h1>
 
@@ -86,9 +89,9 @@ const ElectronicsPage: React.FC = () => {
             {filteredProducts.map((product) => (
               <div
                 key={product.id}
-                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition"
+                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition flex flex-col"
               >
-                <Link href={`/products/${product.id}`}>
+                <Link href={`/products/${product.id}`} className="flex-1">
                   <div className="relative w-full h-56">
                     <Image
                       src={product.img}
@@ -99,14 +102,23 @@ const ElectronicsPage: React.FC = () => {
                   </div>
 
                   <div className="p-4">
-                    <h3 className="text-lg font-semibold">
+                    <h3 className="text-lg font-semibold truncate">
                       {product.name}
                     </h3>
-                    <p className="text-blue-500 font-bold mt-2">
+                    <p className="text-blue-600 font-bold mt-2">
                       ${product.price}
                     </p>
                   </div>
                 </Link>
+                
+                <div className="p-4 pt-0">
+                  <button
+                    onClick={(e) => handleAddToCart(e, product)}
+                    className="w-full bg-black text-white py-2 rounded-md font-medium hover:bg-gray-800 transition-colors duration-200 flex items-center justify-center gap-2"
+                  >
+                    <span>Add to Cart</span>
+                  </button>
+                </div>
               </div>
             ))}
           </div>
