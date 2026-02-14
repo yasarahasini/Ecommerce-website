@@ -21,7 +21,7 @@ const dummyAntiques: Antique[] = [
     era: "c. 1890", 
     origin: "London, UK",
     price: 1250, 
-    img: "https://images.unsplash.com/photo-1509048191080-d2984bad6ad5", 
+    img: "https://images.unsplash.com/photo-1509048191080-d2984bad6ad5?auto=format&fit=crop&w=800&q=80", 
     category: "Horology",
     condition: "Excellent"
   },
@@ -31,7 +31,7 @@ const dummyAntiques: Antique[] = [
     era: "Late 19th Century", 
     origin: "Jingdezhen, China",
     price: 3400, 
-    img: "https://images.unsplash.com/photo-1580512126919-3f098518b7ec", 
+    img: "https://images.unsplash.com/photo-1580512126919-3f098518b7ec?auto=format&fit=crop&w=800&q=80", 
     category: "Ceramics",
     condition: "Good"
   },
@@ -41,7 +41,7 @@ const dummyAntiques: Antique[] = [
     era: "Edwardian Era", 
     origin: "France",
     price: 850, 
-    img: "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd", 
+    img: "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=800&q=80", 
     category: "Furniture",
     condition: "Fair"
   },
@@ -51,11 +51,12 @@ const dummyAntiques: Antique[] = [
     era: "c. 1920", 
     origin: "Naval Supply",
     price: 520, 
-    img: "https://images.unsplash.com/photo-1505350319500-1c990267605e", 
+    img: "https://images.unsplash.com/photo-1505350319500-1c990267605e?auto=format&fit=crop&w=800&q=80", 
     category: "Instruments",
     condition: "Excellent"
   }
 ];
+
 
 const categories = ["All Rarities", "Furniture", "Ceramics", "Horology", "Instruments"];
 
