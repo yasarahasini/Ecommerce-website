@@ -156,7 +156,7 @@ export default function BabyCollectionPage() {
                     addToCart(product);
                     router.push("/cart");
                   }}
-                  className="mt-auto w-full bg-pink-600 text-white py-4 rounded-xl font-bold hover:bg-rose-400 transition-colors duration-300 flex items-center justify-center gap-2"
+                  className="mt-auto w-full bg-pink-500 text-white py-4 rounded-xl font-bold hover:bg-rose-400 transition-colors duration-300 flex items-center justify-center gap-2"
                 >
                   <span>Add to Nursery</span>
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
