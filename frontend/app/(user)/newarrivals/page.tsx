@@ -94,7 +94,7 @@ export default function Home() {
           </p>
           <Link
             href="/shop"
-            className="inline-flex items-center gap-3 bg-gradient-to-r from-lime-400 to-orange-400 text-black font-bold px-6 py-3 rounded-lg hover:scale-105 transition animate-fadeIn"
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-lime-400 to-blue-400 text-black font-bold px-6 py-3 rounded-lg hover:scale-105 transition animate-fadeIn"
           >
             Shop Now
           </Link>
