@@ -57,7 +57,7 @@ const Home: React.FC = () => {
 
             <div className="relative z-10 h-full flex flex-col items-center justify-center text-center text-white px-4">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                Welcome to My eCommerce Store
+                Welcome to Yash eCommerce Store
               </h1>
               <p className="text-lg md:text-xl mb-6">
                 Find the best products at unbeatable prices!
