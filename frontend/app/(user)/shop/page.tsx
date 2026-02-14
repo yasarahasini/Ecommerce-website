@@ -10,80 +10,32 @@ interface Product {
 }
 
 const products: Product[] = [
-  {
-    id: 1,
-    name: "Classic Sneakers",
-    price: 59.99,
-    image: "/products/shoe.jpg",
-  },
-  {
-    id: 2,
-    name: "Leather Backpack",
-    price: 89.99,
-    image: "/products/bag.jpg",
-  },
-  {
-    id: 3,
-    name: "Smart Watch",
-    price: 129.99,
-    image: "/products/watch.jpg",
-  },
-  {
-    id: 4,
-    name: "Wireless Headphones",
-    price: 79.99,
-    image: "/products/headphones.jpg",
-  },
-   {
-    id: 1,
-    name: "Classic Sneakers",
-    price: 59.99,
-    image: "/products/shoe.jpg",
-  },
-  {
-    id: 2,
-    name: "Leather Backpack",
-    price: 89.99,
-    image: "/products/bag.jpg",
-  },
-  {
-    id: 3,
-    name: "Smart Watch",
-    price: 129.99,
-    image: "/products/watch.jpg",
-  },
-  {
-    id: 4,
-    name: "Wireless Headphones",
-    price: 79.99,
-    image: "/products/headphones.jpg",
-  },
-   {
-    id: 1,
-    name: "Classic Sneakers",
-    price: 59.99,
-    image: "/products/shoe.jpg",
-  },
-  {
-    id: 2,
-    name: "Leather Backpack",
-    price: 89.99,
-    image: "/products/bag.jpg",
-  },
-  {
-    id: 3,
-    name: "Smart Watch",
-    price: 129.99,
-    image: "/products/watch.jpg",
-  },
-  {
-    id: 4,
-    name: "Wireless Headphones",
-    price: 79.99,
-    image: "/products/headphones.jpg",
-  },
- 
 
+   {
+    id: 1,
+    name: "Classic Sneakers",
+    price: 59.99,
+    image: "/9.jpg",
+  },
+  {
+    id: 2,
+    name: "Leather Backpack",
+    price: 89.99,
+    image: "/f4.jpg",
+  },
+  {
+    id: 3,
+    name: "Smart Watch",
+    price: 129.99,
+    image: "/d2.jpg",
+  },
+  {
+    id: 4,
+    name: "Wireless Headphones",
+    price: 79.99,
+    image: "/14.jpg",
+  },
+  
 ];
 
 export default function ShopPage() {
