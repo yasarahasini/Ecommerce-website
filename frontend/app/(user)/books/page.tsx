@@ -153,7 +153,7 @@ const BooksPage: React.FC = () => {
 
           {filteredBooks.length === 0 && (
             <div className="text-center py-20 bg-gray-50 rounded-xl border-2 border-dashed">
-              <p className="text-gray-400 italic font-serif">Alas, this shelf is currently empty.</p>
+              <p className="text-gray-500 italic font-serif">Alas, this shelf is currently empty.</p>
             </div>
           )}
         </main>
