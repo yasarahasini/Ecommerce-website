@@ -114,7 +114,7 @@ const ElectronicsPage: React.FC = () => {
                 <div className="p-4 pt-0">
                   <button
                     onClick={(e) => handleAddToCart(e, product)}
-                    className="w-full bg-black text-white py-2 rounded-md font-medium hover:bg-gray-800 transition-colors duration-200 flex items-center justify-center gap-2"
+                    className="w-full bg-green-900 text-white py-2 rounded-md font-medium hover:bg-green-800 transition-colors duration-200 flex items-center justify-center gap-2"
                   >
                     <span>Add to Cart</span>
                   </button>
