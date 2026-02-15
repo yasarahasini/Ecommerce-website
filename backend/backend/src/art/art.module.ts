@@ -1,7 +1,12 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Art } from './entity/art.entity';
 import { ArtService } from './art.service';
+import { ArtController } from './art.controller';
 
 @Module({
-  providers: [ArtService]
+  imports: [TypeOrmModule.forFeature([Art])],
+  controllers: [ArtController],
+  providers: [ArtService],
 })
 export class ArtModule {}
