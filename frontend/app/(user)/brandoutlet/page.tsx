@@ -34,7 +34,7 @@ const BrandOutletPage = () => {
       : products.filter((p) => p.category === selectedCategory);
 
   useEffect(() => {
-    // Animate banner text
+  
     if (bannerRef.current) {
       gsap.fromTo(
         bannerRef.current,
@@ -43,7 +43,7 @@ const BrandOutletPage = () => {
       );
     }
 
-    // Animate product cards
+   
     gsap.fromTo(
       productRefs.current,
       { y: 50, opacity: 0 },
@@ -59,22 +59,22 @@ const BrandOutletPage = () => {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      {/* Brand Banner */}
+
       <section className="relative h-64 w-full">
         <Image
-          src="/brand-banner.jpg"
+          src="/14.jpg"
           alt="Brand Outlet Banner"
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+        <div className="absolute inset-0  bg-opacity-40 flex items-center justify-center">
           <h1 ref={bannerRef} className="text-white text-4xl font-bold">
             Brand Outlet
           </h1>
         </div>
       </section>
 
-      {/* Category Filter */}
+   
       <div className="max-w-6xl mx-auto px-4 py-6">
         <div className="flex gap-4 mb-6">
           {categories.map((cat) => (
@@ -92,7 +92,7 @@ const BrandOutletPage = () => {
           ))}
         </div>
 
-        {/* Products Grid */}
+      
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {filteredProducts.map((product, index) => (
             <div
