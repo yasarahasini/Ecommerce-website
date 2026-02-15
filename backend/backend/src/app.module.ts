@@ -13,6 +13,8 @@ import { WomenModule } from './women/women.module';
 import { MenModule } from './men/men.module';
 import { AboutModule } from './about/about.module';
 import { AntiquesModule } from './antiques/antiques.module';
+import { ArtController } from './art/art.controller';
+import { ArtModule } from './art/art.module';
 
 @Module({
   imports: [
@@ -36,6 +38,8 @@ import { AntiquesModule } from './antiques/antiques.module';
     MenModule,
     AboutModule,
     AntiquesModule,
+    ArtModule,
   ],
+  controllers: [ArtController],
 })
 export class AppModule {}
