@@ -9,7 +9,7 @@ import { UpdateArtDto } from './dto/update-art.dto';
 export class ArtService {
   constructor(
     @InjectRepository(Art)
-    private artRepo: Repository<Art>,
+    private readonly artRepo: Repository<Art>,
   ) {}
 
   create(dto: CreateArtDto) {

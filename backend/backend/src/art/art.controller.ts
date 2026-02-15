@@ -1,4 +1,13 @@
-import { Controller, Get, Post, Body, Param, Patch, Delete, Query } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Param,
+  Patch,
+  Delete,
+  Query,
+} from '@nestjs/common';
 import { ArtService } from './art.service';
 import { CreateArtDto } from './dto/create-art.dto';
 import { UpdateArtDto } from './dto/update-art.dto';
@@ -13,13 +22,14 @@ export class ArtController {
   }
 
   @Get()
-  findAll(@Query('category') category?: string) {
+  async findAll(@Query('category') category?: string) {
+    const items = await this.artService.findAll();
+
     if (category && category !== 'All Art') {
-      return this.artService.findAll().then(items =>
-        items.filter(item => item.category === category),
-      );
+      return items.filter((item) => item.category === category);
     }
-    return this.artService.findAll();
+
+    return items;
   }
 
   @Get(':id')
