@@ -1,95 +1,123 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { gsap } from "gsap";
 
-interface Brand {
+interface Product {
   id: number;
   name: string;
-  discount: string;
-  image: string;
+  price: number;
+  img: string;
+  category: string;
 }
 
-const brands: Brand[] = [
-  {
-    id: 1,
-    name: "Nike",
-    discount: "Up to 50% OFF",
-    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
-  },
-  {
-    id: 2,
-    name: "Adidas",
-    discount: "Up to 60% OFF",
-    image: "https://images.unsplash.com/photo-1518002171953-a080ee817e1f",
-  },
-  {
-    id: 3,
-    name: "Puma",
-    discount: "Up to 45% OFF",
-    image: "https://images.unsplash.com/photo-1600180758890-6b94519a8ba6",
-  },
-  {
-    id: 4,
-    name: "Zara",
-    discount: "Up to 70% OFF",
-    image: "https://images.unsplash.com/photo-1521335629791-ce4aec67dd53",
-  },
-  {
-    id: 5,
-    name: "H&M",
-    discount: "Up to 55% OFF",
-    image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d",
-  },
-  {
-    id: 6,
-    name: "Levi's",
-    discount: "Up to 40% OFF",
-    image: "https://images.unsplash.com/photo-1520975916090-3105956dac38",
-  },
+const products: Product[] = [
+  { id: 1, name: "Smartphone X12", price: 799, img: "/products/phone1.jpg", category: "Electronics" },
+  { id: 2, name: "Wireless Headphones", price: 199, img: "/products/headphones.jpg", category: "Electronics" },
+  { id: 3, name: "Running Shoes", price: 129, img: "/products/shoes.jpg", category: "Fashion" },
+  { id: 4, name: "Leather Jacket", price: 249, img: "/products/jacket.jpg", category: "Fashion" },
+  { id: 5, name: "Coffee Maker", price: 89, img: "/products/coffee.jpg", category: "Home Appliances" },
+  { id: 6, name: "Smart Watch", price: 299, img: "/products/watch.jpg", category: "Electronics" },
 ];
 
-const BrandOutletPage: React.FC = () => {
+const categories = ["All", "Electronics", "Fashion", "Home Appliances"];
+
+const BrandOutletPage = () => {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const productRefs = useRef<HTMLDivElement[]>([]);
+  const bannerRef = useRef<HTMLHeadingElement>(null);
+
+  const filteredProducts =
+    selectedCategory === "All"
+      ? products
+      : products.filter((p) => p.category === selectedCategory);
+
+  useEffect(() => {
+    // Animate banner text
+    if (bannerRef.current) {
+      gsap.fromTo(
+        bannerRef.current,
+        { y: -50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
+      );
+    }
+
+    // Animate product cards
+    gsap.fromTo(
+      productRefs.current,
+      { y: 50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power3.out",
+      }
+    );
+  }, [filteredProducts]);
+
   return (
-   <div className="min-h-screen text-black bg-gradient-to-r from-gray-200 to-blue-600 px-4 py-10">
-
-
-      <div className="max-w-7xl mx-auto">
-        
-        <div className="mb-8 text-center">
-          <h1 className="text-3xl font-bold">Brand Outlet</h1>
-          <p className="text-white mt-2">
-            Shop your favorite brands at unbeatable prices
-          </p>
+    <div className="bg-gray-50 min-h-screen">
+      {/* Brand Banner */}
+      <section className="relative h-64 w-full">
+        <Image
+          src="/brand-banner.jpg"
+          alt="Brand Outlet Banner"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+          <h1 ref={bannerRef} className="text-white text-4xl font-bold">
+            Brand Outlet
+          </h1>
         </div>
+      </section>
 
-      
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {brands.map((brand) => (
-            <div
-              key={brand.id}
-              className="bg-white rounded-xl shadow hover:shadow-lg transition cursor-pointer overflow-hidden"
+      {/* Category Filter */}
+      <div className="max-w-6xl mx-auto px-4 py-6">
+        <div className="flex gap-4 mb-6">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setSelectedCategory(cat)}
+              className={`px-4 py-2 rounded-full font-medium ${
+                selectedCategory === cat
+                  ? "bg-red-500 text-white"
+                  : "bg-gray-200 text-gray-700"
+              }`}
             >
-              <div className="relative">
-                <img
-                  src={brand.image}
-                  alt={brand.name}
-                  className="h-40 w-full object-cover"
-                />
-                <span className="absolute top-2 left-2 bg-black text-white text-xs px-2 py-1 rounded">
-                  {brand.discount}
-                </span>
-              </div>
-
-              <div className="p-4 text-center">
-                <h3 className="font-semibold text-lg">{brand.name}</h3>
-                <button className="mt-3 text-sm text-white bg-black px-4 py-1 rounded hover:bg-gray-800">
-                  Shop Now
-                </button>
-              </div>
-            </div>
+              {cat}
+            </button>
           ))}
         </div>
 
+        {/* Products Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {filteredProducts.map((product, index) => (
+            <div
+              key={product.id}
+              ref={(el) => {
+                if (el) productRefs.current[index] = el;
+              }}
+              className="bg-white rounded-lg shadow hover:shadow-lg transition p-4 transform hover:scale-105"
+            >
+              <div className="relative h-48 w-full mb-4">
+                <Image
+                  src={product.img}
+                  alt={product.name}
+                  fill
+                  className="object-cover rounded-lg"
+                />
+              </div>
+              <h2 className="text-lg font-semibold">{product.name}</h2>
+              <p className="text-red-500 font-bold mt-1">${product.price}</p>
+              <button className="mt-3 w-full bg-red-500 text-white py-2 rounded hover:bg-red-600 transition">
+                Buy Now
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
