@@ -40,7 +40,7 @@ const dummyBooks: Book[] = [
     title: "The Great Gatsby", 
     author: "F. Scott Fitzgerald", 
     price: 12.00, 
-    img: "https://images.unsplash.com/photo-1543004218-ee141104308e", 
+    img: "/baby.jpg", 
     category: "Classic",
     format: "Hardcover",
     rating: 4.5
