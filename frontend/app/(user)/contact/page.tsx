@@ -61,11 +61,9 @@ export default function ContactPage() {
   style={{ backgroundImage: "url('/brandoutlet.jpg')" }}
 >
       <section className="flex flex-col md:flex-row w-full max-w-5xl bg- shadow-lg rounded-xl overflow-hidden">
-        <div className="md:w-1/2  flex justify-center items-center p-4">
-        
-        </div>
+      
 
-        <div className="md:w-1/2 p-8  bg-gradient-to-r from-pink-600 to-purple-600 ">
+        <div className="md:w-1/2 p-8   ">
           <h1 className="text-3xl font-bold mb-6 text-white text-center md:text-left">
             Contact Us
           </h1>
