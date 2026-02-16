@@ -142,7 +142,7 @@ export default function Home() {
                     </div>
                     <div className="p-4">
                       <h3 className="font-bold text-lg">{prod.name}</h3>
-                      <p className="text-gray-600">{prod.price}</p>
+                      <p className="text-gray-700">{prod.price}</p>
                       <Link
                         href="/shop"
                         className="mt-2 inline-block px-4 py-2 bg-orange-400 text-black rounded hover:bg-orange-500 transition"
