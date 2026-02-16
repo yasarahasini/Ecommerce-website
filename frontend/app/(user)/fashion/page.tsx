@@ -14,6 +14,14 @@ const dummyFashionItems: FashionItem[] = [
   { id: 2, name: "Summer Floral Dress", price: 39.99, image: "/f22.jpg" },
   { id: 3, name: "Casual Sneakers", price: 59.99, image: "/f3.jpg" },
   { id: 4, name: "Stylish Handbag", price: 29.99, image: "/f4.jpg" },
+   { id: 1, name: "Classic Denim Jacket", price: 49.99, image: "/f1.jpg" },
+  { id: 2, name: "Summer Floral Dress", price: 39.99, image: "/f22.jpg" },
+  { id: 3, name: "Casual Sneakers", price: 59.99, image: "/f3.jpg" },
+  { id: 4, name: "Stylish Handbag", price: 29.99, image: "/f4.jpg" },
+   { id: 1, name: "Classic Denim Jacket", price: 49.99, image: "/f1.jpg" },
+  { id: 2, name: "Summer Floral Dress", price: 39.99, image: "/f22.jpg" },
+  { id: 3, name: "Casual Sneakers", price: 59.99, image: "/f3.jpg" },
+  { id: 4, name: "Stylish Handbag", price: 29.99, image: "/f4.jpg" },
 ];
 
 const Fashion: React.FC = () => {
