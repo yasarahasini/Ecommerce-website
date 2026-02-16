@@ -24,7 +24,7 @@ export default function CartPage() {
 
   if (cart.length === 0) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen bg-gray-300 flex items-center justify-center">
         <h2 className="text-xl font-semibold">🛒 Cart is empty</h2>
       </div>
     );
