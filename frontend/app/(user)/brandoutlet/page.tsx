@@ -62,7 +62,7 @@ const BrandOutletPage = () => {
 
       <section className="relative h-64 w-full">
         <Image
-          src="/14.jpg"
+          src="/brandoutlet.jpg"
           alt="Brand Outlet Banner"
           fill
           className="object-cover"
