@@ -1,7 +1,11 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useCart } from "../context/CartContext";
+import { isAuthenticated } from "@/app/utility/auth";
 
 interface Product {
   id: number;
@@ -32,6 +36,9 @@ const ElectronicsPage: React.FC = () => {
   const [products, setProducts] = useState<Product[]>(dummyProducts);
   const [selectedCategory, setSelectedCategory] = useState("All Electronics");
 
+  const router = useRouter();
+  const { addToCart } = useCart();
+
   useEffect(() => {
     fetch("http://localhost:3001/electronics")
       .then((res) => res.json())
@@ -45,11 +52,18 @@ const ElectronicsPage: React.FC = () => {
       });
   }, []);
 
-  
+
   const handleAddToCart = (e: React.MouseEvent, product: Product) => {
-    e.preventDefault(); 
-    console.log(`Added to cart: ${product.name}`);
-    alert(`${product.name} added to cart!`);
+    e.preventDefault();
+
+    if (!isAuthenticated()) {
+      alert("Please login first");
+      router.push("/login");
+      return;
+    }
+
+    addToCart(product);
+    router.push("/cart");
   };
 
   const filteredProducts =
@@ -61,6 +75,7 @@ const ElectronicsPage: React.FC = () => {
     <div className="min-h-screen text-black bg-gray-100">
       <div className="max-w-7xl mx-auto px-6 py-10 flex gap-6">
         
+  
         <aside className="w-64 bg-white rounded-lg shadow-md p-4 sticky top-10 h-fit">
           <h2 className="text-xl font-semibold mb-4">Categories</h2>
           <ul className="space-y-2">
@@ -110,13 +125,13 @@ const ElectronicsPage: React.FC = () => {
                     </p>
                   </div>
                 </Link>
-                
+
                 <div className="p-4 pt-0">
                   <button
                     onClick={(e) => handleAddToCart(e, product)}
-                    className="w-full bg-green-900 text-white py-2 rounded-md font-medium hover:bg-green-800 transition-colors duration-200 flex items-center justify-center gap-2"
+                    className="w-full bg-green-900 text-white py-2 rounded-md font-medium hover:bg-green-800 transition-colors duration-200"
                   >
-                    <span>Add to Cart</span>
+                    Add to Cart
                   </button>
                 </div>
               </div>
