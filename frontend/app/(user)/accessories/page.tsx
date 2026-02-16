@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 type Accessory = {
   _id: string;
@@ -14,6 +15,7 @@ const API_URL = "http://localhost:3001";
 const AccessoriesPage = () => {
   const [accessories, setAccessories] = useState<Accessory[]>([]);
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
     const fetchAccessories = async () => {
@@ -32,6 +34,32 @@ const AccessoriesPage = () => {
 
     fetchAccessories();
   }, []);
+
+
+  const handleAddToCart = (item: Accessory) => {
+    const existingCart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+
+    const cartItem = {
+      id: item._id,
+      name: item.name,
+      price: item.price,
+      image: item.image,
+      quantity: 1,
+    };
+
+    existingCart.push(cartItem);
+
+    localStorage.setItem("cart", JSON.stringify(existingCart));
+
+  
+    router.push("/cart");
+  };
+
+  
+  const handleBuyNow = (item: Accessory) => {
+    handleAddToCart(item);
+  };
 
   if (loading) {
     return <p className="text-center mt-10">Loading accessories...</p>;
@@ -67,10 +95,17 @@ const AccessoriesPage = () => {
                 <p className="text-gray-700 mb-4">Rs. {item.price}</p>
 
                 <div className="mt-auto flex gap-2">
-                  <button className="flex-1 bg-red-500 hover:bg-red-600 text-white font-semibold py-2 rounded">
+                  <button
+                    onClick={() => handleAddToCart(item)}
+                    className="flex-1 bg-red-500 hover:bg-red-600 text-white font-semibold py-2 rounded"
+                  >
                     Add to Cart
                   </button>
-                  <button className="flex-1 bg-blue-700 hover:bg-blue-600 text-white font-semibold py-2 rounded">
+
+                  <button
+                    onClick={() => handleBuyNow(item)}
+                    className="flex-1 bg-blue-700 hover:bg-blue-600 text-white font-semibold py-2 rounded"
+                  >
                     Buy Now
                   </button>
                 </div>
