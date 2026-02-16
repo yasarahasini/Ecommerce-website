@@ -2,9 +2,13 @@
 import {
   Controller,
   Post,
+  Get,
+  Param,
   Body,
   UploadedFile,
   UseInterceptors,
+  ParseIntPipe,
+  NotFoundException,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
@@ -16,6 +20,7 @@ import { extname } from 'path';
 export class OrderController {
   constructor(private readonly orderService: OrderService) {}
 
+  // Create new order with payment slip
   @Post()
   @UseInterceptors(
     FileInterceptor('paymentSlip', {
@@ -40,5 +45,13 @@ export class OrderController {
     };
 
     return this.orderService.createOrder(dto, file.filename);
+  }
+
+  // Get single order by ID
+  @Get(':id')
+  async getOrder(@Param('id', ParseIntPipe) id: number) {
+    const order = await this.orderService.getOrderById(id);
+    if (!order) throw new NotFoundException(`Order with ID ${id} not found`);
+    return order;
   }
 }
