@@ -119,7 +119,7 @@ export default function CheckoutPage() {
           <button
             onClick={handlePlaceOrder}
             disabled={loading}
-            className="mt-6 w-full bg-black text-white py-3 rounded hover:bg-gray-800 transition"
+            className="mt-6 w-full bg-blue-800 text-white py-3 rounded hover:bg-gray-800 transition"
           >
             {loading ? "Placing Order..." : "Place Order"}
           </button>
