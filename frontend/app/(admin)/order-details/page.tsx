@@ -67,7 +67,6 @@ export default function OrderSuccessPage() {
         ✅ Order Placed Successfully
       </h1>
 
-      {/* Customer Info */}
       <div className="bg-white shadow rounded-lg p-6 mb-6">
         <h2 className="text-xl font-semibold mb-4">Customer Details</h2>
         <p><strong>Name:</strong> {order.fullName}</p>
@@ -76,7 +75,7 @@ export default function OrderSuccessPage() {
         <p><strong>Address:</strong> {order.address}, {order.city}</p>
       </div>
 
-      {/* Order Items */}
+   
       <div className="bg-gray-50 shadow rounded-lg p-6 mb-6">
         <h2 className="text-xl font-semibold mb-4">Order Items</h2>
 
@@ -95,7 +94,6 @@ export default function OrderSuccessPage() {
         </div>
       </div>
 
-      {/* Payment Slip */}
       {order.paymentSlip && (
         <div className="bg-white shadow rounded-lg p-6">
           <h2 className="text-xl font-semibold mb-4">Payment Slip</h2>
