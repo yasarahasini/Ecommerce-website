@@ -15,6 +15,11 @@ import { AntiquesModule } from './antiques/antiques.module';
 import { ArtModule } from './art/art.module';
 import { BabyModule } from './baby/baby.module';
 import { BookModule } from './book/book.module';
+import { CartService } from './cart/cart.service';
+import { CartController } from './cart/cart.controller';
+import { CartModule } from './cart/cart.module';
+import { OrderService } from './order/order.service';
+import { OrderModule } from './order/order.module';
 
 @Module({
   imports: [
@@ -41,6 +46,10 @@ import { BookModule } from './book/book.module';
     ArtModule,
     BabyModule,
     BookModule,
+    CartModule,
+    OrderModule,
   ],
+  providers: [CartService, OrderService],
+  controllers: [CartController],
 })
 export class AppModule {}
