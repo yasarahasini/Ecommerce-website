@@ -145,7 +145,7 @@ export default function CheckoutPage() {
                 className="mt-1 block w-full border px-4 py-2 rounded"
               />
               {paymentSlip && (
-                <p className="text-sm text-green-600 mt-1">{paymentSlip.name}</p>
+                <p className="text-sm text-green-700 mt-1">{paymentSlip.name}</p>
               )}
             </label>
           </form>
