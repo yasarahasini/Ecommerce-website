@@ -56,17 +56,13 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="flex justify-center items-center min-h-screen bg-gray-100 p-6">
-      <section className="flex flex-col md:flex-row w-full max-w-5xl bg-white shadow-lg rounded-xl overflow-hidden">
-        <div className="md:w-1/2 bg-gray-200 flex justify-center items-center p-4">
-          <video
-            src="/v1.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-96 md:h-full object-contain rounded-lg shadow-lg"
-          />
+ <main
+  className="relative flex justify-center items-center min-h-screen p-6 bg-cover bg-center"
+  style={{ backgroundImage: "url('/brandoutlet.jpg')" }}
+>
+      <section className="flex flex-col md:flex-row w-full max-w-5xl bg- shadow-lg rounded-xl overflow-hidden">
+        <div className="md:w-1/2  flex justify-center items-center p-4">
+        
         </div>
 
         <div className="md:w-1/2 p-8  bg-gradient-to-r from-pink-600 to-purple-600 ">
