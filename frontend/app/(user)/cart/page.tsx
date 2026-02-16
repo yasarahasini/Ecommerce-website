@@ -10,7 +10,7 @@ export default function CartPage() {
   const { cart, removeFromCart } = useCart();
   const router = useRouter();
 
-  // 🔐 PROTECT CART
+
   useEffect(() => {
     if (!isAuthenticated()) {
       router.push("/login");

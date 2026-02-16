@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import WomenSidebar from "@/app/components/sidebar";
 import { useCart } from "../context/CartContext";
+import { isAuthenticated } from "@/app/utility/auth";
 
 interface Product {
   id: number;
@@ -33,41 +34,42 @@ const products: Product[] = [
     modelUrl:
       "https://sketchfab.com/models/c8696af4fbfc4f54977ffc5e4b53ac33/embed?autostart=1",
   },
-   {
-  id: 3,
-  name: "Jeans",
-  category: "Jeans",
-  size: ["S", "M", "L"],
-  price: 59.99,
-  modelUrl: "https://sketchfab.com/models/c8696af4fbfc4f54977ffc5e4b53ac33/embed?autostart=1",
-}
-,
- {
-  id: 4,
-  name: "Handbag",
-  category: "Bags",
-  size: [],
-  price: 89.99,
-  modelUrl: "https://sketchfab.com/models/6c0b277c88424a1ea86d2ff44951ee69/embed?autostart=1"
-},
-{
-  id: 5,
-  name: "Sneakers",
-  category: "Shoes",
-  size: ["M", "L"],
-  price: 69.99,
-  modelUrl: "https://sketchfab.com/models/b49f5b8cd9e94fe7883f3e9af8f41acc/embed?autostart=1"
-}
-,
   {
-  id: 6,
-  name: "Jacket",
-  category: "Jackets",
-  size: ["L", "XL"],
-  price: 99.99,
-  modelUrl: "https://sketchfab.com/models/811fef12daf24bd783604f2a316187c5/embed?autostart=1"
-}
-
+    id: 3,
+    name: "Jeans",
+    category: "Jeans",
+    size: ["S", "M", "L"],
+    price: 59.99,
+    modelUrl:
+      "https://sketchfab.com/models/c8696af4fbfc4f54977ffc5e4b53ac33/embed?autostart=1",
+  },
+  {
+    id: 4,
+    name: "Handbag",
+    category: "Bags",
+    size: [],
+    price: 89.99,
+    modelUrl:
+      "https://sketchfab.com/models/6c0b277c88424a1ea86d2ff44951ee69/embed?autostart=1",
+  },
+  {
+    id: 5,
+    name: "Sneakers",
+    category: "Shoes",
+    size: ["M", "L"],
+    price: 69.99,
+    modelUrl:
+      "https://sketchfab.com/models/b49f5b8cd9e94fe7883f3e9af8f41acc/embed?autostart=1",
+  },
+  {
+    id: 6,
+    name: "Jacket",
+    category: "Jackets",
+    size: ["L", "XL"],
+    price: 99.99,
+    modelUrl:
+      "https://sketchfab.com/models/811fef12daf24bd783604f2a316187c5/embed?autostart=1",
+  },
 ];
 
 export default function WomenPage() {
@@ -80,6 +82,18 @@ export default function WomenPage() {
       selectedCategory ? p.category === selectedCategory : true
     );
   }, [selectedCategory]);
+
+  const handleAddToCart = (product: Product) => {
+    
+    if (!isAuthenticated()) {
+      alert("Please login first");
+      router.push("/login");
+      return;
+    }
+
+    addToCart(product);
+    router.push("/cart");
+  };
 
   return (
     <div className="bg-gray-50 min-h-screen py-10">
@@ -108,10 +122,7 @@ export default function WomenPage() {
                 <p className="text-gray-600">${product.price}</p>
 
                 <button
-                  onClick={() => {
-                    addToCart(product);
-                    router.push("/cart");
-                  }}
+                  onClick={() => handleAddToCart(product)}
                   className="mt-3 w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600"
                 >
                   Add to Cart
