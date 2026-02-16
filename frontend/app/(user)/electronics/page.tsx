@@ -16,10 +16,10 @@ interface Product {
 }
 
 const dummyProducts: Product[] = [
-  { id: 1, name: "Smartphone X12", price: 799, img: "/images/phone1.jpg", category: "Phones" },
+  { id: 1, name: "Smartphone X12", price: 799, img: "/board1.jpg", category: "Phones" },
   { id: 2, name: "Laptop Pro 15", price: 1299, img: "/images/laptop1.jpg", category: "Laptops" },
-  { id: 3, name: "Wireless Headphones", price: 199, img: "/images/headphones1.jpg", category: "Headphones" },
-  { id: 4, name: "Smartwatch Z", price: 299, img: "/images/smartwatch1.jpg", category: "Smartwatches" },
+  { id: 3, name: "Wireless Headphones", price: 199, img: "/d1.jpg", category: "Headphones" },
+  { id: 4, name: "Smartwatch Z", price: 299, img: "/d2.jpg", category: "Smartwatches" },
   { id: 5, name: "Gaming Console Y", price: 499, img: "/images/console1.jpg", category: "Gaming" },
 ];
 
