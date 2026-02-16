@@ -60,7 +60,7 @@ export default function ContactPage() {
       className="relative min-h-screen flex justify-center items-center p-6 bg-cover bg-center"
       style={{ backgroundImage: "url('/brandoutlet.jpg')" }}
     >
-      {/* dark overlay */}
+   
       <div className="absolute inset-0 bg-black/60" />
 
       <section className="relative w-full max-w-5xl backdrop-blur-md bg-white/10 shadow-2xl rounded-xl overflow-hidden">
