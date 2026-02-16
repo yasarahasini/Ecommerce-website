@@ -3,7 +3,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/user.entity';
 import { AuthModule } from './auth/auth.module';
 import { FashionModule } from './fashion/fashion.module';
-import { Fashion } from './fashion/entity/fashion.entity';
 import { AccessoriesModule } from './accessories/accessories.module';
 import { DealsModule } from './deals/deals.module';
 import { ContactModule } from './contact/contact.module';
@@ -15,10 +14,6 @@ import { AntiquesModule } from './antiques/antiques.module';
 import { ArtModule } from './art/art.module';
 import { BabyModule } from './baby/baby.module';
 import { BookModule } from './book/book.module';
-import { CartService } from './cart/cart.service';
-import { CartController } from './cart/cart.controller';
-import { CartModule } from './cart/cart.module';
-import { OrderService } from './order/order.service';
 import { OrderModule } from './order/order.module';
 
 @Module({
@@ -45,11 +40,8 @@ import { OrderModule } from './order/order.module';
     AntiquesModule,
     ArtModule,
     BabyModule,
-    BookModule,
-    CartModule,
-    OrderModule,
+    BookModule, // already provides CartService & CartController
+    OrderModule, // already provides OrderService & OrderController
   ],
-  providers: [CartService, OrderService],
-  controllers: [CartController],
 })
 export class AppModule {}
