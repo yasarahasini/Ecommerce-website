@@ -95,7 +95,7 @@ export default function CheckoutPage() {
       <h1 className="text-3xl font-bold mb-8">Checkout</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Billing Details Form */}
+        
         <div className="bg-white p-6 rounded-lg shadow">
           <h2 className="text-xl font-semibold mb-4">Billing Details</h2>
 
@@ -151,7 +151,7 @@ export default function CheckoutPage() {
           </form>
         </div>
 
-        {/* Order Summary */}
+        
         <div className="bg-gray-50 p-6 rounded-lg shadow">
           <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
 
