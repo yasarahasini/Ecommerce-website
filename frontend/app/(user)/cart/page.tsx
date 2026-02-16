@@ -1,10 +1,21 @@
 "use client";
 
-import Link from "next/dist/client/link";
+import Link from "next/link";
 import { useCart } from "../context/CartContext";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { isAuthenticated } from "@/app/utility/auth";
 
 export default function CartPage() {
   const { cart, removeFromCart } = useCart();
+  const router = useRouter();
+
+  // 🔐 PROTECT CART
+  useEffect(() => {
+    if (!isAuthenticated()) {
+      router.push("/login");
+    }
+  }, [router]);
 
   const total = cart.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -44,20 +55,20 @@ export default function CartPage() {
         </div>
       ))}
 
-       <div className="mt-6 text-right">
-      <h2 className="text-xl font-bold">
-        Total: ${total.toFixed(2)}
-      </h2>
+      <div className="mt-6 text-right">
+        <h2 className="text-xl font-bold">
+          Total: ${total.toFixed(2)}
+        </h2>
 
-      <Link href="/checkout">
-        <button
-          type="button"
-          className="mt-4 bg-green-600 text-white px-6 py-2 rounded"
-        >
-          Checkout
-        </button>
-      </Link>
-    </div>
+        <Link href="/checkout">
+          <button
+            type="button"
+            className="mt-4 bg-green-600 text-white px-6 py-2 rounded"
+          >
+            Checkout
+          </button>
+        </Link>
+      </div>
     </div>
   );
 }
