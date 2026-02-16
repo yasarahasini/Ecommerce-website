@@ -20,7 +20,7 @@ export default function ContactPage() {
   const [errors, setErrors] = useState<string[]>([]);
 
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -56,25 +56,27 @@ export default function ContactPage() {
   };
 
   return (
- <main
-  className="relative flex justify-center items-center min-h-screen p-6 bg-cover bg-center"
-  style={{ backgroundImage: "url('/brandoutlet.jpg')" }}
->
-      <section className="flex flex-col md:flex-row w-full max-w-5xl bg- shadow-lg rounded-xl overflow-hidden">
-      
+    <main
+      className="relative min-h-screen flex justify-center items-center p-6 bg-cover bg-center"
+      style={{ backgroundImage: "url('/brandoutlet.jpg')" }}
+    >
+      {/* dark overlay */}
+      <div className="absolute inset-0 bg-black/60" />
 
-        <div className="md:w-1/2 p-8   ">
+      <section className="relative w-full max-w-5xl backdrop-blur-md bg-white/10 shadow-2xl rounded-xl overflow-hidden">
+        <div className="p-8 md:p-10">
           <h1 className="text-3xl font-bold mb-6 text-white text-center md:text-left">
             Contact Us
           </h1>
 
           {success && (
-            <p className="text-green-600 text-center mb-4 font-medium">
+            <p className="text-green-400 text-center mb-4 font-medium">
               {success}
             </p>
           )}
+
           {errors.length > 0 && (
-            <ul className="text-red-600 mb-4">
+            <ul className="text-red-400 mb-4">
               {errors.map((err, i) => (
                 <li key={i} className="text-sm">
                   {err}
@@ -85,7 +87,7 @@ export default function ContactPage() {
 
           <form onSubmit={handleSubmit} className="space-y-4 text-white">
             <div>
-              <label className="block text-white font-medium mb-1">Name</label>
+              <label className="block font-medium mb-1">Name</label>
               <input
                 type="text"
                 name="name"
@@ -97,7 +99,7 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <label className="block text-white font-medium mb-1">Email</label>
+              <label className="block font-medium mb-1">Email</label>
               <input
                 type="email"
                 name="email"
@@ -109,9 +111,7 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <label className="block text-white font-medium mb-1">
-                Message
-              </label>
+              <label className="block font-medium mb-1">Message</label>
               <textarea
                 name="message"
                 value={formData.message}
@@ -141,4 +141,4 @@ export default function ContactPage() {
 }
 
 const inputClasses =
-  "w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400";
+  "w-full px-4 py-2 border border-white/30 bg-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 placeholder-white/70";
