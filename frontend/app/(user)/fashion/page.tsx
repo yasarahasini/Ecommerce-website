@@ -1,5 +1,9 @@
 "use client";
-import React, { useEffect, useState } from "react";
+
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useCart } from "../context/CartContext";
+import { isAuthenticated } from "@/app/utility/auth";
 
 interface FashionItem {
   id: number;
@@ -8,51 +12,35 @@ interface FashionItem {
   image: string;
 }
 
+
 const dummyFashionItems: FashionItem[] = [
   { id: 1, name: "Classic Denim Jacket", price: 49.99, image: "/f1.jpg" },
   { id: 2, name: "Summer Floral Dress", price: 39.99, image: "/f22.jpg" },
   { id: 3, name: "Casual Sneakers", price: 59.99, image: "/f3.jpg" },
   { id: 4, name: "Stylish Handbag", price: 29.99, image: "/f4.jpg" },
-   { id: 1, name: "Classic Denim Jacket", price: 49.99, image: "/f1.jpg" },
-  { id: 2, name: "Summer Floral Dress", price: 39.99, image: "/f22.jpg" },
-  { id: 3, name: "Casual Sneakers", price: 59.99, image: "/f3.jpg" },
-  { id: 4, name: "Stylish Handbag", price: 29.99, image: "/f4.jpg" },
-   { id: 1, name: "Classic Denim Jacket", price: 49.99, image: "/f1.jpg" },
-  { id: 2, name: "Summer Floral Dress", price: 39.99, image: "/f22.jpg" },
-  { id: 3, name: "Casual Sneakers", price: 59.99, image: "/f3.jpg" },
-  { id: 4, name: "Stylish Handbag", price: 29.99, image: "/f4.jpg" },
+  { id: 5, name: "Leather Boots", price: 79.99, image: "/f5.jpg" },
+  { id: 6, name: "Trendy Sunglasses", price: 19.99, image: "/f6.jpg" },
 ];
 
 const Fashion: React.FC = () => {
-  const [items, setItems] = useState<FashionItem[]>(dummyFashionItems);
-  const [loading, setLoading] = useState(true);
+  const [items] = useState<FashionItem[]>(dummyFashionItems);
+  const { addToCart } = useCart();
+  const router = useRouter();
 
-  useEffect(() => {
-    fetch("http://localhost:3001/fashion")
-      .then((res) => res.json())
-      .then((data: FashionItem[]) => {
-        if (data && data.length > 0) {
-          setItems(data); 
-        }
-      })
-      .catch(() => {
-        console.log("Backend not available → using dummy data");
-      })
-      .finally(() => setLoading(false));
-  }, []);
+  const handleAddToCart = (item: FashionItem) => {
+    if (!isAuthenticated()) {
+      alert("Please login first");
+      router.push("/login");
+      return;
+    }
+    addToCart(item);
+    router.push("/cart");
+  };
 
   return (
     <main style={{ minHeight: "100vh", backgroundColor: "#f3f4f6", padding: "3rem 1.5rem" }}>
       <section style={{ maxWidth: "1100px", margin: "0 auto" }}>
-        <h1 style={{ fontSize: "2.5rem", fontWeight: 700 }}>
-          Fashion Collection
-        </h1>
-
-        {loading && (
-          <p style={{ marginTop: "1rem", color: "#6b7280" }}>
-            Loading products...
-          </p>
-        )}
+        <h1 style={{ fontSize: "2.5rem", fontWeight: 700 }}>Fashion Collection</h1>
 
         <div
           style={{
@@ -82,6 +70,7 @@ const Fashion: React.FC = () => {
                 <p style={{ color: "#6b7280" }}>${item.price}</p>
 
                 <button
+                  onClick={() => handleAddToCart(item)}
                   style={{
                     marginTop: "0.7rem",
                     width: "100%",
@@ -90,6 +79,7 @@ const Fashion: React.FC = () => {
                     padding: "0.6rem",
                     borderRadius: "8px",
                     border: "none",
+                    cursor: "pointer",
                   }}
                 >
                   Add to Cart
