@@ -25,15 +25,15 @@ interface LinkItem {
 
 const sidebarLinks: LinkItem[] = [
   { name: "Dashboard", path: "/admin", icon: <FiHome /> },
-  { name: "Add Deals", path: "/admin/deals", icon: <FiShoppingCart /> },
-  { name: "Add Accessories", path: "/admin/accessories", icon: <FiShoppingCart /> },
-  { name: "Add Electronics", path: "/admin/electronics", icon: <FiSettings /> },
-  { name: "Add Fashion", path: "/admin/fashion", icon: <FiUsers /> },
-  { name: "Add Men", path: "/admin/men", icon: <FiUsers /> },
-  { name: "Add Women", path: "/admin/women", icon: <FiUsers /> },
-  { name: "Update About", path: "/admin/about", icon: <FiSettings /> },
-  { name: "Order Details", path: "/admin/orders", icon: <FiShoppingCart /> },
-  { name: "Signup List", path: "/admin/signup-list", icon: <FiUsers /> },
+  { name: "Add Deals", path: "/add-deals", icon: <FiShoppingCart /> },
+  { name: "Add Accessories", path: "/add-accessories", icon: <FiShoppingCart /> },
+  { name: "Add Electronics", path: "/add-electronics", icon: <FiSettings /> },
+  { name: "Add Fashion", path: "/add-fashion", icon: <FiUsers /> },
+  { name: "Add Men", path: "/add-men", icon: <FiUsers /> },
+  { name: "Add Women", path: "/add-women", icon: <FiUsers /> },
+  { name: "Contact Info", path: "/contact-info", icon: <FiSettings /> },
+  { name: "Order Details", path: "/order-details", icon: <FiShoppingCart /> },
+  { name: "Signup List", path: "/signup-list", icon: <FiUsers /> },
 ];
 
 const AdminLayout: React.FC<LayoutProps> = ({ children }) => {
