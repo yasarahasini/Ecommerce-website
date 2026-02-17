@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 
-const API_URL = "http://localhost:3001";
+const API_BASE = "http://localhost:3001";
 
 const OrderSuccessPage = () => {
   const params = useParams();
@@ -15,7 +15,7 @@ const OrderSuccessPage = () => {
   useEffect(() => {
     const fetchOrder = async () => {
       try {
-        const res = await fetch(`${API_URL}/orders/${orderId}`);
+        const res = await fetch(`${API_BASE}/orders/${orderId}`);
         if (!res.ok) throw new Error("Failed to fetch order");
 
         const data = await res.json();
@@ -68,12 +68,8 @@ const OrderSuccessPage = () => {
 
         {order.items?.map((item: any) => (
           <div key={item.id} className="flex justify-between mb-2">
-            <span>
-              {item.name} × {item.quantity}
-            </span>
-            <span>
-              ${(item.price * item.quantity).toFixed(2)}
-            </span>
+            <span>{item.name} × {item.quantity}</span>
+            <span>${(item.price * item.quantity).toFixed(2)}</span>
           </div>
         ))}
 
@@ -81,7 +77,7 @@ const OrderSuccessPage = () => {
 
         <div className="flex justify-between font-bold text-lg">
           <span>Total</span>
-          <span>${order.total?.toFixed(2)}</span>
+          <span>${Number(order.total).toFixed(2)}</span>
         </div>
       </div>
 
@@ -90,7 +86,7 @@ const OrderSuccessPage = () => {
         <div className="bg-white p-6 rounded-lg shadow">
           <h2 className="text-xl font-semibold mb-4">Payment Slip</h2>
           <img
-            src={`${API_URL}/uploads/slips/${order.paymentSlip}`}
+            src={`${API_BASE}/uploads/${order.paymentSlip}`}
             alt="Payment Slip"
             className="max-w-sm rounded"
           />
