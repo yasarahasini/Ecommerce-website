@@ -17,11 +17,23 @@ interface LayoutProps {
   children: React.ReactNode;
 }
 
-const sidebarLinks = [
-  { name: "Dashboard", icon: <FiHome />, path: "/admin" },
-  { name: "Users", icon: <FiUsers />, path: "/admin/users" },
-  { name: "Products", icon: <FiShoppingCart />, path: "/admin/products" },
-  { name: "Settings", icon: <FiSettings />, path: "/admin/settings" },
+interface LinkItem {
+  name: string;
+  path: string;
+  icon?: React.ReactNode;
+}
+
+const sidebarLinks: LinkItem[] = [
+  { name: "Dashboard", path: "/admin", icon: <FiHome /> },
+  { name: "Add Deals", path: "/admin/deals", icon: <FiShoppingCart /> },
+  { name: "Add Accessories", path: "/admin/accessories", icon: <FiShoppingCart /> },
+  { name: "Add Electronics", path: "/admin/electronics", icon: <FiSettings /> },
+  { name: "Add Fashion", path: "/admin/fashion", icon: <FiUsers /> },
+  { name: "Add Men", path: "/admin/men", icon: <FiUsers /> },
+  { name: "Add Women", path: "/admin/women", icon: <FiUsers /> },
+  { name: "Update About", path: "/admin/about", icon: <FiSettings /> },
+  { name: "Order Details", path: "/admin/orders", icon: <FiShoppingCart /> },
+  { name: "Signup List", path: "/admin/signup-list", icon: <FiUsers /> },
 ];
 
 const AdminLayout: React.FC<LayoutProps> = ({ children }) => {
@@ -36,7 +48,7 @@ const AdminLayout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <div className="flex h-screen bg-gray-100">
-    
+   
       <aside
         className={`bg-white shadow-md transition-all duration-300 ${
           sidebarOpen ? "w-64" : "w-16"
@@ -61,7 +73,7 @@ const AdminLayout: React.FC<LayoutProps> = ({ children }) => {
               onClick={() => router.push(link.path)}
               className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-200 cursor-pointer"
             >
-              <span className="text-lg">{link.icon}</span>
+              {link.icon && <span className="text-lg">{link.icon}</span>}
               {sidebarOpen && <span>{link.name}</span>}
             </div>
           ))}
@@ -78,9 +90,9 @@ const AdminLayout: React.FC<LayoutProps> = ({ children }) => {
         </div>
       </aside>
 
-
+      
       <div className="flex-1 flex flex-col">
-     
+   
         <header className="bg-white shadow-md px-6 py-4 flex justify-between items-center relative">
           <div className="flex items-center gap-4">
             <button
@@ -113,7 +125,7 @@ const AdminLayout: React.FC<LayoutProps> = ({ children }) => {
             </button>
           </div>
 
-        
+      
           {mobileMenuOpen && (
             <div className="absolute top-full left-0 w-full bg-white shadow-md md:hidden flex flex-col p-4 gap-2 z-50">
               {sidebarLinks.map((link) => (
@@ -125,7 +137,7 @@ const AdminLayout: React.FC<LayoutProps> = ({ children }) => {
                   }}
                   className="flex items-center gap-2 text-gray-700 px-3 py-2 rounded hover:bg-gray-200"
                 >
-                  <span className="text-lg">{link.icon}</span>
+                  {link.icon && <span className="text-lg">{link.icon}</span>}
                   <span>{link.name}</span>
                 </button>
               ))}

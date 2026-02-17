@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { FiMenu, FiBell, FiUser, FiLogOut } from "react-icons/fi";
 import { useRouter } from "next/navigation";
+import { Electronic } from '../../../../backend/backend/src/electronic/entity/electronic.entity';
 
 const AdminNavbar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -55,14 +56,33 @@ const AdminNavbar: React.FC = () => {
             Dashboard
           </button>
           <button onClick={() => router.push("/admin/users")} className="text-gray-700">
-            Users
+            Add Deals
           </button>
           <button onClick={() => router.push("/admin/products")} className="text-gray-700">
-            Products
+            Add Accessories
           </button>
           <button onClick={() => router.push("/admin/settings")} className="text-gray-700">
-            Settings
+          Add Electronics
           </button>
+            <button onClick={() => router.push("/admin/settings")} className="text-gray-700">
+          Add Fashion
+          </button>
+            <button onClick={() => router.push("/admin/settings")} className="text-gray-700">
+          Add Men
+          </button>
+            <button onClick={() => router.push("/admin/settings")} className="text-gray-700">
+          Add Women
+          </button>
+            <button onClick={() => router.push("/admin/settings")} className="text-gray-700">
+          Update About
+          </button>
+            <button onClick={() => router.push("/admin/settings")} className="text-gray-700">
+          Order Details
+          </button>
+            <button onClick={() => router.push("/admin/settings")} className="text-gray-700">
+          Signup List
+          </button>
+
         </div>
       )}
     </header>
