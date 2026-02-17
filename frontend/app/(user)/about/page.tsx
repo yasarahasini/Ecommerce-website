@@ -29,7 +29,7 @@ const AboutPage = () => {
         </div>
         <div>
           <img
-            src="/about-hero.jpg" 
+            src="/about.jpg" 
             alt="Our Story"
             className="rounded-lg shadow-lg w-full h-auto object-cover"
           />
