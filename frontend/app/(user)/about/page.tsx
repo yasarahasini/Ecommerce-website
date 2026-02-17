@@ -1,63 +1,64 @@
-"use client";
-import React from "react";
+// app/about/page.tsx
+import React from 'react';
 
-type AboutProps = {};
-
-const About: React.FC<AboutProps> = () => {
+const AboutPage = () => {
   return (
-    <main style={{ minHeight: "100vh", backgroundColor: "#7d8fa1", padding: "4rem 1.5rem" }}>
-      <section
-        style={{
-          maxWidth: "900px",
-          margin: "0 auto",
-          backgroundColor: "#dbeafe",
-          borderRadius: "16px",
-          padding: "2.5rem",
-          boxShadow: "0 10px 25px rgba(0,0,0,0.08)",
-        }}
-      >
-        <h1 style={{ fontSize: "2.5rem", fontWeight: 700, marginBottom: "1.5rem" }}>
-          .....About Us.....
+    <div className="min-h-screen bg-gray-50 flex flex-col items-center px-6 py-12">
+      {/* Hero Section */}
+      <div className="text-center max-w-3xl">
+        <h1 className="text-4xl font-bold mb-4 text-gray-800">
+          About Our Store
         </h1>
-
-        <p style={{ fontSize: "1.1rem", lineHeight: 1.7, color: "#4b5563" }}>
-          Welcome to <strong>ShopEase</strong>, your trusted online shopping
-          destination. We focus on delivering quality products, secure payments,
-          and a smooth shopping experience for every customer.
+        <p className="text-gray-600 mb-6">
+          Welcome to our e-commerce store! We are dedicated to providing the best products with top-notch service. Our mission is to make your shopping experience seamless and enjoyable.
         </p>
+      </div>
 
-        <section style={{ marginTop: "2.5rem" }}>
-          <h2 style={{ fontSize: "1.6rem", fontWeight: 600 }}>Our Mission</h2>
-          <p style={{ marginTop: "0.5rem", color: "#4b5563" }}>
-            To make online shopping simple, reliable, and accessible to
-            everyone by offering great products and excellent service.
+      {/* Our Story Section */}
+      <div className="mt-12 grid md:grid-cols-2 gap-8 max-w-5xl w-full">
+        <div className="flex flex-col justify-center">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+            Our Story
+          </h2>
+          <p className="text-gray-600 mb-4">
+            Started in 2023, our store quickly became a favorite for quality products. We believe in customer satisfaction and quality above everything else.
           </p>
-        </section>
-
-        <section style={{ marginTop: "2rem" }}>
-          <h2 style={{ fontSize: "1.6rem", fontWeight: 600 }}>Our Vision</h2>
-          <p style={{ marginTop: "0.5rem", color: "#4b5563" }}>
-            To become a customer-first e-commerce platform people trust and
-            return to again and again.
+          <p className="text-gray-600">
+            Every item is handpicked and curated with care, ensuring that you get only the best.
           </p>
-        </section>
+        </div>
+        <div>
+          <img
+            src="/about-hero.jpg" // replace with your image
+            alt="Our Story"
+            className="rounded-lg shadow-lg w-full h-auto object-cover"
+          />
+        </div>
+      </div>
 
-        <section style={{ marginTop: "2rem" }}>
-          <h2 style={{ fontSize: "1.6rem", fontWeight: 600 }}>Why Choose Us?</h2>
-          <ul style={{ marginTop: "0.75rem", paddingLeft: "1.2rem", color: "#4b5563" }}>
-            <li>High-quality products</li>
-            <li>Secure and fast checkout</li>
-            <li>Reliable delivery</li>
-            <li>Helpful customer support</li>
-          </ul>
-        </section>
-
-        <p style={{ marginTop: "3rem", textAlign: "center", color: "#6b7280" }}>
-          Thank you for shopping with <strong>ShopEase</strong>. 🛒
-        </p>
-      </section>
-    </main>
+      {/* Values Section */}
+      <div className="mt-16 max-w-5xl w-full grid md:grid-cols-3 gap-8 text-center">
+        <div className="p-6 bg-white shadow-md rounded-lg">
+          <h3 className="font-semibold text-xl mb-2">Quality Products</h3>
+          <p className="text-gray-600">
+            Only the best items, carefully selected for you.
+          </p>
+        </div>
+        <div className="p-6 bg-white shadow-md rounded-lg">
+          <h3 className="font-semibold text-xl mb-2">Fast Delivery</h3>
+          <p className="text-gray-600">
+            Get your orders quickly with our reliable shipping.
+          </p>
+        </div>
+        <div className="p-6 bg-white shadow-md rounded-lg">
+          <h3 className="font-semibold text-xl mb-2">Customer Support</h3>
+          <p className="text-gray-600">
+            Friendly and responsive support whenever you need help.
+          </p>
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default About;
+export default AboutPage;
