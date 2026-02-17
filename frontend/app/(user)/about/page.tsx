@@ -1,10 +1,10 @@
-// app/about/page.tsx
+
 import React from 'react';
 
 const AboutPage = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center px-6 py-12">
-      {/* Hero Section */}
+    
       <div className="text-center max-w-3xl">
         <h1 className="text-4xl font-bold mb-4 text-gray-800">
           About Our Store
@@ -14,7 +14,7 @@ const AboutPage = () => {
         </p>
       </div>
 
-      {/* Our Story Section */}
+    
       <div className="mt-12 grid md:grid-cols-2 gap-8 max-w-5xl w-full">
         <div className="flex flex-col justify-center">
           <h2 className="text-2xl font-semibold mb-4 text-gray-800">
@@ -29,14 +29,14 @@ const AboutPage = () => {
         </div>
         <div>
           <img
-            src="/about-hero.jpg" // replace with your image
+            src="/about-hero.jpg" 
             alt="Our Story"
             className="rounded-lg shadow-lg w-full h-auto object-cover"
           />
         </div>
       </div>
 
-      {/* Values Section */}
+
       <div className="mt-16 max-w-5xl w-full grid md:grid-cols-3 gap-8 text-center">
         <div className="p-6 bg-white shadow-md rounded-lg">
           <h3 className="font-semibold text-xl mb-2">Quality Products</h3>
