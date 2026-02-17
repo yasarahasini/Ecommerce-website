@@ -1,89 +1,90 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import {
-  LayoutDashboard,
-  Users,
-  ShoppingBag,
-  PlusSquare,
-  LogOut,
-} from "lucide-react";
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import { FiHome, FiUsers, FiShoppingCart, FiLogOut, FiSettings } from "react-icons/fi";
 
-const menuItems = [
-  {
-    name: "Dashboard",
-    href: "/admin",
-    icon: LayoutDashboard,
-  },
-  {
-    name: "Users",
-    href: "/admin/users",
-    icon: Users,
-  },
-  {
-    name: "Products",
-    href: "/admin/products",
-    icon: ShoppingBag,
-  },
-  {
-    name: "Add Product",
-    href: "/admin/add-men",
-    icon: PlusSquare,
-  },
+const sidebarLinks = [
+  { name: "Dashboard", icon: <FiHome />, path: "/admin" },
+  { name: "Users", icon: <FiUsers />, path: "/admin/users" },
+  { name: "Products", icon: <FiShoppingCart />, path: "/admin/products" },
+  { name: "Settings", icon: <FiSettings />, path: "/admin/settings" },
 ];
 
-const AdminSidebar = () => {
-  const pathname = usePathname();
+const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const router = useRouter();
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    window.location.href = "/auth";
+ 
+    alert("Logged out");
+    router.push("/login");
   };
 
   return (
-    <aside className="h-screen w-64 bg-gray-900 text-white fixed left-0 top-0 flex flex-col">
+    <div className="flex h-screen bg-gray-100">
     
-      <div className="px-6 py-5 text-2xl font-bold border-b border-gray-700">
-        Admin Panel
-      </div>
+      <aside
+        className={`bg-white shadow-md transition-all duration-300 ${
+          sidebarOpen ? "w-64" : "w-16"
+        }`}
+      >
+        <div className="flex items-center justify-between px-4 py-4 border-b">
+          <h2 className={`text-xl font-bold ${sidebarOpen ? "block" : "hidden"}`}>
+            Admin
+          </h2>
+          <button
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+            className="text-gray-600 focus:outline-none"
+          >
+            ☰
+          </button>
+        </div>
 
-    
-      <nav className="flex-1 px-4 py-6 space-y-2">
-        {menuItems.map((item) => {
-          const Icon = item.icon;
-          const active = pathname === item.href;
-
-          return (
-            <Link
-              key={item.name}
-              href={item.href}
-              className={`flex items-center gap-3 px-4 py-2 rounded-lg transition
-                ${
-                  active
-                    ? "bg-blue-600 text-white"
-                    : "text-gray-300 hover:bg-gray-700 hover:text-white"
-                }`}
+        <nav className="mt-4">
+          {sidebarLinks.map((link) => (
+            <div
+              key={link.name}
+              onClick={() => router.push(link.path)}
+              className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-200 cursor-pointer"
             >
-              <Icon size={20} />
-              <span>{item.name}</span>
-            </Link>
-          );
-        })}
-      </nav>
+              <span className="text-lg">{link.icon}</span>
+              {sidebarOpen && <span>{link.name}</span>}
+            </div>
+          ))}
+        </nav>
+
+        <div className="mt-auto px-4 py-4 border-t">
+          <button
+            onClick={handleLogout}
+            className="flex items-center gap-3 text-red-500 hover:text-red-700 w-full"
+          >
+            <FiLogOut />
+            {sidebarOpen && <span>Logout</span>}
+          </button>
+        </div>
+      </aside>
+
+
+      <div className="flex-1 flex flex-col">
+   
+        <header className="bg-white shadow-md px-6 py-4 flex justify-between items-center">
+          <h1 className="text-2xl font-semibold">Admin Dashboard</h1>
+          <div>
+            <button
+              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+              onClick={() => alert("Profile clicked")}
+            >
+              Profile
+            </button>
+          </div>
+        </header>
 
     
-      <div className="px-4 py-4 border-t border-gray-700">
-        <button
-          onClick={handleLogout}
-          className="flex items-center gap-3 w-full px-4 py-2 text-gray-300 hover:text-white hover:bg-red-600 rounded-lg transition"
-        >
-          <LogOut size={20} />
-          Logout
-        </button>
+        <main className="flex-1 p-6 overflow-auto">{children}</main>
       </div>
-    </aside>
+    </div>
   );
 };
 
-export default AdminSidebar;
+export default AdminLayout;
