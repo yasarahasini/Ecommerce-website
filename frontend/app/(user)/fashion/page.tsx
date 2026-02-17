@@ -8,7 +8,6 @@ interface FashionItem {
   image: string;
 }
 
-
 const dummyFashionItems: FashionItem[] = [
   { id: 1, name: "Classic Denim Jacket", price: 49.99, image: "/f1.jpg" },
   { id: 2, name: "Summer Floral Dress", price: 39.99, image: "/f22.jpg" },
