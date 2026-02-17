@@ -33,7 +33,7 @@ const ContactPage = () => {
         </p>
       </div>
 
-      {/* Contact Form */}
+
       <div
         ref={formRef}
         className="w-full max-w-2xl bg-white p-8 rounded-lg shadow-md"
@@ -47,7 +47,7 @@ const ContactPage = () => {
               type="text"
               id="name"
               placeholder="Your Name"
-              className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
@@ -59,7 +59,7 @@ const ContactPage = () => {
               type="email"
               id="email"
               placeholder="Your Email"
-              className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
@@ -71,20 +71,20 @@ const ContactPage = () => {
               id="message"
               placeholder="Your Message"
               rows={5}
-              className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
           <button
             type="submit"
-            className="mt-4 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-orange-600 transition-colors"
+            className="mt-4 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors"
           >
             Send Message
           </button>
         </form>
       </div>
 
-      {/* Contact Info */}
+     
       <div className="mt-12 max-w-2xl w-full grid md:grid-cols-3 gap-6 text-center">
         <div>
           <h3 className="font-semibold text-lg mb-1">Email</h3>
