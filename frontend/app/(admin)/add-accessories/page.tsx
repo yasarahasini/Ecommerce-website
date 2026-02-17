@@ -134,7 +134,7 @@ const AddAccessoryForm = () => {
       {items.length > 0 ? (
         <div className="overflow-x-auto mb-8">
           <table className="w-full bg-white shadow rounded-lg overflow-hidden">
-            <thead className="bg-black text-white">
+            <thead className="bg-blue-700 text-white">
               <tr>
                 <th className="p-3 text-left">Image</th>
                 <th className="p-3 text-left">Name</th>
@@ -235,7 +235,7 @@ const AddAccessoryForm = () => {
 
           <button
             disabled={loading}
-            className="w-full bg-black text-white py-2 rounded"
+            className="w-full bg-blue-700 text-white py-2 rounded"
           >
             {loading
               ? "Saving..."
