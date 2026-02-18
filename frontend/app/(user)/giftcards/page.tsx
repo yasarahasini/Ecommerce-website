@@ -12,7 +12,7 @@ const GiftCardPage: React.FC = () => {
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
         
     
-        <div className=" bg-gradient-to-r from-purple-300 to-blue-600 bg-gray-500 text-white rounded-xl shadow p-6">
+        <div className=" bg-gradient-to-r from-purple-300 to-red-600 bg-gray-500 text-white rounded-xl shadow p-6">
           <h1 className="text-3xl font-semibold mb-4">🎁 Gift Card </h1>
           <p className="text-white mb-6">
             Give the perfect gift! Our gift cards can be used on any product
@@ -26,7 +26,7 @@ const GiftCardPage: React.FC = () => {
             <li>✔ Can be used with discounts</li>
           </ul>
 
-          <div className="mt-6 p-4 border rounded-lg bg-purple-500">
+          <div className="mt-6 p-4 border rounded-lg bg-red-500">
             <p className="text-sm text-white">
               Selected Amount:
               <span className="font-semibold ml-2">
