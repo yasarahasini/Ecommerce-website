@@ -55,7 +55,7 @@ const Navbar: React.FC = () => {
             </button>
             <button 
               onClick={handleCartClick}
-              className="relative p-1 hover:bg-gray-100 rounded-full transition-colors"
+              className="relative p-1 hover:bg-gray-200 rounded-full transition-colors"
               aria-label="Open cart"
             >
               <ShoppingCart size={20} strokeWidth={1.5} />
