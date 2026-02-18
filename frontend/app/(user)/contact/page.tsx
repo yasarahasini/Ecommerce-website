@@ -63,7 +63,7 @@ export default function ContactPage() {
    
       <div className="absolute inset-0 bg-black/60" />
 
-      <section className="relative w-full max-w-5xl backdrop-blur-md bg-white/10 shadow-2xl rounded-xl overflow-hidden">
+      <section className="relative w-full max-w-2xl backdrop-blur-md bg-white/10 shadow-2xl rounded-xl overflow-hidden">
         <div className="p-8 md:p-10">
           <h1 className="text-3xl font-bold mb-6 text-white text-center md:text-left">
             Contact Us
