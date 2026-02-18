@@ -1,6 +1,8 @@
-import Image from "next/image";
+"use client";
 
-import ProtectedRoute from "@/app/components/protectedroute";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useCart } from "../context/CartContext";
 
 interface Product {
   id: number;
@@ -10,35 +12,21 @@ interface Product {
 }
 
 const products: Product[] = [
-
-   {
-    id: 1,
-    name: "Classic Sneakers",
-    price: 59.99,
-    image: "/9.jpg",
-  },
-  {
-    id: 2,
-    name: "Leather Backpack",
-    price: 89.99,
-    image: "/f4.jpg",
-  },
-  {
-    id: 3,
-    name: "Smart Watch",
-    price: 129.99,
-    image: "/d2.jpg",
-  },
-  {
-    id: 4,
-    name: "Wireless Headphones",
-    price: 79.99,
-    image: "/14.jpg",
-  },
-  
+  { id: 1, name: "Classic Sneakers", price: 59.99, image: "/9.jpg" },
+  { id: 2, name: "Leather Backpack", price: 89.99, image: "/f4.jpg" },
+  { id: 3, name: "Smart Watch", price: 129.99, image: "/d2.jpg" },
+  { id: 4, name: "Wireless Headphones", price: 79.99, image: "/14.jpg" },
 ];
 
 export default function ShopPage() {
+  const router = useRouter();
+  const { addToCart } = useCart();
+
+  const handleAddToCart = (product: Product) => {
+    addToCart(product);
+    router.push("/cart"); 
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 px-6 py-10">
       <h1 className="text-3xl font-bold mb-8 text-center">
@@ -64,11 +52,12 @@ export default function ShopPage() {
               {product.name}
             </h2>
 
-            <p className="text-gray-600 mt-1">
-              ${product.price}
-            </p>
+            <p className="text-gray-600 mt-1">${product.price}</p>
 
-            <button className="mt-4 w-full bg-blue-700 text-white py-2 rounded-lg hover:bg-gray-800 transition">
+            <button
+              onClick={() => handleAddToCart(product)}
+              className="mt-4 w-full bg-blue-700 text-white py-2 rounded-lg hover:bg-gray-800 transition"
+            >
               Add to Cart
             </button>
           </div>
