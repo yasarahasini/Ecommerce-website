@@ -27,7 +27,7 @@ const products: Product[] = [
     id: 3,
     name: "Smart Watch",
     price: 129.99,
-    image: "/d2.jpg",
+    image: "/2.jpg",
   },
   {
     id: 4,
