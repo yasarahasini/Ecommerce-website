@@ -73,7 +73,7 @@ const BooksPage: React.FC = () => {
       <header className="bg-[#1a365d] text-[#fdfcf8] py-16 px-6 shadow-lg">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4 tracking-tight">The Bibliophile's Haven</h1>
-          <p className="text-blue-100 font-light italic mb-8">"A room without books is like a body without a soul."</p>
+          <p className="text-blue-200 font-light italic mb-8">"A room without books is like a body without a soul."</p>
           
           <div className="max-w-xl mx-auto relative">
             <input 
