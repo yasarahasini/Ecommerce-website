@@ -40,8 +40,8 @@ export default function MenPage() {
 
       let matchesPrice = true;
       if (selectedPrice) {
-        if (selectedPrice === "Under $50") matchesPrice = p.price < 50;
-        if (selectedPrice === "$50 - $100") matchesPrice = p.price >= 50 && p.price <= 100;
+        if (selectedPrice === "Under $80") matchesPrice = p.price < 50;
+        if (selectedPrice === "$80 - $100") matchesPrice = p.price >= 50 && p.price <= 100;
         if (selectedPrice === "$100 - $200") matchesPrice = p.price > 100 && p.price <= 200;
       }
 
