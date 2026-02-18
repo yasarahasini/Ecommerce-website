@@ -14,7 +14,7 @@ interface Product {
 }
 
 const products: Product[] = [
-  { id: 1, name: "Smartphone X12", price: 799, img: "/products/phone1.jpg", category: "Electronics" },
+  { id: 1, name: "SmartphoneX12", price: 799, img: "/products/phone1.jpg", category: "Electronics" },
   { id: 2, name: "Wireless Headphones", price: 199, img: "/products/headphones.jpg", category: "Electronics" },
   { id: 3, name: "Running Shoes", price: 129, img: "/products/shoes.jpg", category: "Fashion" },
   { id: 4, name: "Leather Jacket", price: 249, img: "/products/jacket.jpg", category: "Fashion" },
