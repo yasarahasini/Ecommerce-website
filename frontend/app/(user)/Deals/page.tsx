@@ -40,7 +40,7 @@ export default function Home() {
           <div className="flex justify-between items-end mb-10">
             <div>
               <h2 className="text-4xl font-black text-slate-900 tracking-tight">Flash Sale</h2>
-              <p className="text-slate-500 mt-2">Limited time offers on premium tech.</p>
+              <p className="text-slate-500 mt-2">Limited time offers on premium tech....</p>
             </div>
             <Link href="/deals" className="text-blue-600 font-semibold hover:underline">View All →</Link>
           </div>
