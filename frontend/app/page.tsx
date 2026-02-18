@@ -3,6 +3,9 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { useRouter } from "next/navigation";
+
+
 
 interface Product {
   id: number
@@ -10,13 +13,14 @@ interface Product {
   price: number
   img: string
 }
-
+const router = useRouter();
 const products: Product[] = [
   { id: 1, name: "Red Sneakers", price: 59.99, img: "/products/1.jpg" },
   { id: 2, name: "Blue T-Shirt", price: 25.0, img: "/products/2.jpg" },
   { id: 3, name: "Black Jacket", price: 120.0, img: "/products/3.jpg" },
   { id: 4, name: "Jeans", price: 70.0, img: "/products/4.jpg" },
 ]
+
 
 
 const heroImages = ["/1.jpg", "/2.jpg", "/8.jpg", "/7.jpg"]
@@ -119,9 +123,13 @@ const Home: React.FC = () => {
                       {item.old}
                     </span>
                   </div>
-                  <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg text-sm">
-                    Add to Cart
-                  </button>
+               <button
+  onClick={() => router.push("/cart")}
+  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg text-sm"
+>
+  Add to Cart
+</button>
+
                 </div>
               </div>
             ))}
