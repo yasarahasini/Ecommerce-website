@@ -8,6 +8,9 @@ interface ContactFormData {
   message: string;
 }
 
+const inputClasses =
+  "w-full px-3 py-2 text-sm border border-white/30 bg-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 placeholder-white/70";
+
 export default function ContactPage() {
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
@@ -57,37 +60,38 @@ export default function ContactPage() {
 
   return (
     <main
-      className="relative min-h-screen flex justify-center items-center p-6 bg-cover bg-center"
+      className="relative min-h-screen flex justify-center items-center p-4 bg-cover bg-center"
       style={{ backgroundImage: "url('/brandoutlet.jpg')" }}
     >
-   
+    
       <div className="absolute inset-0 bg-black/60" />
 
-      <section className="relative w-full max-w-2xl backdrop-blur-md bg-white/10 shadow-2xl rounded-xl overflow-hidden">
-        <div className="p-8 md:p-10">
-          <h1 className="text-3xl font-bold mb-6 text-white text-center md:text-left">
+     
+      <section className="relative w-full max-w-md backdrop-blur-md bg-white/10 shadow-2xl rounded-xl overflow-hidden">
+        <div className="p-6 md:p-7">
+          <h1 className="text-2xl font-bold mb-4 text-white text-center">
             Contact Us
           </h1>
 
           {success && (
-            <p className="text-green-400 text-center mb-4 font-medium">
+            <p className="text-green-400 text-center mb-3 text-sm font-medium">
               {success}
             </p>
           )}
 
           {errors.length > 0 && (
-            <ul className="text-red-400 mb-4">
+            <ul className="text-red-400 mb-3">
               {errors.map((err, i) => (
-                <li key={i} className="text-sm">
+                <li key={i} className="text-xs">
                   {err}
                 </li>
               ))}
             </ul>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-4 text-white">
+          <form onSubmit={handleSubmit} className="space-y-3 text-white">
             <div>
-              <label className="block font-medium mb-1">Name</label>
+              <label className="block text-sm font-medium mb-1">Name</label>
               <input
                 type="text"
                 name="name"
@@ -99,7 +103,7 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <label className="block font-medium mb-1">Email</label>
+              <label className="block text-sm font-medium mb-1">Email</label>
               <input
                 type="email"
                 name="email"
@@ -111,12 +115,12 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <label className="block font-medium mb-1">Message</label>
+              <label className="block text-sm font-medium mb-1">Message</label>
               <textarea
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                rows={5}
+                rows={4}
                 required
                 className={inputClasses + " resize-none"}
               />
@@ -125,7 +129,7 @@ export default function ContactPage() {
             <button
               type="submit"
               disabled={loading}
-              className={`w-full py-3 rounded-lg text-white font-semibold transition-colors ${
+              className={`w-full py-2.5 rounded-lg text-white text-sm font-semibold transition-colors ${
                 loading
                   ? "bg-gray-400 cursor-not-allowed"
                   : "bg-blue-600 hover:bg-blue-700"
@@ -139,6 +143,3 @@ export default function ContactPage() {
     </main>
   );
 }
-
-const inputClasses =
-  "w-full px-4 py-2 border border-white/30 bg-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 placeholder-white/70";
