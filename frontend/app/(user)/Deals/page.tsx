@@ -15,7 +15,7 @@ interface Deal {
 }
 
 const deals: Deal[] = [
-  { id: 1, name: "Wireless Headphones", originalPrice: 120, discountedPrice: 80, image: "/d1.jpg", category: "Audio" },
+  { id: 1, name: "Wireless Headphone", originalPrice: 120, discountedPrice: 80, image: "/d1.jpg", category: "Audio" },
   { id: 2, name: "Smart Watch", originalPrice: 200, discountedPrice: 150, image: "/d2.jpg", category: "Wearables" },
   { id: 3, name: "Gaming Mouse", originalPrice: 50, discountedPrice: 35, image: "/d3.jpg", category: "Accessories" },
 ];
@@ -32,7 +32,7 @@ export default function Home() {
   }, [heroImages.length]);
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-150">
       
   
       <section className="sticky top-0 z-10 bg-white border-b border-gray-100 px-6 py-20 shadow-2xl">
