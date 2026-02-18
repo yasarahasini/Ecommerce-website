@@ -72,7 +72,7 @@ const AntiquesPage: React.FC = () => {
     
       <header className="py-16 px-6 text-center border-b border-[#d1c7b7] bg-[#ede8de]">
         <span className="block text-xs tracking-[0.3em] uppercase mb-4 text-[#8b7355]">Established Vault</span>
-        <h1 className="text-5xl md:text-6xl font-light mb-4">The Curator’s Archive</h1>
+        <h1 className="text-5xl md:text-6xl font-light mb-4">The Curator s Archive</h1>
         <p className="max-w-2xl mx-auto font-sans text-sm text-[#5d534a] leading-relaxed">
           Sourcing rare historical artifacts and authentic period pieces from around the globe. 
           Every item is authenticated and cataloged with provenance.
