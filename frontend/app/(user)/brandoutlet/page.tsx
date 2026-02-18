@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
+import { useRouter } from "next/navigation";
 
 interface Product {
   id: number;
@@ -56,6 +57,7 @@ const BrandOutletPage = () => {
       }
     );
   }, [filteredProducts]);
+const router = useRouter();
 
   return (
     <div className="bg-gray-50 min-h-screen">
