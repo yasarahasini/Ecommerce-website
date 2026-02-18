@@ -13,7 +13,7 @@ interface Product {
   price: number
   img: string
 }
-const router = useRouter();
+
 const products: Product[] = [
   { id: 1, name: "Red Sneakers", price: 59.99, img: "/products/1.jpg" },
   { id: 2, name: "Blue T-Shirt", price: 25.0, img: "/products/2.jpg" },
@@ -35,7 +35,7 @@ const Home: React.FC = () => {
 
     return () => clearInterval(interval)
   }, [])
-
+const router = useRouter();
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
       <section className="bg-gradient-to-r from-gray-300 via-white to-gray-200 py-10">
