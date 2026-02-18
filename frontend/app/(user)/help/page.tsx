@@ -9,7 +9,7 @@ const HelpContactPage: React.FC = () => {
 
       
         <div
-          className="bg-white text-blue-600 rounded-2xl p-6
+          className="bg-white text-blue-800 rounded-2xl p-6
           shadow-[0_20px_40px_rgba(0,0,0,0.15)]
           transform transition-all duration-300
           hover:-translate-y-2 hover:rotate-[0.5deg] hover:shadow-[0_30px_60px_rgba(0,0,0,0.25)]"
