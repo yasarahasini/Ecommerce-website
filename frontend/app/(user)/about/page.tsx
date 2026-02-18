@@ -21,7 +21,7 @@ const AboutPage = () => {
             Our Story
           </h2>
           <p className="text-gray-600 mb-4">
-            Started in 2023, our store quickly became a favorite for quality products. We believe in customer satisfaction and quality above everything else.
+            Started in 2026, our store quickly became a favorite for quality products. We believe in customer satisfaction and quality above everything else.
           </p>
           <p className="text-gray-600">
             Every item is handpicked and curated with care, ensuring that you get only the best.
