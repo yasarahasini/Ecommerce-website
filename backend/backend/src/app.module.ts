@@ -40,8 +40,8 @@ import { OrderModule } from './order/order.module';
     AntiquesModule,
     ArtModule,
     BabyModule,
-    BookModule, // already provides CartService & CartController
-    OrderModule, // already provides OrderService & OrderController
+    BookModule,
+    OrderModule,
   ],
 })
 export class AppModule {}
