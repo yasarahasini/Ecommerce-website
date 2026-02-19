@@ -51,7 +51,7 @@ const WatchlistPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-6">
+    <div className="min-h-screen bg-gradient-to-b from-white via-red-300 to-white py-12 px-6">
       <div className="max-w-4xl mx-auto">
         
      
