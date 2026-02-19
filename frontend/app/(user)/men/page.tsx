@@ -60,7 +60,7 @@ export default function MenPage() {
   };
 
   return (
-    <div className="bg-gray-50 text-black min-h-screen py-10">
+    <div className="bg-gradient-to-b from-blue-500 via-white to-blue-600 text-black min-h-screen py-10">
       <div className="max-w-7xl mx-auto px-6">
         <h1 className="text-3xl font-bold mb-8 text-center">Mens Collection</h1>
 
