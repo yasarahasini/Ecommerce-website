@@ -49,7 +49,7 @@ export default function Home() {
         { name: "Street Board", price: "$99", img: "/board2.jpg" },
         { name: "Mini Cruiser", price: "$80", img: "/board3.jpg" },
       ],
-      bg: "bg-gray-50",
+      bg: "bg-gradient-to-b from-blue-300 via-purple-100 to-white",
     },
     {
       title: "Wheels & Trucks",
@@ -59,7 +59,7 @@ export default function Home() {
         { name: "Grip Wheels", price: "$50", img: "/wheels2.jpg" },
         { name: "Trucks Set", price: "$70", img: "/trucks.jpg" },
       ],
-      bg: "bg-pink-100",
+      bg: "bg-gradient-to-b from-pink-300 via-green-100 to-white",
     },
     {
       title: "Protective Gear",
@@ -69,7 +69,7 @@ export default function Home() {
         { name: "Knee Pads", price: "$30", img: "/kneepads.jpg" },
         { name: "Elbow Pads", price: "$25", img: "/elbowpads.jpg" },
       ],
-      bg: "bg-yellow-100",
+      bg: "bg-gradient-to-b from-yellow-300 via-white to-gray-200",
     },
   ];
 
