@@ -66,7 +66,7 @@ const AccessoriesPage = () => {
   }
 
   return (
-    <div className="max-w-6xl mx-auto p-6">
+    <div className="max-w-6xl mx-auto bg-gradient-to-b from-white via-red-300 to-yellow-50 p-6">
       <h1 className="text-2xl font-bold mb-6 text-center">Accessories</h1>
 
       {accessories.length === 0 ? (
