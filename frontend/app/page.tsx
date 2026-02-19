@@ -152,7 +152,7 @@ const router = useRouter();
             </div>
 
             <button className="bg-red-600 hover:bg-red-500 transition text-white px-8 py-3 rounded-lg font-semibold">
-              Start Now
+             <Link href="/login">Start Now</Link> 
             </button>
 
           </div>
