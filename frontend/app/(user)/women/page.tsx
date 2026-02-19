@@ -96,7 +96,7 @@ export default function WomenPage() {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen py-10">
+    <div className="bg-gradient-to-b from-pink-500 via-white to-pink-200 min-h-screen py-10">
       <div className="max-w-7xl mx-auto px-6">
         <h1 className="text-3xl font-bold mb-8 text-center">
           Womens Collection
