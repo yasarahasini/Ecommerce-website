@@ -45,7 +45,7 @@ const SignIn = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-6 text-center">Sign In</h1>
+        <h1 className="text-2xl font-bold mb-6 text-center">Login</h1>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
@@ -76,13 +76,13 @@ const SignIn = () => {
             disabled={loading}
             className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
           >
-            {loading ? "Signing in..." : "Sign In"}
+            {loading ? "Login..." : "Login"}
           </button>
         </form>
 
         <p className="mt-4 text-center text-sm text-gray-600">
           Don’t have an account?{" "}
-          <Link href="/auth/signup" className="text-blue-600 hover:underline">
+          <Link href="/signin" className="text-blue-600 hover:underline">
             Sign Up
           </Link>
         </p>
