@@ -17,7 +17,7 @@ const Page = () => {
     {
       title: "New Arrivals",
       icon: Sparkles,
-      path: "/new-arrivals",
+      path: "/newarrivals",
     },
     {
       title: "Deals",
@@ -27,12 +27,12 @@ const Page = () => {
     {
       title: "Brand Outlet",
       icon: Store,
-      path: "/brand-outlet",
+      path: "/brandoutlet",
     },
     {
-      title: "Gift Cards",
+      title: "Gift Cards", 
       icon: Gift,
-      path: "/gift-cards",
+      path: "/giftcards",
     },
     {
       title: "Features",
