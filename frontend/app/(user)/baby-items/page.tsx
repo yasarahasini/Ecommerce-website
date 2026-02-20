@@ -85,7 +85,7 @@ export default function BabyCollectionPage() {
   }, [selectedCategory]);
 
   return (
-    <div className="bg-[#fffdfa] min-h-screen py-12">
+    <div className="bg-gradient-to-tr from-pink-500 via-white to-pink-200 min-h-screen py-12">
       <div className="max-w-7xl mx-auto px-6">
 
         <header className="text-center mb-16">
