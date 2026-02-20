@@ -53,7 +53,7 @@ const MainSearch: React.FC = () => {
         </button>
 
         <Link
-          href="/advanced-search"
+          href="/advance"
           className="text-[12px] text-gray-500 hover:text-blue-600"
         >
           Advanced
