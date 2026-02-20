@@ -60,7 +60,7 @@ const BrandOutletPage = () => {
 const router = useRouter();
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="bg-gradient-to-tr from-white via-white to-pink-800 min-h-screen">
 
       <section className="relative h-64 w-full">
         <Image
