@@ -27,7 +27,7 @@ export class OrderService {
   async getOrderById(id: number) {
     return this.orderRepository.findOne({
       where: { id },
-      relations: ['items'], // include the items for order details
+      relations: ['items'],
     });
   }
 }
