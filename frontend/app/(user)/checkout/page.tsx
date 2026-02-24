@@ -152,7 +152,7 @@ export default function CheckoutPage() {
         </div>
 
         
-        <div className="bg-gray-50 p-6 rounded-lg shadow">
+        <div className="bg-gradient-to-tr bg-pink-400 via-gray-200 to-purple-200 p-6 rounded-lg shadow">
           <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
 
           <div className="space-y-3">
