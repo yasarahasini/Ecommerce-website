@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { useRouter } from "next/navigation";
+import Link from "next/dist/client/link";
 
 interface Product {
   id: number;
@@ -115,7 +116,7 @@ const router = useRouter();
               <h2 className="text-lg font-semibold">{product.name}</h2>
               <p className="text-red-500 font-bold mt-1">${product.price}</p>
               <button className="mt-3 w-full bg-red-500 text-white py-2 rounded hover:bg-red-600 transition">
-                Buy Now
+                <Link href="/cart">Buy Now</Link>
               </button>
             </div>
           ))}
