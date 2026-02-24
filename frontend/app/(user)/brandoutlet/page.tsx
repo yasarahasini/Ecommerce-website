@@ -103,7 +103,7 @@ const router = useRouter();
               ref={(el) => {
                 if (el) productRefs.current[index] = el;
               }}
-              className="bg-white rounded-lg shadow hover:shadow-lg transition p-4 transform hover:scale-105"
+              className="bg-gray-100 rounded-lg shadow hover:shadow-lg transition p-4 transform hover:scale-105"
             >
               <div className="relative h-48 w-full mb-4">
                 <Image
