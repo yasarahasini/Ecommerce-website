@@ -70,7 +70,7 @@ const BooksPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#fdfcf8] text-[#1a1a1a]">
     
-      <header className="bg-gradient-to-tr from-blue-500 via-pink-400 to-purple-600 text-[#fdfcf8] py-16 px-6 shadow-lg">
+      <header className="bg-gradient-to-tr from-blue-300 via-pink-400 to-gray-100 text-[#fdfcf8] py-16 px-6 shadow-lg">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4 tracking-tight">The Bibliophiles Haven</h1>
           <p className="text-blue-200 font-light italic mb-8">"A room without books is like a body without a soul."</p>
