@@ -96,7 +96,7 @@ export default function CheckoutPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         
-        <div className="bg-white p-6 rounded-lg shadow">
+        <div className="bg-gradient-to-tr from-pink-100 via-purple-100 from-gray-400 p-6 rounded-lg shadow">
           <h2 className="text-xl font-semibold mb-4">Billing Details</h2>
 
           <form className="space-y-4">
