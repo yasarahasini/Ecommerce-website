@@ -144,7 +144,7 @@ const BooksPage: React.FC = () => {
                   </div>
                 </Link>
                 
-                <button className="mt-4 w-full border border-[#1a365d] text-[#1a365d] py-2 text-sm font-bold hover:bg-[#1a365d] hover:text-white transition-colors">
+                <button className="mt-4 w-full border border-[#1a365d] text-[#1a365d] py-2 text-sm font-bold hover:bg-pink-700 hover:text-white transition-colors">
                   Add to Bag
                 </button>
               </div>
