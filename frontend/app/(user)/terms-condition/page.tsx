@@ -9,7 +9,7 @@ export default function TermsPage() {
         </h1>
 
         <p className="text-sm text-gray-500 text-center mb-10">
-          Last updated: February 2026
+          Last updated: March 2026
         </p>
 
         <section className="space-y-8 leading-relaxed">
