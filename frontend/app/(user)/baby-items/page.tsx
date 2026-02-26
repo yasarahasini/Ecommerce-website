@@ -89,7 +89,7 @@ export default function BabyCollectionPage() {
       <div className="max-w-7xl mx-auto px-6">
 
         <header className="text-center mb-16">
-          <span className="text-rose-400 font-semibold tracking-widest uppercase text-sm">Premium Quality</span>
+          <span className="text-rose-500 font-semibold tracking-widest uppercase text-sm">Premium Quality</span>
           <h1 className="text-5xl font-serif font-bold text-gray-800 mt-2 mb-4">Baby Collection</h1>
           <p className="text-gray-600 max-w-lg mx-auto italic">
             Everything your little one needs, designed with love and 3D precision.
