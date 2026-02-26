@@ -138,7 +138,7 @@ export default function TermsPage() {
           
           <div>
             <h2 className="text-xl font-semibold mb-2">
-              11. Contact Information
+              10. Contact Information
             </h2>
             <p>
               If you have any questions about these Terms & Conditions, please
