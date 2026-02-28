@@ -84,7 +84,7 @@ const AntiquesPage: React.FC = () => {
       
         <aside className="lg:w-64">
           <div className="sticky top-10 border border-[#d1c7b7] p-8 bg-white/50 backdrop-blur-sm shadow-inner">
-            <h2 className="text-lg mb-6 border-b border-[#2c241e] pb-2 italic">Departments....</h2>
+            <h2 className="text-lg mb-6 border-b border-[#2c241e] pb-2 italic">....Departments....</h2>
             <ul className="space-y-4 font-sans text-sm tracking-wide">
               {categories.map((cat) => (
                 <li key={cat}>
