@@ -143,7 +143,7 @@ const router = useRouter();
           <div className="bg-white rounded-2xl shadow-md p-10 flex flex-col md:flex-row items-center justify-between gap-6">
 
             <div>
-              <h2 className="text-3xl font-bold text-gray-800 mb-2">
+              <h2 className="text-3xl font-bold text-gray-400  mb-2">
                 Shopping Made Easy
               </h2>
               <p className="text-gray-600">
