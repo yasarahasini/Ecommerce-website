@@ -4,7 +4,7 @@ import Link from "next/link"
 
 const SubNav = () => {
   return (
-    <div className="w-full px-20  flex items-center justify-center text-center bg-white text-black border-b border-gray-200">
+    <div className="w-full px-20  flex items-center justify-center text-center bg-white text-black border-b border-gray-200 ">
       <div className="max-w-7xl mx-auto px-4">
         <nav className="flex items-center gap-6 h-12 overflow-x-auto text-sm font-medium">
           
