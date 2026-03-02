@@ -57,12 +57,12 @@ const Home: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
       
-      {/* HERO SECTION */}
+ 
       <section className="bg-gradient-to-r from-gray-300 via-white to-gray-200 py-10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="relative h-[420px] md:h-[320px] max-w-6xl mx-auto overflow-hidden shadow-lg">
             
-            {/* Images */}
+     
             {heroImages.map((img, index) => (
               <Image
                 key={img}
@@ -76,10 +76,9 @@ const Home: React.FC = () => {
               />
             ))}
 
-            {/* Overlay */}
+         
             <div className="absolute inset-0 bg-black/50"></div>
 
-            {/* Text */}
             <div className="relative z-10 h-full flex flex-col items-center justify-center text-center text-white px-4">
               <h1 className="text-4xl md:text-5xl font-bold mb-4 transition-all duration-700">
                 {heroTexts[currentText].title}
