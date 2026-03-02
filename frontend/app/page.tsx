@@ -3,9 +3,7 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { useRouter } from "next/navigation";
-
-
+import { useRouter } from "next/navigation"
 
 interface Product {
   id: number
@@ -21,28 +19,50 @@ const products: Product[] = [
   { id: 4, name: "Jeans", price: 70.0, img: "/products/4.jpg" },
 ]
 
-
-
 const heroImages = ["/1.jpg", "/2.jpg", "/8.jpg", "/7.jpg"]
+
+const heroTexts = [
+  {
+    title: "Welcome to Yash eCommerce Store",
+    subtitle: "Find the best products at unbeatable prices!",
+  },
+  {
+    title: "Big Sale is Live Now",
+    subtitle: "Grab your favorite items with huge discounts!",
+  },
+  {
+    title: "New Arrivals Just Dropped",
+    subtitle: "Explore the latest trends in fashion & tech.",
+  },
+  {
+    title: "Shop Smart, Save More",
+    subtitle: "Fast delivery and secure checkout guaranteed.",
+  },
+]
 
 const Home: React.FC = () => {
   const [currentImage, setCurrentImage] = useState(0)
+  const [currentText, setCurrentText] = useState(0)
+  const router = useRouter()
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % heroImages.length)
+      setCurrentText((prev) => (prev + 1) % heroTexts.length)
     }, 4000)
 
     return () => clearInterval(interval)
   }, [])
-const router = useRouter();
+
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
+      
+      {/* HERO SECTION */}
       <section className="bg-gradient-to-r from-gray-300 via-white to-gray-200 py-10">
         <div className="max-w-7xl mx-auto px-6">
-
           <div className="relative h-[420px] md:h-[320px] max-w-6xl mx-auto overflow-hidden shadow-lg">
-
+            
+            {/* Images */}
             {heroImages.map((img, index) => (
               <Image
                 key={img}
@@ -56,15 +76,16 @@ const router = useRouter();
               />
             ))}
 
-          
+            {/* Overlay */}
             <div className="absolute inset-0 bg-black/50"></div>
 
+            {/* Text */}
             <div className="relative z-10 h-full flex flex-col items-center justify-center text-center text-white px-4">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                Welcome to Yash eCommerce Store
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 transition-all duration-700">
+                {heroTexts[currentText].title}
               </h1>
-              <p className="text-lg md:text-xl mb-6">
-                Find the best products at unbeatable prices!
+              <p className="text-lg md:text-xl mb-6 transition-all duration-700">
+                {heroTexts[currentText].subtitle}
               </p>
               <Link href="/shop">
                 <button className="bg-blue-600 hover:bg-blue-800 transition px-8 py-3 rounded-lg font-semibold">
@@ -77,7 +98,7 @@ const router = useRouter();
         </div>
       </section>
 
-    
+      {/* HOT DEALS */}
       <section className="bg-white py-16">
         <div className="max-w-6xl mx-auto px-6">
 
@@ -100,7 +121,7 @@ const router = useRouter();
             ].map((item, i) => (
               <div
                 key={i}
-                className="bg-gray-50  shadow hover:shadow-lg transition overflow-hidden"
+                className="bg-gray-50 shadow hover:shadow-lg transition overflow-hidden"
               >
                 <div className="relative h-48">
                   <span className="absolute top-3 left-3 z-10 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">
@@ -123,13 +144,13 @@ const router = useRouter();
                       {item.old}
                     </span>
                   </div>
-               <button
-  onClick={() => router.push("/cart")}
-  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg text-sm"
->
-  Add to Cart
-</button>
 
+                  <button
+                    onClick={() => router.push("/cart")}
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg text-sm"
+                  >
+                    Add to Cart
+                  </button>
                 </div>
               </div>
             ))}
@@ -138,7 +159,7 @@ const router = useRouter();
         </div>
       </section>
 
-      <section className="py-12">
+        <section className="py-12">
         <div className="max-w-6xl mx-auto px-6">
           <div className="bg-white rounded-2xl shadow-md p-10 flex flex-col md:flex-row items-center justify-between gap-6">
 
@@ -158,9 +179,7 @@ const router = useRouter();
           </div>
         </div>
       </section>
-
-
-      <section className="bg-white py-16">
+  <section className="bg-white py-16">
         <div className="max-w-6xl mx-auto px-6">
 
     <div className="flex items-center justify-between mb-10">
@@ -269,8 +288,6 @@ const router = useRouter();
   </div>
 </section>
 
-
-
 <section className="relative py-6 overflow-hidden">
 
   <video
@@ -333,12 +350,8 @@ const router = useRouter();
         </div>
       </div>
     </section>
-  </div>
+
 </section>
-
-
-
-
     </div>
   )
 }
