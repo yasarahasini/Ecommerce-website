@@ -19,7 +19,7 @@ const MainSearch: React.FC = () => {
   };
 
   return (
-    <div className="w-full bg-white border-b border-gray-200 py-4">
+<div className="w-full bg-white border-b border-gray-200 py-4 sticky top-8 z-40">
       <div className="max-w-[1200px] mx-auto px-4 flex items-center gap-4">
 
       

@@ -14,7 +14,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="w-full bg-white border-b border-gray-200 text-[12px] text-[#333] font-sans">
+  <nav className="w-full bg-white border-b border-gray-200 text-[12px] text-[#333] font-sans sticky top-0 z-50">
       <div className="max-w-[1200px] mx-auto px-4 h-8 flex items-center justify-between">
         
       
