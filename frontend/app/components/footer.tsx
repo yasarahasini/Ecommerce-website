@@ -5,7 +5,6 @@ const Footer: FC = () => {
   return (
     <footer className="relative text-gray-300">
 
-      {/* 🔴 Background Video */}
       <video
         autoPlay
         loop
@@ -16,10 +15,10 @@ const Footer: FC = () => {
         <source src="/videos/footer-bg.mp4" type="video/mp4" />
       </video>
 
-      {/* 🔴 Dark Overlay */}
+
       <div className="absolute inset-0 bg-black/70 h-[500px]"></div>
 
-      {/* 🔴 Content */}
+    
       <div className="relative max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-4 gap-8">
         
         <div>
