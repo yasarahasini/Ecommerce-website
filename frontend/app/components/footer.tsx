@@ -10,7 +10,7 @@ const Footer: FC = () => {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-[500px] object-cover"
+        className="absolute inset-0 w-full h-[1000px] object-cover"
       >
         <source src="/videos/footer-bg.mp4" type="video/mp4" />
       </video>
