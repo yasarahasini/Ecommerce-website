@@ -1,12 +1,27 @@
 "use client";
-import React, { FC } from 'react';
+import React, { FC } from "react";
 
 const Footer: FC = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300 py-10">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="relative text-gray-300">
+
+      {/* 🔴 Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-[500px] object-cover"
+      >
+        <source src="/videos/footer-bg.mp4" type="video/mp4" />
+      </video>
+
+      {/* 🔴 Dark Overlay */}
+      <div className="absolute inset-0 bg-black/70 h-[500px]"></div>
+
+      {/* 🔴 Content */}
+      <div className="relative max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-4 gap-8">
         
-       
         <div>
           <h3 className="text-lg font-semibold mb-4">About Us</h3>
           <p className="text-sm">
@@ -14,7 +29,6 @@ const Footer: FC = () => {
           </p>
         </div>
 
-    
         <div>
           <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
           <ul className="text-sm space-y-2">
@@ -25,7 +39,6 @@ const Footer: FC = () => {
           </ul>
         </div>
 
-     
         <div>
           <h3 className="text-lg font-semibold mb-4">Customer Service</h3>
           <ul className="text-sm space-y-2">
@@ -39,9 +52,9 @@ const Footer: FC = () => {
         <div>
           <h3 className="text-lg font-semibold mb-4">Stay Connected</h3>
           <form className="flex flex-col space-y-3">
-            <input 
-              type="email" 
-              placeholder="Your email" 
+            <input
+              type="email"
+              placeholder="Your email"
               className="p-2 rounded text-gray-900"
             />
             <button className="bg-red-600 hover:bg-blue-700 text-white py-2 px-4 rounded">
@@ -56,10 +69,9 @@ const Footer: FC = () => {
             <a href="#" className="hover:text-white">LinkedIn</a>
           </div>
         </div>
-
       </div>
 
-      <div className="text-center text-sm text-gray-500 mt-10">
+      <div className="relative text-center text-sm text-gray-400 pb-6">
         &copy; {new Date().getFullYear()} Ecommerce Website. All rights reserved.
       </div>
     </footer>
