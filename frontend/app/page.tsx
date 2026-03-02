@@ -329,7 +329,7 @@ const Home: React.FC = () => {
   
 </section>
 <section>
-  
+  <div className="py-20 bg-gray-200">
     <section className="w-full max-w-[1000px] mx-auto">
       <div className="main c-model-page-popup__main">
         <div className="c-viewer w-full">
@@ -348,7 +348,7 @@ const Home: React.FC = () => {
         </div>
       </div>
     </section>
-
+</div>
 </section>
     </div>
   )
