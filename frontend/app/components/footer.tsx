@@ -12,7 +12,7 @@ const Footer: FC = () => {
         playsInline
         className="absolute inset-0 w-full h-[1000px] object-cover"
       >
-        <source src="/videos/footer-bg.mp4" type="video/mp4" />
+        <source src="/v1.mp4" type="video/mp4" />
       </video>
 
 
