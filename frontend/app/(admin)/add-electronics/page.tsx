@@ -117,7 +117,7 @@ const AddElectronicPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 text-black">
+    <div className="min-h-screen bg-gray-50 text-black">
       <div className="max-w-5xl mx-auto px-6 py-10">
 
      
@@ -179,7 +179,7 @@ const AddElectronicPage: React.FC = () => {
 
         <form
           onSubmit={handleSubmit}
-          className="bg-white rounded-lg shadow-md p-6 space-y-6"
+          className="bg-white rounded-lg shadow-md p-6 space-y-6 max-w-2xl items-center"
         >
           <div>
             <label className="block font-medium mb-1">Product Name</label>
