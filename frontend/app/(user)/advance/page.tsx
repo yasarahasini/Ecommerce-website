@@ -47,7 +47,7 @@ const Page = () => {
         
      
         <h1 className="text-4xl font-bold text-center mb-4">
-          Advanced Features
+          ...Advanced Features...
         </h1>
 
         <p className="text-lg text-center text-gray-700 max-w-2xl mx-auto">
