@@ -4,7 +4,7 @@ import React from "react";
 const AdminDashboard = () => {
   return (
     <div className="min-h-screen bg-gray-100 p-6">
-      {/* Header */}
+  
       <header className="mb-8">
         <h1 className="text-3xl font-bold text-gray-800">Admin Dashboard</h1>
         <p className="text-gray-500 mt-1">
@@ -12,7 +12,7 @@ const AdminDashboard = () => {
         </p>
       </header>
 
-      {/* Stats Cards */}
+     
       <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
         <DashboardCard title="Total Users" value="1,240" />
         <DashboardCard title="Total Orders" value="856" />
@@ -20,7 +20,7 @@ const AdminDashboard = () => {
         <DashboardCard title="Products" value="320" />
       </section>
 
-      {/* Recent Orders */}
+   
       <section className="bg-white rounded-xl shadow-md p-6">
         <h2 className="text-xl font-semibold mb-4">Recent Orders</h2>
 
@@ -48,7 +48,7 @@ const AdminDashboard = () => {
 
 export default AdminDashboard;
 
-/* ---------- Components ---------- */
+
 
 const DashboardCard = ({ title, value }: { title: string; value: string }) => (
   <div className="bg-white rounded-xl shadow-md p-6">
