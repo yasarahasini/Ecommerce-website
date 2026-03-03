@@ -126,7 +126,7 @@ const AddAccessoryForm = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto text-black">
+    <div className="max-w-2xl mx-auto text-black">
 
    
       <h2 className="text-2xl font-bold mb-4">Accessories</h2>
@@ -186,7 +186,7 @@ const AddAccessoryForm = () => {
       )}
 
      
-      <div className="max-w-md bg-white p-6 rounded-xl shadow">
+      <div className=" bg-white p-6 rounded-xl shadow max-w-2xl">
         <h2 className="text-xl font-bold mb-4">
           {editingId ? "Edit Accessory" : "Add Accessory"}
         </h2>
@@ -197,7 +197,7 @@ const AddAccessoryForm = () => {
           </p>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-3">
+        <form onSubmit={handleSubmit} className="space-y-3 max-w-2xl">
           <input
             name="name"
             value={formData.name}
