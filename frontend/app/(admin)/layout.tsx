@@ -47,7 +47,7 @@ const AdminLayout: React.FC<LayoutProps> = ({ children }) => {
   };
 
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex h-screen bg-gray-200">
    
       <aside
         className={`bg-white shadow-md transition-all duration-300 ${
