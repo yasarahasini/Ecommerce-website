@@ -23,7 +23,7 @@ const AddFashionForm = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  // ✅ fetch fashion items
+ 
   const fetchItems = async () => {
     try {
       const res = await fetch(API_URL);
@@ -45,7 +45,7 @@ const AddFashionForm = () => {
     });
   };
 
-  // ✅ submit (add/update)
+ 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
@@ -85,7 +85,7 @@ const AddFashionForm = () => {
     }
   };
 
-  // ✅ delete
+
   const handleDelete = async (id: string) => {
     if (!confirm("Delete this item?")) return;
 
@@ -97,7 +97,7 @@ const AddFashionForm = () => {
     }
   };
 
-  // ✅ edit
+
   const handleEdit = (item: FashionItem) => {
     setFormData(item);
     setEditingId(item._id || null);
@@ -107,7 +107,7 @@ const AddFashionForm = () => {
   return (
     <div className="max-w-4xl mx-auto text-black">
 
-      {/* ✅ TABLE */}
+  
       <h2 className="text-2xl font-bold mb-4">Fashion Items</h2>
 
       {items.length > 0 ? (
@@ -160,7 +160,7 @@ const AddFashionForm = () => {
         <p className="mb-6">No fashion items yet.</p>
       )}
 
-      {/* ✅ FORM */}
+   
       <div className="max-w-md bg-white p-6 rounded-xl shadow">
         <h2 className="text-xl font-bold mb-4">
           {editingId ? "Edit Fashion Item" : "Add Fashion Item"}
