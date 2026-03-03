@@ -15,7 +15,7 @@ const AdminNavbar: React.FC = () => {
   };
 
   return (
-    <header className="bg-gradient-to-r from-gray-200 via-white to-gray-300 shadow-md px-6 py-4 flex justify-between items-center">
+    <header className="bg-gradient-to-r from-gray-200 via-white to-gray-100 shadow-md px-6 py-4 flex justify-between items-center">
   
       <div className="flex items-center gap-4">
         <button
