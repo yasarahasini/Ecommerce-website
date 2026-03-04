@@ -380,7 +380,6 @@ const Home: React.FC = () => {
       
       <div className="w-full md:w-1/2 flex flex-col gap-10">
         
-        {/* Image 1 */}
         <div className="relative overflow-hidden rounded-2xl shadow-lg group">
           <img
             src="/images/img1.jpg"
