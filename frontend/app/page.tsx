@@ -340,7 +340,20 @@ const Home: React.FC = () => {
   >
     <div className="w-full max-w-[1100px] mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
 
-      {/* LEFT SIDE - TEXT CONTENT */}
+      
+
+      <div className="md:w-1/2 w-full">
+        <div className="w-full h-[500px] rounded-2xl overflow-hidden shadow-xl">
+          <iframe
+            title="3D Model Viewer"
+            className="w-full h-full"
+            src="https://sketchfab.com/models/2ffe7b8e3e4341bf8048ef8dc0f55fd1/embed?autostart=1&internal=1&tracking=0&ui_infos=0&ui_snapshots=1&ui_stop=0&ui_watermark=0"
+            allow="autoplay; fullscreen; xr-spatial-tracking"
+            allowFullScreen
+          ></iframe>
+        </div>
+      </div>
+    
       <div className="md:w-1/2 space-y-6">
 
         <h2 className="animate-item text-4xl font-bold text-gray-900">
@@ -358,24 +371,11 @@ const Home: React.FC = () => {
         </p>
 
         <div className="animate-item">
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition">
+          <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-semibold transition">
             Explore More
           </button>
         </div>
 
-      </div>
-
-      {/* RIGHT SIDE - 3D MODEL */}
-      <div className="md:w-1/2 w-full">
-        <div className="w-full h-[500px] rounded-2xl overflow-hidden shadow-xl">
-          <iframe
-            title="3D Model Viewer"
-            className="w-full h-full"
-            src="https://sketchfab.com/models/2ffe7b8e3e4341bf8048ef8dc0f55fd1/embed?autostart=1&internal=1&tracking=0&ui_infos=0&ui_snapshots=1&ui_stop=0&ui_watermark=0"
-            allow="autoplay; fullscreen; xr-spatial-tracking"
-            allowFullScreen
-          ></iframe>
-        </div>
       </div>
 
     </div>
