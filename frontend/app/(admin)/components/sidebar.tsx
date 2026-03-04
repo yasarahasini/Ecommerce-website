@@ -22,7 +22,7 @@ const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   };
 
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex h-screen bg-gray-50">
     
       <aside
         className={`bg-white shadow-md transition-all duration-300 ${
