@@ -55,7 +55,7 @@ const AdminNavbar: React.FC = () => {
 
       {menuOpen && (
         <div className="absolute top-16 left-0 w-full bg-white shadow-md md:hidden flex flex-col p-4 gap-2">
-          <button onClick={() => router.push("/admin")} className="text-gray-700">
+          <button onClick={() => router.push("/admin-dashboard")} className="text-gray-700">
             Dashboard
           </button>
           <button onClick={() => router.push("/admin/users")} className="text-gray-700">

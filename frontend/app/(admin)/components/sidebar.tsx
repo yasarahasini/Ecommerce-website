@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { FiHome, FiUsers, FiShoppingCart, FiLogOut, FiSettings } from "react-icons/fi";
 
 const sidebarLinks = [
-  { name: "Dashboard", icon: <FiHome />, path: "/admin" },
+  { name: "Dashboard", icon: <FiHome />, path: "/admin-dashboard" },
   { name: "Users", icon: <FiUsers />, path: "/admin/users" },
   { name: "Products", icon: <FiShoppingCart />, path: "/admin/products" },
   { name: "Settings", icon: <FiSettings />, path: "/admin/settings" },
