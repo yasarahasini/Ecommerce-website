@@ -384,7 +384,7 @@ const Home: React.FC = () => {
           <img
             src="/images/img1.jpg"
             alt="Image 1"
-            className="w-full h-[350px] object-cover transition-transform duration-500 group-hover:scale-105"
+            className="w-full h-[250px] object-cover transition-transform duration-500 group-hover:scale-105"
           />
         </div>
 
@@ -392,7 +392,7 @@ const Home: React.FC = () => {
           <img
             src="/images/img2.jpg"
             alt="Image 2"
-            className="w-full h-[350px] object-cover transition-transform duration-500 group-hover:scale-105"
+            className="w-200 h-[350px] object-cover transition-transform duration-500 group-hover:scale-105"
           />
         </div>
 
@@ -400,7 +400,7 @@ const Home: React.FC = () => {
           <img
             src="/images/img3.jpg"
             alt="Image 3"
-            className="w-full h-[350px] object-cover transition-transform duration-500 group-hover:scale-105"
+            className="w-200 h-[350px] object-cover transition-transform duration-500 group-hover:scale-105"
           />
         </div>
 
