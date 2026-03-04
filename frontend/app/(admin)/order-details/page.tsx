@@ -52,7 +52,6 @@ const OrderSuccessPage = () => {
         ✅ Order Placed Successfully
       </h1>
 
-      {/* Customer Info */}
       <div className="bg-white p-6 rounded-lg shadow mb-6">
         <h2 className="text-xl font-semibold mb-3">Customer Details</h2>
         <p><strong>Name:</strong> {order.fullName}</p>
@@ -62,7 +61,7 @@ const OrderSuccessPage = () => {
         <p><strong>Phone:</strong> {order.phone}</p>
       </div>
 
-      {/* Items */}
+   
       <div className="bg-gray-50 p-6 rounded-lg shadow mb-6">
         <h2 className="text-xl font-semibold mb-4">Order Items</h2>
 
@@ -81,7 +80,7 @@ const OrderSuccessPage = () => {
         </div>
       </div>
 
-      {/* Payment Slip */}
+    
       {order.paymentSlip && (
         <div className="bg-white p-6 rounded-lg shadow">
           <h2 className="text-xl font-semibold mb-4">Payment Slip</h2>
