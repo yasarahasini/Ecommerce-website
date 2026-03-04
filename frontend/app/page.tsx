@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
@@ -44,6 +44,8 @@ const Home: React.FC = () => {
   const [currentImage, setCurrentImage] = useState(0)
   const [currentText, setCurrentText] = useState(0)
   const router = useRouter()
+  const hotDealsRef = useRef<HTMLDivElement>(null)
+  const modelSectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -97,65 +99,68 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      <section className="bg-white py-16">
-        <div className="max-w-6xl mx-auto px-6">
+   <section className="bg-white py-16">
+  <div className="max-w-6xl mx-auto px-6">
 
-          <div className="flex items-center justify-between mb-10">
-            <h2 className="text-3xl font-bold text-gray-800">
-              🔥 Hot Deals
-            </h2>
-            <Link href="/deals" className="text-blue-600 hover:underline text-sm">
-              View All Deals →
-            </Link>
+    <div className="flex items-center justify-between mb-10">
+      <h2 className="text-3xl font-bold text-gray-800">
+        🔥 Hot Deals
+      </h2>
+      <Link href="/deals" className="text-blue-600 hover:underline text-sm">
+        View All Deals →
+      </Link>
+    </div>
+
+    <div
+      ref={hotDealsRef}
+      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6"
+    >
+
+      {[
+        { img: "/9.jpg", title: "Running Sneakers", off: "-30%", price: "$49.99", old: "$69.99" },
+        { img: "/10.jpg", title: "Casual T-Shirt", off: "-40%", price: "$19.99", old: "$32.99" },
+        { img: "/11.jpg", title: "Winter Jacket", off: "-25%", price: "$89.99", old: "$119.99" },
+        { img: "/12.jpg", title: "Denim Jeans", off: "-50%", price: "$34.99", old: "$69.99" },
+      ].map((item, i) => (
+        <div
+          key={i}
+          className="deal-card bg-gray-50 shadow hover:shadow-lg transition overflow-hidden rounded-xl"
+        >
+          <div className="relative h-48 overflow-hidden">
+            <span className="absolute top-3 left-3 z-10 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+              {item.off}
+            </span>
+            <img
+              src={item.img}
+              alt={item.title}
+              className="h-full w-full object-cover transition-transform duration-500 hover:scale-110"
+            />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="p-4">
+            <h3 className="font-semibold text-gray-800 mb-1">
+              {item.title}
+            </h3>
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-red-600 font-bold">{item.price}</span>
+              <span className="text-gray-400 line-through text-sm">
+                {item.old}
+              </span>
+            </div>
 
-            {[
-              { img: "/9.jpg", title: "Running Sneakers", off: "-30%", price: "$49.99", old: "$69.99" },
-              { img: "/10.jpg", title: "Casual T-Shirt", off: "-40%", price: "$19.99", old: "$32.99" },
-              { img: "/11.jpg", title: "Winter Jacket", off: "-25%", price: "$89.99", old: "$119.99" },
-              { img: "/12.jpg", title: "Denim Jeans", off: "-50%", price: "$34.99", old: "$69.99" },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="bg-gray-50 shadow hover:shadow-lg transition overflow-hidden"
-              >
-                <div className="relative h-48">
-                  <span className="absolute top-3 left-3 z-10 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">
-                    {item.off}
-                  </span>
-                  <img
-                    src={item.img}
-                    alt={item.title}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-
-                <div className="p-4">
-                  <h3 className="font-semibold text-gray-800 mb-1">
-                    {item.title}
-                  </h3>
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-red-600 font-bold">{item.price}</span>
-                    <span className="text-gray-400 line-through text-sm">
-                      {item.old}
-                    </span>
-                  </div>
-
-                  <button
-                    onClick={() => router.push("/cart")}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg text-sm"
-                  >
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-            ))}
-
+            <button
+              onClick={() => router.push("/cart")}
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg text-sm transition"
+            >
+              Add to Cart
+            </button>
           </div>
         </div>
-      </section>
+      ))}
+
+    </div>
+  </div>
+</section>
 
         <section className="py-12">
         <div className="max-w-6xl mx-auto px-6">
@@ -329,26 +334,52 @@ const Home: React.FC = () => {
   
 </section>
 <section>
-  <div className="py-20 bg-gray-200">
-    <section className="w-full max-w-[1000px] mx-auto">
-      <div className="main c-model-page-popup__main">
-        <div className="c-viewer w-full">
-          
-        
-          <div className="w-full h-[600px] md:h-[100px] lg:h-[500px]">
-            <iframe
-              title="Annotation Shortcuts Demo: Earthquakes 3D model - Sketchfab"
-              className="w-full h-full rounded-2xl shadow-lg"
-              src="https://sketchfab.com/models/2ffe7b8e3e4341bf8048ef8dc0f55fd1/embed?autostart=1&internal=1&tracking=0&ui_infos=0&ui_snapshots=1&ui_stop=0&ui_watermark=0"
-              allow="autoplay; fullscreen; xr-spatial-tracking"
-              allowFullScreen
-            ></iframe>
-          </div>
+  <div
+    ref={modelSectionRef}
+    className="py-20 bg-gray-200"
+  >
+    <div className="w-full max-w-[1100px] mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
 
+      {/* LEFT SIDE - TEXT CONTENT */}
+      <div className="md:w-1/2 space-y-6">
+
+        <h2 className="animate-item text-4xl font-bold text-gray-900">
+          Experience Shopping in 3D
+        </h2>
+
+        <p className="animate-item text-gray-600 text-lg">
+          Explore our products with immersive 3D visualization.
+          Rotate, zoom, and inspect every detail before purchasing.
+        </p>
+
+        <p className="animate-item text-gray-600">
+          We bring innovation to online shopping with interactive
+          product previews that help you make smarter decisions.
+        </p>
+
+        <div className="animate-item">
+          <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition">
+            Explore More
+          </button>
+        </div>
+
+      </div>
+
+      {/* RIGHT SIDE - 3D MODEL */}
+      <div className="md:w-1/2 w-full">
+        <div className="w-full h-[500px] rounded-2xl overflow-hidden shadow-xl">
+          <iframe
+            title="3D Model Viewer"
+            className="w-full h-full"
+            src="https://sketchfab.com/models/2ffe7b8e3e4341bf8048ef8dc0f55fd1/embed?autostart=1&internal=1&tracking=0&ui_infos=0&ui_snapshots=1&ui_stop=0&ui_watermark=0"
+            allow="autoplay; fullscreen; xr-spatial-tracking"
+            allowFullScreen
+          ></iframe>
         </div>
       </div>
-    </section>
-</div>
+
+    </div>
+  </div>
 </section>
     </div>
   )
