@@ -373,6 +373,11 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
+         <section>
+        <div ref={modelSectionRef} className="py-20 bg-gray-200">
+        
+        </div>
+      </section>
     </div>
   );
 };
