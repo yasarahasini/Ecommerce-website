@@ -60,7 +60,7 @@ const Home: React.FC = () => {
  
       <section className="bg-gradient-to-r from-white via-white to-white py-10">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="relative h-[420px] md:h-[320px] max-w-6xl mx-auto overflow-hidden shadow-lg">
+          <div className="relative h-[420px] md:h-[420px] max-w-6xl mx-auto overflow-hidden shadow-lg border-rounded-lg">
             
      
             {heroImages.map((img, index) => (
@@ -70,7 +70,7 @@ const Home: React.FC = () => {
                 alt="Hero Background"
                 fill
                 priority={index === 0}
-                className={`object-cover transition-opacity duration-1000 ${
+                className={`object-cover transition-opacity duration-1000 border-rounded-lg ${
                   index === currentImage ? "opacity-100" : "opacity-0"
                 }`}
               />
