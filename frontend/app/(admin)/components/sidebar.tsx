@@ -46,7 +46,7 @@ const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             <div
               key={link.name}
               onClick={() => router.push(link.path)}
-              className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-200 cursor-pointer"
+              className="flex items-center gap-3 px-4 py-3 text-gray-800 hover:bg-gray-200 cursor-pointer"
             >
               <span className="text-lg">{link.icon}</span>
               {sidebarOpen && <span>{link.name}</span>}
