@@ -35,7 +35,7 @@ const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           </h2>
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="text-gray-600 focus:outline-none"
+            className="text-gray-700 focus:outline-none"
           >
             ☰
           </button>
