@@ -72,7 +72,7 @@ const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           <h1 className="text-2xl font-semibold">Admin Dashboard</h1>
           <div>
             <button
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+              className="bg-blue-400 text-white px-4 py-2 rounded hover:bg-blue-600"
               onClick={() => alert("Profile clicked")}
             >
               Profile
