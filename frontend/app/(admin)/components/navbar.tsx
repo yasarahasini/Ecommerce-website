@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { FiMenu, FiBell, FiUser, FiLogOut } from "react-icons/fi";
 import { useRouter } from "next/navigation";
 import { Electronic } from '../../../../backend/backend/src/electronic/entity/electronic.entity';
+import Link from "next/dist/client/link";
 
 const AdminNavbar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -24,7 +25,9 @@ const AdminNavbar: React.FC = () => {
         >
           <FiMenu />
         </button>
-        <h1 className="text-2xl font-semibold">Admin Dashboard</h1>
+        <h1 className="text-2xl font-semibold">
+          <Link href="/admin-dashboard">Admin Dashboard</Link>
+          </h1>
       </div>
 
      
