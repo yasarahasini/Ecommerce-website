@@ -373,11 +373,44 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
-         <section>
-        <div ref={modelSectionRef} className="py-20 bg-gray-200">
+        <section>
+  <div ref={modelSectionRef} className="py-20 bg-gray-200">
+    
+    <div className="max-w-7xl mx-auto flex justify-end px-6">
+      
+      <div className="w-full md:w-1/2 flex flex-col gap-10">
         
+        {/* Image 1 */}
+        <div className="relative overflow-hidden rounded-2xl shadow-lg group">
+          <img
+            src="/images/img1.jpg"
+            alt="Image 1"
+            className="w-full h-[350px] object-cover transition-transform duration-500 group-hover:scale-105"
+          />
         </div>
-      </section>
+
+        <div className="relative overflow-hidden rounded-2xl shadow-lg group">
+          <img
+            src="/images/img2.jpg"
+            alt="Image 2"
+            className="w-full h-[350px] object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        </div>
+
+        <div className="relative overflow-hidden rounded-2xl shadow-lg group">
+          <img
+            src="/images/img3.jpg"
+            alt="Image 3"
+            className="w-full h-[350px] object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
     </div>
   );
 };
