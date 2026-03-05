@@ -132,7 +132,7 @@ export default function Home() {
 
           <div className="relative group">
 
-            <div className="absolute inset-0 bg-lime-400/20 blur-3xl rounded-full group-hover:bg-lime-400/30 transition" />
+            <div className="absolute inset-0 bg-red-800 blur-3xl rounded-full group-hover:bg-white transition" />
 
             <div
               ref={skaterImgRef}
