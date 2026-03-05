@@ -1,9 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
 
 interface Deal {
   id: number;
@@ -24,6 +27,12 @@ export default function Home() {
   const heroImages = ["/1.jpg", "/2.jpg", "/8.jpg", "/7.jpg"];
   const [currentImage, setCurrentImage] = useState(0);
 
+  const flashRef = useRef<HTMLDivElement>(null);
+  const skaterRef = useRef<HTMLDivElement>(null);
+  const bundleRef = useRef<HTMLDivElement>(null);
+  const offerRef = useRef<HTMLDivElement>(null);
+  const skaterImgRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % heroImages.length);
@@ -31,11 +40,55 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [heroImages.length]);
 
+  useEffect(() => {
+    // Section fade-in animation
+    [flashRef, skaterRef, bundleRef, offerRef].forEach((ref) => {
+      if (ref.current) {
+        gsap.from(ref.current, {
+          opacity: 0,
+          y: 100,
+          duration: 1.2,
+          scrollTrigger: {
+            trigger: ref.current,
+            start: "top 80%",
+          },
+        });
+      }
+    });
+
+    // Product card stagger
+    gsap.from(".product-card", {
+      opacity: 0,
+      y: 80,
+      duration: 1,
+      stagger: 0.2,
+      scrollTrigger: {
+        trigger: ".product-card",
+        start: "top 90%",
+      },
+    });
+
+    // Skater image hover / rotate / zoom
+    if (skaterImgRef.current) {
+      gsap.to(skaterImgRef.current, {
+        rotation: 10,
+        scale: 1.1,
+        repeat: -1,
+        yoyo: true,
+        duration: 3,
+        ease: "power1.inOut",
+      });
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-slate-150">
-      
-  
-      <section className="sticky top-0 z-10 bg-white border-b border-gray-100 px-6 py-20 shadow-2xl">
+
+      {/* Flash Sale */}
+      <section
+        ref={flashRef}
+        className="sticky top-0 z-10 bg-white border-b border-gray-100 px-6 py-20 shadow-2xl"
+      >
         <div className="container mx-auto max-w-6xl">
           <div className="flex justify-between items-end mb-10">
             <div>
@@ -44,7 +97,7 @@ export default function Home() {
             </div>
             <Link href="/deals" className="text-blue-600 font-semibold hover:underline">View All →</Link>
           </div>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {deals.map((deal) => (
               <ProductCard key={deal.id} deal={deal} />
@@ -53,9 +106,13 @@ export default function Home() {
         </div>
       </section>
 
-
-      <section className="sticky top-0 z-20 bg-slate-900 text-white px-6 py-24 shadow-2xl">
+      {/* Skater Section */}
+      <section
+        ref={skaterRef}
+        className="sticky top-0 z-20 bg-slate-900 text-white px-6 py-24 shadow-2xl"
+      >
         <div className="container mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
           <div className="space-y-8">
             <span className="bg-lime-400 text-black px-3 py-1 rounded-full text-sm font-bold uppercase">New Collection</span>
             <h2 className="text-5xl md:text-7xl font-black leading-none uppercase italic">
@@ -73,59 +130,57 @@ export default function Home() {
             </Link>
           </div>
 
-     <div className="relative group">
- 
-      <div className="absolute inset-0 bg-lime-400/20 blur-3xl rounded-full group-hover:bg-lime-400/30 transition" />
+          <div className="relative group">
 
-      
-      <div className="relative aspect-square w-72 mx-auto rounded-full overflow-hidden">
-        <Image
-          src="/guy1.jpg"
-          alt="Skater"
-          fill
-          priority
-          className="object-cover rounded-full drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
-        />
-      </div>
-    </div>
+            <div className="absolute inset-0 bg-lime-400/20 blur-3xl rounded-full group-hover:bg-lime-400/30 transition" />
+
+            <div
+              ref={skaterImgRef}
+              className="relative aspect-square w-72 mx-auto rounded-full overflow-hidden"
+            >
+              <Image
+                src="/guy1.jpg"
+                alt="Skater"
+                fill
+                priority
+                className="object-cover rounded-full drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+              />
+            </div>
+          </div>
+
         </div>
       </section>
 
-      <section className="sticky top-0 z-30 bg-green-800 text-white px-6 py-20">
+      {/* Bundle Section */}
+      <section
+        ref={bundleRef}
+        className="sticky top-0 z-30 bg-green-800 text-white px-6 py-20"
+      >
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-bold mb-10 text-center">Bundle & Save</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {deals.map((deal) => (
-              <div key={deal.id} className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl hover:bg-white/20 transition">
-                <div className="relative h-40 mb-4 rounded-lg overflow-hidden">
-                   <img src={deal.image} alt={deal.name} className="w-full h-full object-cover" />
-                </div>
-                <h3 className="font-bold text-xl">{deal.name}</h3>
-                <p className="text-blue-100 mb-4">Starting at ${deal.discountedPrice}</p>
-                <button className="w-full bg-white text-blue-600 font-bold py-2 rounded-lg hover:bg-blue-50">Add to Bundle</button>
-              </div>
+              <BundleCard key={deal.id} deal={deal} />
             ))}
           </div>
         </div>
       </section>
 
-        <section className="sticky top-0 z-30 bg-white text-black px-6 py-20">
+      {/* Offers Section */}
+      <section
+        ref={offerRef}
+        className="sticky top-0 z-30 bg-white text-black px-6 py-20"
+      >
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-bold mb-10 text-center"> Offers</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {deals.map((deal) => (
-              <div key={deal.id} className="bg-white/10 backdrop-blur-md border border-black/20 p-6 rounded-2xl hover:bg-black/20 transition">
-                <div className="relative h-40 mb-4 rounded-lg overflow-hidden">
-                   <img src={deal.image} alt={deal.name} className="w-full h-full object-cover" />
-                </div>
-                <h3 className="font-bold text-xl">{deal.name}</h3>
-                <p className="text-blue-100 mb-4">Starting at ${deal.discountedPrice}</p>
-                <button className="w-full bg-white text-blue-600 font-bold py-2 rounded-lg hover:bg-blue-50">Add to Bundle</button>
-              </div>
+              <BundleCard key={deal.id} deal={deal} />
             ))}
           </div>
         </div>
       </section>
+
     </div>
   );
 }
@@ -133,9 +188,9 @@ export default function Home() {
 
 function ProductCard({ deal }: { deal: Deal }) {
   const discount = Math.round(((deal.originalPrice - deal.discountedPrice) / deal.originalPrice) * 100);
-  
+
   return (
-    <div className="group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:shadow-2xl transition-all duration-500">
+    <div className="product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:shadow-2xl transition-all duration-500">
       <div className="relative h-64 overflow-hidden">
         <div className="absolute top-4 left-4 z-10 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
           -{discount}% OFF
@@ -157,6 +212,19 @@ function ProductCard({ deal }: { deal: Deal }) {
           Add to Cart
         </button>
       </div>
+    </div>
+  );
+}
+
+function BundleCard({ deal }: { deal: Deal }) {
+  return (
+    <div className="product-card bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl hover:bg-white/20 transition">
+      <div className="relative h-40 mb-4 rounded-lg overflow-hidden">
+        <img src={deal.image} alt={deal.name} className="w-full h-full object-cover" />
+      </div>
+      <h3 className="font-bold text-xl">{deal.name}</h3>
+      <p className="text-blue-100 mb-4">Starting at ${deal.discountedPrice}</p>
+      <button className="w-full bg-white text-blue-600 font-bold py-2 rounded-lg hover:bg-blue-50">Add to Bundle</button>
     </div>
   );
 }
