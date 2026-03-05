@@ -41,7 +41,7 @@ export default function Home() {
   }, [heroImages.length]);
 
   useEffect(() => {
-    // Section fade-in animation
+ 
     [flashRef, skaterRef, bundleRef, offerRef].forEach((ref) => {
       if (ref.current) {
         gsap.from(ref.current, {
@@ -56,7 +56,7 @@ export default function Home() {
       }
     });
 
-    // Product card stagger
+    
     gsap.from(".product-card", {
       opacity: 0,
       y: 80,
@@ -68,7 +68,7 @@ export default function Home() {
       },
     });
 
-    // Skater image hover / rotate / zoom
+  
     if (skaterImgRef.current) {
       gsap.to(skaterImgRef.current, {
         rotation: 10,
@@ -84,7 +84,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-slate-150">
 
-      {/* Flash Sale */}
+
       <section
         ref={flashRef}
         className="sticky top-0 z-10 bg-white border-b border-gray-100 px-6 py-20 shadow-2xl"
@@ -106,7 +106,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Skater Section */}
+   
       <section
         ref={skaterRef}
         className="sticky top-0 z-20 bg-slate-900 text-white px-6 py-24 shadow-2xl"
@@ -151,7 +151,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Bundle Section */}
       <section
         ref={bundleRef}
         className="sticky top-0 z-30 bg-green-800 text-white px-6 py-20"
@@ -166,7 +165,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Offers Section */}
+   
       <section
         ref={offerRef}
         className="sticky top-0 z-30 bg-white text-black px-6 py-20"
