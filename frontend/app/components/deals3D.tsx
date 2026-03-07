@@ -42,7 +42,7 @@ const deals: Deal[] = [
 
 const Deals3D: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-100 py-16 px-6">
+    <div className="min-h-screen bg-gray-200 py-16 px-6">
       <h1 className="text-4xl font-bold text-center mb-12">Hot 3D Deals</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
         {deals.map((deal) => (
