@@ -15,12 +15,12 @@ interface Product {
 }
 
 const products: Product[] = [
-  { id: 1, name: "SmartphoneX12", price: 799, img: "/products/phone1.jpg", category: "Electronics" },
-  { id: 2, name: "Wireless Headphones", price: 199, img: "/products/headphones.jpg", category: "Electronics" },
-  { id: 3, name: "Running Shoes", price: 129, img: "/products/shoes.jpg", category: "Fashion" },
-  { id: 4, name: "Leather Jacket", price: 249, img: "/products/jacket.jpg", category: "Fashion" },
+  { id: 1, name: "SmartphoneX12", price: 799, img: "/board1.jpg", category: "Electronics" },
+  { id: 2, name: "Wireless Headphones", price: 199, img: "/14.jpg", category: "Electronics" },
+  { id: 3, name: "Running Shoes", price: 129, img: "/23.jpg", category: "Fashion" },
+  { id: 4, name: "Leather Jacket", price: 249, img: "/11.jpg", category: "Fashion" },
   { id: 5, name: "Coffee Maker", price: 89, img: "/products/coffee.jpg", category: "Home Appliances" },
-  { id: 6, name: "Smart Watch", price: 299, img: "/products/watch.jpg", category: "Electronics" },
+  { id: 6, name: "Smart Watch", price: 299, img: "/13.jpg", category: "Electronics" },
 ];
 
 const categories = ["All", "Electronics", "Fashion", "Home Appliances"];
@@ -71,9 +71,9 @@ const router = useRouter();
           className="object-cover"
         />
         <div className="absolute inset-0  bg-opacity-40 flex items-center justify-center">
-          <h1 ref={bannerRef} className="text-white text-4xl font-bold">
-            Brand Outlet
-          </h1>
+            <span className="text-2xl font-bold tracking-tight">
+           <span className="bg-gradient-to-r from-blue-600 via-yellow-300 to-green-700 text-transparent bg-clip-text">Brand</span> <span className="bg-gradient-to-r from-red-500 via-yellow-400 to-blue-500 text-transparent bg-clip-text">Outlet</span>
+          </span>
         </div>
       </section>
 

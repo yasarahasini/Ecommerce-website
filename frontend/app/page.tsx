@@ -378,33 +378,7 @@ const Home: React.FC = () => {
     
     <div className="max-w-7xl mx-auto flex justify-end px-6">
       
-      <div className="w-full md:w-1/2 flex flex-col gap-10">
-        
-        <div className="relative overflow-hidden rounded-2xl shadow-lg group">
-          <img
-            src="/images/img1.jpg"
-            alt="Image 1"
-            className="w-full h-[250px] object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-        </div>
-
-        <div className="relative overflow-hidden rounded-2xl shadow-lg group">
-          <img
-            src="/images/img2.jpg"
-            alt="Image 2"
-            className="w-200 h-[350px] object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-        </div>
-
-        <div className="relative overflow-hidden rounded-2xl shadow-lg group">
-          <img
-            src="/images/img3.jpg"
-            alt="Image 3"
-            className="w-200 h-[350px] object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-        </div>
-
-      </div>
+  
 
     </div>
 
