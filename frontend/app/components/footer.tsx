@@ -3,7 +3,7 @@ import React, { FC } from "react";
 
 const Footer: FC = () => {
   return (
-    <footer className="relative text-gray-400">
+    <footer className="relative text-gray-300">
 
       <video
         autoPlay
