@@ -20,7 +20,7 @@ const deals: Deal[] = [
   {
     id: 2,
     name: "Smartwatch Pro",
-    price: "$120",
+    price: "$130",
     discount: "15% OFF",
     modelUrl: "/3d/smartwatch.glb",
   },
