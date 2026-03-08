@@ -16,7 +16,7 @@ const HelpContactPage: React.FC = () => {
         >
           <h2 className="text-2xl font-semibold mb-6">Help & Support</h2>
 
-          <div className="space-y-5 text-sm text-gray-600">
+          <div className="space-y-5 text-sm text-gray-700">
             <div>
               <h4 className="font-medium text-gray-800">
                 📦 How can I track my order?
