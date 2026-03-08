@@ -44,7 +44,7 @@ const EditProfilePage: React.FC = () => {
 
         <form onSubmit={handleSubmit} className="space-y-5">
 
-          {/* Avatar */}
+       
           <div className="flex items-center gap-5">
 
             <div className="relative w-24 h-24">
@@ -67,7 +67,7 @@ const EditProfilePage: React.FC = () => {
 
           </div>
 
-          {/* Name */}
+      
           <div>
             <label className="text-sm text-gray-500">Full Name</label>
             <input
@@ -79,7 +79,7 @@ const EditProfilePage: React.FC = () => {
             />
           </div>
 
-          {/* Email */}
+       
           <div>
             <label className="text-sm text-gray-500">Email</label>
             <input
@@ -91,7 +91,6 @@ const EditProfilePage: React.FC = () => {
             />
           </div>
 
-          {/* Phone */}
           <div>
             <label className="text-sm text-gray-500">Phone</label>
             <input
@@ -103,7 +102,6 @@ const EditProfilePage: React.FC = () => {
             />
           </div>
 
-          {/* Address */}
           <div>
             <label className="text-sm text-gray-500">Address</label>
             <textarea
@@ -115,7 +113,7 @@ const EditProfilePage: React.FC = () => {
             />
           </div>
 
-          {/* Buttons */}
+      
           <div className="flex justify-end gap-3 pt-4">
 
             <button
