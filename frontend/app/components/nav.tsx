@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 h-8 flex items-center justify-between">
 
-        {/* LEFT MENU */}
+       
         <div className="flex items-center space-x-4">
 
           <div className="flex items-center cursor-pointer hover:underline">
@@ -47,10 +47,9 @@ const Navbar: React.FC = () => {
 
         </div>
 
-        {/* RIGHT MENU */}
         <div className="flex items-center space-x-4">
 
-          {/* SHIPPING */}
+       
           <div className="flex items-center cursor-pointer hover:underline">
             <img
               src="https://flagcdn.com/w20/lk.png"
@@ -64,13 +63,13 @@ const Navbar: React.FC = () => {
             Sell
           </Link>
 
-          {/* WATCHLIST */}
+        
           <div className="flex items-center cursor-pointer hover:underline">
             <Link href="/watchlist">Watchlist</Link>
             <ChevronDown size={14} className="ml-1" />
           </div>
 
-          {/* MY YASH DROPDOWN */}
+      
           <div className="relative">
 
             <div
@@ -124,7 +123,6 @@ const Navbar: React.FC = () => {
 
           </div>
 
-          {/* ICONS */}
           <div className="flex items-center space-x-3 ml-2">
 
             <button className="relative p-1 hover:bg-gray-100 rounded-full transition-colors">
