@@ -126,7 +126,7 @@ const EditProfilePage: React.FC = () => {
 
             <button
               type="submit"
-              className="px-6 py-2 rounded-lg bg-black text-white hover:bg-gray-800"
+              className="px-6 py-2 rounded-lg bg-red-500 text-white hover:bg-gray-800"
             >
               Save Changes
             </button>
