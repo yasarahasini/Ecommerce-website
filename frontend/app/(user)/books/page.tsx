@@ -131,7 +131,7 @@ const BooksPage: React.FC = () => {
                     <h3 className="text-lg font-serif font-bold text-[#1a365d] leading-tight mt-1 line-clamp-2">
                       {book.title}
                     </h3>
-                    <p className="text-sm text-gray-600 mt-1 italic">{book.author}</p>
+                    <p className="text-sm text-gray-700 mt-1 italic">{book.author}</p>
                     
                     <div className="flex items-center gap-1 mt-2">
                       <span className="text-yellow-500 text-xs">★</span>
