@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/dist/client/link";
 
 interface UserProfile {
   name: string;
@@ -52,7 +53,7 @@ const page: React.FC = () => {
             <p className="text-gray-500">{user.email}</p>
 
             <button className="mt-3 rounded-lg bg-black px-5 py-2 text-sm text-white hover:bg-gray-800">
-              Edit Profile
+           <Link href="/edit-profile"> Edit Profile</Link>  
             </button>
           </div>
         </div>
