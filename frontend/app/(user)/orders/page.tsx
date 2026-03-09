@@ -87,7 +87,6 @@ const Page: React.FC = () => {
               </button>
             </div>
 
-            {/* Expandable Order Items */}
             {expandedOrderId === order.id && order.items && (
               <div className="mt-4 border-t pt-4 space-y-2">
                 {order.items.map((item, idx) => (
