@@ -50,7 +50,7 @@ const page: React.FC = () => {
 
           <div className="text-center md:text-left">
             <h1 className="text-2xl font-bold">{user.name}</h1>
-            <p className="text-gray-500">{user.email}</p>
+            <p className="text-gray-600">{user.email}</p>
 
             <button className="mt-3 rounded-lg bg-black px-5 py-2 text-sm text-white hover:bg-gray-800">
            <Link href="/edit-profile"> Edit Profile</Link>  
