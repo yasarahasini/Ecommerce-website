@@ -30,7 +30,7 @@ const orders: Order[] = [
 
 const Page: React.FC = () => {
   return (
-    <div className="bg-amber-100 min-h-screen p-8">
+    <div className="bg-gradient-to-r from-amber-700 to-blue-50 min-h-screen p-8">
       <h1 className="text-3xl font-bold mb-6">My Orders</h1>
 
       <div className="space-y-4">
