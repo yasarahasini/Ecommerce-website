@@ -58,7 +58,7 @@ const Page: React.FC = () => {
             <div className="flex justify-between items-center">
               <div>
                 <p className="font-semibold">Order ID: {order.id}</p>
-                <p className="text-gray-500 text-sm">Date: {order.date}</p>
+                <p className="text-gray-600 text-sm">Date: {order.date}</p>
               </div>
 
               <div>
