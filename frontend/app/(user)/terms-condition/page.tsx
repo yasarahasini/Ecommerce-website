@@ -8,7 +8,7 @@ export default function TermsPage() {
           Terms & Conditions
         </h1>
 
-        <p className="text-sm text-gray-500 text-center mb-10">
+        <p className="text-sm text-gray-600 text-center mb-10">
           Last updated: March 2026
         </p>
 
