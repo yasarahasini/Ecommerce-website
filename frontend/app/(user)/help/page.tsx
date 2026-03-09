@@ -34,7 +34,7 @@ const HelpContact: React.FC = () => {
     <div className="min-h-screen bg-amber-50 p-8">
       <h1 className="text-4xl font-bold text-amber-900 mb-6">Help & Contact</h1>
 
-      {/* FAQ Section */}
+     
       <section className="mb-12">
         <h2 className="text-2xl font-semibold mb-4">Frequently Asked Questions</h2>
         <div className="space-y-4">
@@ -47,7 +47,7 @@ const HelpContact: React.FC = () => {
         </div>
       </section>
 
-      {/* Contact Form */}
+    
       <section>
         <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
         <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow max-w-lg">
