@@ -168,7 +168,7 @@ export default function Home() {
    
       <section
         ref={offerRef}
-        className="sticky top-0 z-30 bg-white text-black px-6 py-20"
+        className="sticky top-0 z-30 bg-gradient-to-r from-white to-orange-50 text-white px-6 py-20"
       >
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-bold mb-10 text-center"> Offers</h2>
