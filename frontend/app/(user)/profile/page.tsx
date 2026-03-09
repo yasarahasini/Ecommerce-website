@@ -108,7 +108,7 @@ interface InfoProps {
 
 const Info: React.FC<InfoProps> = ({ label, value }) => (
   <div>
-    <p className="text-gray-500">{label}</p>
+    <p className="text-gray-600">{label}</p>
     <p className="font-medium">{value}</p>
   </div>
 );
