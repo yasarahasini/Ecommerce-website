@@ -31,7 +31,7 @@ const HelpContact: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-amber-50 p-8">
+    <div className="min-h-screen bg-zinc-100 p-8">
       <h1 className="text-4xl font-bold text-amber-900 mb-6">Help & Contact</h1>
 
      
