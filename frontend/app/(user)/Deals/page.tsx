@@ -153,7 +153,7 @@ export default function Home() {
 
       <section
         ref={bundleRef}
-        className="sticky top-0 z-30 bg-green-800 text-white px-6 py-20"
+        className="sticky top-0 z-30 bg-gradient-to-r from-blue-600 to-green-600 text-white px-6 py-20"
       >
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-bold mb-10 text-center">Bundle & Save</h2>
