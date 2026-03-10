@@ -112,7 +112,7 @@ const Navbar: React.FC = () => {
                 </Link>
 
                 <Link
-                  href="/logout"
+                  href="/login"
                   className="block px-4 py-2 hover:bg-gray-100 text-red-500"
                 >
                   Logout
