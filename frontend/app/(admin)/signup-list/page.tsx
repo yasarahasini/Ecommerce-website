@@ -93,7 +93,7 @@ const UsersPage = () => {
         </table>
 
         {users.length === 0 && (
-          <p className="text-center py-6 text-gray-500">
+          <p className="text-center py-6 text-gray-600">
             No users found
           </p>
         )}
