@@ -49,7 +49,7 @@ const dummyBooks: Book[] = [
     id: 4, 
     title: "Dune", 
     author: "Frank Herbert", 
-    price: 25.99, 
+    price: 29.99, 
     img: "https://images.unsplash.com/photo-1531988042231-d39a9cc12a9a", 
     category: "Sci-Fi",
     format: "Hardcover",
