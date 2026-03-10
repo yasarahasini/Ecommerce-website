@@ -52,7 +52,7 @@ export default AdminDashboard;
 
 const DashboardCard = ({ title, value }: { title: string; value: string }) => (
   <div className="bg-white rounded-xl shadow-md p-6">
-    <p className="text-gray-500 text-sm">{title}</p>
+    <p className="text-gray-600 text-sm">{title}</p>
     <h3 className="text-2xl font-bold mt-2">{value}</h3>
   </div>
 );
