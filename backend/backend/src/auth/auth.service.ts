@@ -4,8 +4,8 @@ import { Repository } from 'typeorm';
 import { User } from '../users/user.entity';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
-import { SignupDto } from './dto/signup.dto';
 import { LoginDto } from './dto/login.dto';
+import { SignupDto } from './signup.dto';
 
 @Injectable()
 export class AuthService {
@@ -15,6 +15,7 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
+  // ✅ Signup
   async signup(dto: SignupDto) {
     const hashedPassword = await bcrypt.hash(dto.password, 10);
 
@@ -29,7 +30,20 @@ export class AuthService {
     return { message: 'User created successfully' };
   }
 
+  // ✅ Login (Admin + User)
   async login(dto: LoginDto) {
+
+    // 🔐 Admin login (hardcoded)
+    if (dto.email === 'yasara' && dto.password === '1234567') {
+      const payload = { sub: 'admin', role: 'admin' };
+
+      return {
+        access_token: this.jwtService.sign(payload),
+        role: 'admin',
+      };
+    }
+
+    // 👤 User login
     const user = await this.userRepo.findOne({
       where: { email: dto.email },
     });
@@ -39,10 +53,15 @@ export class AuthService {
     const isMatch = await bcrypt.compare(dto.password, user.password);
     if (!isMatch) throw new UnauthorizedException('Invalid credentials');
 
-    const payload = { sub: user.id, email: user.email };
+    const payload = {
+      sub: user.id,
+      email: user.email,
+      role: 'user',
+    };
 
     return {
       access_token: this.jwtService.sign(payload),
+      role: 'user',
     };
   }
 }

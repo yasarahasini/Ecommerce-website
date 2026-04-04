@@ -50,11 +50,11 @@ const Footer: FC = () => {
 
         <div>
           <h3 className="text-lg font-semibold mb-4">Stay Connected</h3>
-          <form className="flex flex-col space-y-3">
+          <form className="flex flex-col border-white space-y-3">
             <input
               type="email"
               placeholder="Your email"
-              className="p-2 rounded text-gray-900"
+              className="p-2 rounded border-white text-white"
             />
             <button className="bg-red-600 hover:bg-blue-700 text-white py-2 px-4 rounded">
               Subscribe
