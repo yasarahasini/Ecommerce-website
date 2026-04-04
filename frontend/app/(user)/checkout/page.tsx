@@ -108,7 +108,7 @@ export default function CheckoutPage() {
       <h1 className="text-3xl font-bold mb-8">Checkout</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="bg-gradient-to-tr from-blue-200 via-purple-100 from-blue-400 p-6 rounded-lg shadow">
+        <div className="bg-gradient-to-tr from-blue-200 via-purple-300 from-blue-800 p-6 rounded-lg shadow">
           <h2 className="text-xl font-semibold mb-4">Billing Details</h2>
 
           <form className="space-y-4">
@@ -199,6 +199,18 @@ export default function CheckoutPage() {
             >
               {loading ? "Placing Order..." : "Place Order"}
             </button>
+          </div>
+        </div>
+      </div>
+      <div className="py-10 flex item-center ">
+        <div className="bg-gradient-to-tr from-gray-600 via-white to-purple-600 w-[950px] h-[200px] rounded-[2rem] flex items-center justify-center">
+          <div className="bg-white w-[700px] h-[10px] flex items-center justify-center rounded-[2rem]">
+            <div className="justify-center flex item-center ">
+              <p className="text-3xl font-bold text-red-600 justify-center flex-item-center ">
+                {" "}
+                Yash E-Commerce Website
+              </p>
+            </div>
           </div>
         </div>
       </div>
