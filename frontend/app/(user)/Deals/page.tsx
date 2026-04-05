@@ -162,6 +162,7 @@ export default function Home() {
               <BundleCard key={deal.id} deal={deal} />
             ))}
           </div>
+         
         </div>
       </section>
 

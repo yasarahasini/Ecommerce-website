@@ -10,13 +10,13 @@ const Footer: FC = () => {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-[500px] object-cover"
+        className="absolute inset-0 w-full h-[600px] object-cover"
       >
         <source src="/v1.mp4" type="video/mp4" />
       </video>
 
 
-      <div className="absolute inset-0 bg-black/70 h-[500px]"></div>
+      <div className="absolute inset-0 bg-black/70 h-[600px]"></div>
 
     
       <div className="relative max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-4 gap-8">
