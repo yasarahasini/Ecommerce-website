@@ -14,7 +14,7 @@ const options = {
       },
     ],
   },
-  apis: ["./routes/*.js"], // routes වල comments read කරනවා
+  apis: ["./routes/*.js"], 
 };
 
 const swaggerSpec = swaggerJSDoc(options);

@@ -13,7 +13,6 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
 
-  // ✅ Swagger
   const config = new DocumentBuilder()
     .setTitle('My API')
     .setDescription('API documentation')
