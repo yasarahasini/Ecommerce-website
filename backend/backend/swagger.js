@@ -1,0 +1,22 @@
+const swaggerJSDoc = require("swagger-jsdoc");
+
+const options = {
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "My API",
+      version: "1.0.0",
+      description: "API documentation for my project",
+    },
+    servers: [
+      {
+        url: "http://localhost:3001",
+      },
+    ],
+  },
+  apis: ["./routes/*.js"], // routes වල comments read කරනවා
+};
+
+const swaggerSpec = swaggerJSDoc(options);
+
+module.exports = swaggerSpec;
