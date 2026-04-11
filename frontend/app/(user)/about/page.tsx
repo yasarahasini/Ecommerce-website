@@ -1,4 +1,4 @@
-
+"use client";
 import React from 'react';
 
 const AboutPage = () => {
@@ -10,7 +10,7 @@ const AboutPage = () => {
           About Our Store
         </h1>
         <p className="text-gray-600 mb-6">
-          Welcome to our e-commerce store! We are dedicated to providing the best products with top-notch service. Our mission is to make your shopping experience seamless and enjoyable.
+          Welcome to our Yash  e-commerce store! We are dedicated to providing the best products with top-notch service. Our mission is to make your shopping experience seamless and enjoyable.
         </p>
       </div>
 

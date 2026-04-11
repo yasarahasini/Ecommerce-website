@@ -8,8 +8,9 @@ interface ContactFormData {
   message: string;
 }
 
+// Improved accessibility and contrast for the glassmorphism effect
 const inputClasses =
-  "w-full px-3 py-2 text-sm border border-white/30 bg-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 placeholder-white/70";
+  "w-full px-3 py-2 text-sm border border-gray-300 bg-white/80 dark:bg-gray-800/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all placeholder-gray-500";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -19,12 +20,12 @@ export default function ContactPage() {
   });
 
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState("");
-  const [errors, setErrors] = useState<string[]>([]);
+  const [status, setStatus] = useState<{ type: 'success' | 'error' | null; msg: string | string[] }>({
+    type: null,
+    msg: ""
+  });
 
-  const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -32,11 +33,13 @@ export default function ContactPage() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    setErrors([]);
-    setSuccess("");
+    setStatus({ type: null, msg: "" });
 
     try {
-      const res = await fetch("http://localhost:3001/contact", {
+      // Use environment variables for production readiness
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+      
+      const res = await fetch(`${apiUrl}/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -45,94 +48,100 @@ export default function ContactPage() {
       const data = await res.json();
 
       if (!res.ok) {
-        setErrors(Array.isArray(data.message) ? data.message : [data.message]);
+        setStatus({ 
+          type: 'error', 
+          msg: Array.isArray(data.message) ? data.message : [data.message || "Something went wrong"] 
+        });
       } else {
-        setSuccess("Message sent successfully!");
+        setStatus({ type: 'success', msg: "Message sent successfully!" });
         setFormData({ name: "", email: "", message: "" });
       }
     } catch (err) {
-      console.error("Frontend ERROR:", err);
-      setErrors(["Cannot connect to backend"]);
+      setStatus({ type: 'error', msg: ["Cannot connect to the server. Please try again later."] });
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <main
-      className="relative min-h-screen flex justify-center items-center p-4 bg-cover bg-center"
-      style={{ backgroundImage: "url('/brandoutlet.jpg')" }}
-    >
-    
-      <div className="absolute inset-0 bg-black/60" />
-
-     
-      <section className="relative w-full max-w-md backdrop-blur-md bg-white/10 shadow-2xl rounded-xl overflow-hidden">
-        <div className="p-6 md:p-7">
-          <h1 className="text-2xl font-bold mb-4 text-white text-center">
-            Contact Us
+    <main className="relative min-h-screen flex justify-center items-center p-4 bg-gray-100">
+      <section className="relative w-full max-w-md bg-white shadow-xl rounded-2xl border border-gray-100 overflow-hidden">
+        <div className="p-8">
+          <h1 className="text-2xl font-bold mb-6 text-gray-800 text-center">
+            Get in Touch
           </h1>
 
-          {success && (
-            <p className="text-green-400 text-center mb-3 text-sm font-medium">
-              {success}
-            </p>
+          {/* Alert Messages */}
+          {status.type === 'success' && (
+            <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg mb-4 text-sm">
+              {status.msg}
+            </div>
           )}
 
-          {errors.length > 0 && (
-            <ul className="text-red-400 mb-3">
-              {errors.map((err, i) => (
-                <li key={i} className="text-xs">
-                  {err}
-                </li>
+          {status.type === 'error' && Array.isArray(status.msg) && (
+            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-4">
+              {status.msg.map((err, i) => (
+                <p key={i} className="text-xs font-medium">• {err}</p>
               ))}
-            </ul>
+            </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-3 text-white">
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium mb-1">Name</label>
+              <label htmlFor="name" className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1 ml-1">
+                Full Name
+              </label>
               <input
+                id="name"
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
                 required
+                placeholder="John Doe"
                 className={inputClasses}
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-1">Email</label>
+              <label htmlFor="email" className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1 ml-1">
+                Email Address
+              </label>
               <input
+                id="email"
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 required
+                placeholder="john@example.com"
                 className={inputClasses}
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-1">Message</label>
+              <label htmlFor="message" className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1 ml-1">
+                Message
+              </label>
               <textarea
+                id="message"
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
                 rows={4}
                 required
-                className={inputClasses + " resize-none"}
+                placeholder="How can we help?"
+                className={`${inputClasses} resize-none`}
               />
             </div>
 
             <button
               type="submit"
               disabled={loading}
-              className={`w-full py-2.5 rounded-lg text-white text-sm font-semibold transition-colors ${
+              className={`w-full py-3 rounded-lg text-white text-sm font-bold shadow-lg transition-all active:scale-95 ${
                 loading
                   ? "bg-gray-400 cursor-not-allowed"
-                  : "bg-blue-600 hover:bg-blue-700"
+                  : "bg-blue-600 hover:bg-blue-700 hover:shadow-blue-200"
               }`}
             >
               {loading ? "Sending..." : "Send Message"}

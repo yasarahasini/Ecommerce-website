@@ -108,7 +108,7 @@ export default function CheckoutPage() {
       <h1 className="text-3xl font-bold mb-8">Checkout</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="bg-gradient-to-tr from-blue-200 via-purple-300 from-blue-800 p-6 rounded-lg shadow">
+        <div className="bg-gradient-to-tr from-blue-200 via-purple-100 from-blue-100 p-6 rounded-lg shadow">
           <h2 className="text-xl font-semibold mb-4">Billing Details</h2>
 
           <form className="space-y-4">

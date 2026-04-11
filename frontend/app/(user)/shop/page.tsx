@@ -38,7 +38,7 @@ export default function ShopPage() {
     : products.filter(p => p.category === selectedCategory);
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen bg-gray-50">
+    <div className="flex flex-col md:flex-row min-h-screen ">
       
 
       <aside className="w-full md:w-64 bg-white border-r border-gray-200 p-6">
@@ -55,7 +55,7 @@ export default function ShopPage() {
                   onClick={() => setSelectedCategory(cat)}
                   className={`w-full text-left px-3 py-2 rounded-md transition ${
                     selectedCategory === cat 
-                      ? "bg-blue-50 text-blue-700 font-medium" 
+                      ? "bg-blue-500 text-blue-700 font-medium" 
                       : "text-gray-600 hover:bg-gray-100"
                   }`}
                 >
@@ -79,7 +79,7 @@ export default function ShopPage() {
       </aside>
 
     
-      <main className="flex-1 p-6 md:p-10">
+      <main className="flex-1 p-6 md:p-10 bg-gradient-to-tr bg-grsy-50 via-white from-gray-300">
         <header className="flex justify-between items-end mb-8">
           <div>
             <h1 className="text-3xl font-bold text-gray-900">Shop Our Products</h1>
