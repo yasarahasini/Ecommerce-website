@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import {
   Entity,
   Column,
@@ -8,23 +9,23 @@ import {
 @Entity('electronics')
 export class Electronic {
   @PrimaryGeneratedColumn()
-  id: number;
+  id: number | undefined;
 
   @Column()
-  name: string;
+  name: string | undefined;
 
   @Column('decimal')
-  price: number;
+  price: number | undefined;
 
   @Column()
-  category: string;
+  category: string | undefined;
 
   @Column({ nullable: true })
-  image: string;
+  image: string | undefined;
 
   @Column({ nullable: true, type: 'text' })
-  description: string;
+  description: string | undefined;
 
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt: Date | undefined;
 }
