@@ -42,15 +42,15 @@ const Page = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-tr from-white via-purple-400 to-pink-400 min-h-screen py-12">
+    <div className="bg-gradient-to-tr from-white via-purple-300 to-pink-400 min-h-screen py-12">
       <div className="max-w-6xl mx-auto px-4">
         
      
         <h1 className="text-4xl font-bold text-center mb-4">
-          ...Advanced Features...
+          .Advanced Features.
         </h1>
 
-        <p className="text-lg text-center text-gray-700 max-w-2xl mx-auto">
+        <p className="text-lg text-center text-gray-800 max-w-2xl mx-auto">
           Explore our advanced features designed to enhance your shopping experience.
         </p>
 
