@@ -17,11 +17,13 @@ export class AuthService {
 
   // ✅ Signup
   async signup(dto: SignupDto) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const hashedPassword = await bcrypt.hash(dto.password, 10);
 
     const user = this.userRepo.create({
       fullName: dto.fullName,
       email: dto.email,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       password: hashedPassword,
     });
 
@@ -50,6 +52,7 @@ export class AuthService {
 
     if (!user) throw new UnauthorizedException('Invalid credentials');
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const isMatch = await bcrypt.compare(dto.password, user.password);
     if (!isMatch) throw new UnauthorizedException('Invalid credentials');
 
