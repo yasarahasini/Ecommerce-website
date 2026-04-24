@@ -42,7 +42,7 @@ const Page = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-tr from-white via-purple-300 to-pink-400 min-h-screen py-12">
+    <div className="bg-gradient-to-tr from-white via-purple-300 to-pink-300 min-h-screen py-12">
       <div className="max-w-6xl mx-auto px-4">
         
      
