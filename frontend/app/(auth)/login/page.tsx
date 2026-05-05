@@ -45,14 +45,14 @@ const AuthPage = () => {
         return;
       }
 
-      // ✅ LOGIN SUCCESS
+     
       if (isLogin) {
         localStorage.setItem("token", data.access_token);
         localStorage.setItem("role", data.role);
 
         alert("Login success ✅");
 
-        // ✅ ADMIN redirect
+       
         if (data.role === "admin") {
           router.push("/admin/dashboard");
         } else {
