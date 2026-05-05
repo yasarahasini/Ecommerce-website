@@ -11,13 +11,14 @@ interface Product {
   price: number;
   image: string;
   category: string;
+  modelUrl: string;
 }
 
 const products: Product[] = [
-  { id: 1, name: "Classic Sneakers", price: 59.99, image: "/9.jpg", category: "Footwear" },
-  { id: 2, name: "Leather Backpack", price: 89.99, image: "/f4.jpg", category: "Accessories" },
-  { id: 3, name: "Smart Watch", price: 129.99, image: "/d2.jpg", category: "Electronics" },
-  { id: 4, name: "Wireless Headphones", price: 79.99, image: "/14.jpg", category: "Electronics" },
+  { id: 1, name: "Classic Sneakers", price: 59.99, image: "/9.jpg", category: "Footwear", modelUrl: "/models/classic-sneakers.glb" },
+  { id: 2, name: "Leather Backpack", price: 89.99, image: "/f4.jpg", category: "Accessories", modelUrl: "/models/leather-backpack.glb" },
+  { id: 3, name: "Smart Watch", price: 129.99, image: "/d2.jpg", category: "Electronics", modelUrl: "/models/smart-watch.glb" },
+  { id: 4, name: "Wireless Headphones", price: 79.99, image: "/14.jpg", category: "Electronics", modelUrl: "/models/wireless-headphones.glb" },
 ];
 
 const categories = ["All", "Electronics", "Footwear", "Accessories", "Apparel"];

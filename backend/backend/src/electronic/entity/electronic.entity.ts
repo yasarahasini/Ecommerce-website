@@ -1,4 +1,5 @@
-import 'reflect-metadata';
+{
+  /* import 'reflect-metadata';
 import {
   Entity,
   Column,
@@ -28,4 +29,6 @@ export class Electronic {
 
   @CreateDateColumn()
   createdAt: Date | undefined;
+}
+*/
 }

@@ -98,7 +98,7 @@ const ArtGalleryPage: React.FC = () => {
                
                   <div className="relative w-full aspect-[4/5] bg-stone-200 border-[12px] border-white shadow-lg group-hover:shadow-2xl transition-shadow duration-500">
                 
-                    <img
+                    <Image
                       src={product.img}
                       alt={product.name}
                       fill

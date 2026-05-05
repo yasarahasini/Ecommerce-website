@@ -1,14 +1,14 @@
-import { IsString, IsNumber, IsOptional } from 'class-validator';
+{/*import { IsString, IsNumber, IsOptional } from 'class-validator';
 
 export class CreateElectronicDto {
   @IsString()
-  name: string;
+  name: string | undefined;
 
   @IsNumber()
-  price: number;
+  price: number | undefined;
 
   @IsString()
-  category: string;
+  category: string | undefined;
 
   @IsOptional()
   @IsString()
@@ -18,3 +18,4 @@ export class CreateElectronicDto {
   @IsString()
   description?: string;
 }
+*/}

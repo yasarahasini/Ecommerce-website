@@ -120,7 +120,7 @@ const BooksPage: React.FC = () => {
                     <img
                       src={book.img}
                       alt={book.title}
-                      fill
+                    
                       className="object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-transparent pointer-events-none" />

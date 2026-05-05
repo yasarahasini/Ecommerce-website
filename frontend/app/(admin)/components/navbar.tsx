@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { FiMenu, FiBell, FiUser, FiLogOut } from "react-icons/fi";
 import { useRouter } from "next/navigation";
-import { Electronic } from '../../../../backend/backend/src/electronic/entity/electronic.entity';
+{/*import { Electronic } from '../../../../backend/backend/src/electronic/entity/electronic.entity';*/}
 import Link from "next/dist/client/link";
 
 const AdminNavbar: React.FC = () => {

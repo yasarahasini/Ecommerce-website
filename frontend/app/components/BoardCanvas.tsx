@@ -1,8 +1,36 @@
+// eslint-disable-next-line @typescript-eslint/triple-slash-reference
+/// <reference types="@react-three/fiber" />
 "use client";
 
-import { Canvas } from "@react-three/fiber";
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      meshStandardMaterial: unknown;
+    }
+  }
+}
+
+import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import { useEffect } from "react";
+import { DirectionalLight } from "three";
 import { useBoardStore } from "./store";
+
+function SceneLights() {
+  const { scene } = useThree();
+
+  useEffect(() => {
+    const light = new DirectionalLight(0xffffff, 1);
+    light.position.set(5, 5, 5);
+    scene.add(light);
+
+    return () => {
+      scene.remove(light);
+    };
+  }, [scene]);
+
+  return null;
+}
 
 function BoardModel() {
   return (
@@ -18,7 +46,7 @@ export default function BoardCanvas() {
     <div className="w-full h-[400px]">
       <Canvas camera={{ position: [5, 3, 5], fov: 45 }}>
         <ambientLight intensity={0.6} />
-        <directionalLight position={[5, 5, 5]} intensity={1} />
+        <SceneLights />
         <BoardModel />
         <OrbitControls enableZoom />
       </Canvas>

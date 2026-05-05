@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+{/*import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Electronic } from './entity/electronic.entity';
@@ -32,3 +32,4 @@ export class ElectronicsService {
     return this.electronicRepo.delete(id);
   }
 }
+*/}

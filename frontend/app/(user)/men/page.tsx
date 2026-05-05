@@ -55,7 +55,7 @@ export default function MenPage() {
       return;
     }
 
-    addToCart(product);
+    addToCart({ ...product, modelUrl: "" });
     router.push("/cart");
   };
 

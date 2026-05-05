@@ -1,12 +1,13 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './users/user.entity';
 import { AuthModule } from './auth/auth.module';
 import { FashionModule } from './fashion/fashion.module';
 import { AccessoriesModule } from './accessories/accessories.module';
 import { DealsModule } from './deals/deals.module';
 import { ContactModule } from './contact/contact.module';
-import { ElectronicModule } from './electronic/electronic.module';
+{
+  /*import { ElectronicModule } from './electronic/electronic.module';*/
+}
 import { WomenModule } from './women/women.module';
 import { MenModule } from './men/men.module';
 import { AboutModule } from './about/about.module';
@@ -33,7 +34,6 @@ import { OrderModule } from './order/order.module';
     AccessoriesModule,
     DealsModule,
     ContactModule,
-    ElectronicModule,
     WomenModule,
     MenModule,
     AboutModule,

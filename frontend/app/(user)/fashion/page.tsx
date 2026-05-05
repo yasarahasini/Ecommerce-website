@@ -10,6 +10,7 @@ interface FashionItem {
   name: string;
   price: number;
   image: string;
+  modelUrl?: string;
 }
 
 
@@ -33,7 +34,7 @@ const Fashion: React.FC = () => {
       router.push("/login");
       return;
     }
-    addToCart(item);
+    addToCart({ ...item, modelUrl: item.modelUrl || "" });
     router.push("/cart");
   };
 

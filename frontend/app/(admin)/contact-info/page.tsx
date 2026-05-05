@@ -34,7 +34,7 @@ export default function AdminDashboard() {
     <main className="min-h-screen bg-gray-200 p-6">
       <section className="max-w-6xl mx-auto bg-white shadow-lg rounded-xl p-8">
         <h1 className="text-3xl font-bold mb-6 text-gray-700 text-center">
-          Admin Dashboard
+          Contact Info Details
         </h1>
 
         {loading ? (
@@ -44,7 +44,7 @@ export default function AdminDashboard() {
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full table-auto border-collapse border border-gray-300">
-              <thead className="bg-blue-700">
+              <thead className="bg-blue-300">
                 <tr>
                   <th className="border px-4 py-2">ID</th>
                   <th className="border px-4 py-2">Name</th>

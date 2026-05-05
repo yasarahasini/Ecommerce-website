@@ -62,7 +62,7 @@ const ElectronicsPage: React.FC = () => {
       return;
     }
 
-    addToCart(product);
+    addToCart({ ...product, modelUrl: product.img });
     router.push("/cart");
   };
 

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
@@ -111,7 +112,7 @@ const AntiquesPage: React.FC = () => {
               
                   <div className="relative aspect-square overflow-hidden bg-[#e5e1d8] p-4 shadow-xl group-hover:shadow-2xl transition-all duration-700">
                     <div className="relative w-full h-full border border-[#c4baaa] overflow-hidden">
-                      <img
+                      <Image
                         src={item.img}
                         alt={item.name}
                         fill
